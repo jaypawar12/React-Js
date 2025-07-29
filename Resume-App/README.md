@@ -1,12 +1,75 @@
-# React + Vite
+# 📝 React Resume – Jay Pawar
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive **resume website** built with **React.js**.  
+It converts my original HTML resume into a reusable React application with modular components and a clean UI.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
+- 📄 **Single Page Resume** with all sections (Career Objective, Skills, Projects, Education, Certifications, Soft Skills, Languages)
+- 🎨 **Responsive Design** with same layout as original HTML
+- 👤 **Profile Picture Support** (circular image in header)
+- 🖨️ **Print / Save as PDF** button
+- 🧩 **Modular Components** for easy updates
+- ⚡ **Fast and SEO-friendly**
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Project Structure
+resume-react/
+├── src/
+│ ├── components/
+│ │ ├── Header.jsx
+│ │ ├── Section.jsx
+│ │ ├── Skills.jsx
+│ │ ├── Projects.jsx
+│ │ ├── Education.jsx
+│ │ ├── Certifications.jsx
+│ │ ├── SoftSkills.jsx
+│ │ ├── Languages.jsx
+│ ├── assets/
+│ │ └── profile.jpg
+│ ├── App.jsx
+│ ├── index.css
+│ ├── index.js
+├── package.json
+
+---
+
+## 🛠️ Installation & Setup
+
+1. Clone the repository
+   ```bash
+   git clone https://github.com/jaypawar12/react-resume.git
+   cd react-resume
+2. Install dependencies 
+  npm install
+
+3. Start the development server
+  npm start
+
+4. Open in browser → http://localhost:3000
+
+🖼️ Adding Profile Image
+- Place your image in src/assets/profile.jpg
+
+- It will automatically appear in the header.
+
+🖨️ Print / PDF
+Click the 🖨️ Print Resume button to print or save as PDF.
+
+📌 Future Enhancements
+- Dark mode support 🌙
+
+- JSON-based dynamic data
+
+- PDF download with jspdf or react-to-print
+
+- Sidebar layout with sticky profile section
+
+👨‍💻 Author
+Jay Pawar
+
+GitHub: jaypawar12
+
+Email: pawarjay684@gmail.com
