@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 960px;
+    background: #fff;
+    margin: 40px auto;
+    padding: 40px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.contact {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #777;
+}
+
+.contact a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.section {
+    margin-top: 35px;
+}
+
+.section-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 6px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.section-title::before {
+    content: '◆';
+    color: #007acc;
+    font-size: 1.2rem;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+.project {
+    margin-bottom: 15px;
+}
+
+.project strong {
+    font-size: 1.05rem;
+}
+
+.left-col,
+.right-col {
+    width: 48%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.print-button {
+    display: block;
+    margin: 30px auto 0;
+    padding: 10px 18px;
+    font-size: 1rem;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.print-button:hover {
+    background-color: #005f99;
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 30%;
+    object-fit: cover;
+    border: 3px solid #007acc;
+    margin-bottom: 15px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+    }
+
+    .left-col,
+    .right-col {
+        width: 100%;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+}
+
+@media print {
+    .print-button {
+        display: none;
+    }
+}
