@@ -1,0 +1,188 @@
+/* Global Styles */
+.app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #9e353a, #f3f4f6);
+    min-height: 100vh;
+}
+
+/* Product Card */
+.product-card {
+    background: #fff;
+    width: 320px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: left;
+    position: relative;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Favorite Icon */
+.favorite {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 22px;
+    color: #a1a1aa;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.favorite:hover {
+    color: #d92828;
+}
+
+/* Product Image */
+.product-img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f9fafb;
+}
+
+/* Product Title */
+.product-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 15px 0 5px;
+}
+
+/* Tags */
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.tag {
+    background: #fde8e8;
+    color: #dc2626;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Description */
+.description {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 10px 0 15px;
+    line-height: 1.4;
+}
+
+/* Price */
+.price {
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #111827;
+    margin: 10px 0 15px;
+}
+
+/* Counter */
+.counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.counter button {
+    background: #fee2e2;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.counter button:hover {
+    background: #fecaca;
+}
+
+.counter span {
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Add to Cart Button */
+.add-btn {
+    background: #d92828;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.add-btn:hover:not(:disabled) {
+    background: #b91c1c;
+}
+
+.add-btn:disabled {
+    background: #9ca3af;
+    cursor: not-allowed;
+}
+
+/* Cart Section */
+.cart-section {
+    background: #fff;
+    width: 320px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.cart-section h2 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: #111827;
+}
+
+.cart-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cart-section li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.cart-section button {
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    color: #ef4444;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.cart-section button:hover {
+    color: #b91c1c;
+}
