@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./assests/css/App.css";
 
 function App() {
   const [quantity, setQuantity] = useState(0);

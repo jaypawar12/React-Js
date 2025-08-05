@@ -6,7 +6,7 @@ import Education from "./components/Education";
 import Certifications from "./components/Certifications";
 import SoftSkills from "./components/SoftSkills.jsx";
 import Languages from "./components/Languages";
-import "./index.css";
+import "./assests/css/index.css";
 
 export default function App() {
   return (

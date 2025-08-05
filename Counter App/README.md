@@ -1,62 +1,103 @@
-# 🛒 Counter App
+🛒 React Simple Cart System
+A modern, responsive React shopping cart with quantity control, max stock limit, and a clean UI. Built using React Hooks and custom CSS.
+🚀 Features
+- ✅ Add to Cart – Add products to the shopping cart
 
-A simple React shopping cart demo built with Vite.  
-Add products, adjust quantities, and manage your cart with a modern UI.
+- ✅ Quantity Selector – Increase or decrease quantity before adding
 
-## Features
+- ✅ Max Quantity Limit – Prevents adding more than available stock
 
-- Add product to cart
-- Increase/decrease product quantity
-- Remove items from cart
-- Responsive, glassmorphism-inspired design
+- ✅ Dynamic Stock Display – Shows remaining stock after adding items
 
-## Screenshot
+- ✅ Remove from Cart – Easily remove items from the cart
 
-<img src="https://m.media-amazon.com/images/I/51T-75FaWfL.jpg" alt="App Screenshot" width="320"/>
+- ✅ Modern UI – Stylish product card with responsive design
 
-## Tech Stack
+- ✅ Reusable Component – Designed for future multi-product use
 
-- [React](https://react.dev/)
-- [Vite](https://vitejs.dev/)
-- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+🖼️ Preview
+🏷️ Product Card
+- Displays product image, size, color, description, and price
 
-## Getting Started
+- Stock availability updates dynamically
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/your-username/counter-app.git
-   cd counter-app
-   ```
+🛍️ Cart Section
+- Shows added items with quantities
 
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
+- Allows removing products instantly
 
-3. **Start the development server:**
-   ```bash
-   npm run dev
-   ```
+🛠️ Tech Stack
+- ⚛️ React.js (Functional Components + Hooks)
 
-4. **Open in browser:**  
-   Visit [http://localhost:5173](http://localhost:5173) (or as shown in your terminal).
+- 🎨 CSS3 (Custom Styling)
 
-## Project Structure
+- ⚡ Vite (Fast development build tool)
 
-```
-src/
-  App.jsx
-  App.css
-  main.jsx
-public/
-  index.html
-```
+Counter App/
+│── node_modules/
+│── public/
+│── src/
+│   ├── assets/
+│   │   ├── css/          # Stylesheets
+│   │   ├── img/          # Screenshots & images
+│   │       ├── ss1.png
+│   │       ├── ss2.png
+│   ├── App.jsx           # Main application logic
+│   ├── main.jsx          # React DOM entry point
+│── .gitignore
+│── eslint.config.js
+│── index.html
+│── package-lock.json
+│── package.json
+│── README.md
+│── vite.config.js
 
-## Customization
 
-- Change product details in `App.jsx`
-- Update styles in `App.css`
+⚡ Installation & Setup
+1️⃣ Clone the repository
 
-## License
+bash
+Copy
+Edit
+git clone https://github.com/your-username/react-simple-cart.git
+2️⃣ Navigate to project folder
 
-This project is open source and available under the [MIT License](LICENSE).
+bash
+Copy
+Edit
+cd react-simple-cart
+3️⃣ Install dependencies
+
+bash
+Copy
+Edit
+npm install
+4️⃣ Run the development server
+
+bash
+Copy
+Edit
+npm run dev
+5️⃣ Open http://localhost:5173 (default Vite port) in your browser 🚀
+
+📝 Usage
+Adjust quantity using ➕ / ➖ buttons
+
+Click "Add to Cart" to add products
+
+Stock availability updates automatically
+
+Remove products from the cart when needed
+
+🔮 Future Enhancements
+- ✅ Multi-product support
+
+- ✅ Persistent cart using localStorage
+
+- ✅ Checkout and payment integration
+
+- ✅ API-based product listing
+
+👨‍💻 Author
+Jay Pawar – Full Stack Developer
+📧 Email: pawarjay684@gmail.com

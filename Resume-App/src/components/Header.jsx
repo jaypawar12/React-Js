@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../assests/Jay P.jpg";
+import profile from "../assests/img/Jay P.jpg";
 
 export default function Header() {
     return (
