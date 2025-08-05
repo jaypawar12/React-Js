@@ -91,11 +91,15 @@ Remove products from the cart when needed
 
 🔮 Future Enhancements
 - ✅ Multi-product support
+- ✅ Multi-product support
 
+- ✅ Persistent cart using localStorage
 - ✅ Persistent cart using localStorage
 
 - ✅ Checkout and payment integration
+- ✅ Checkout and payment integration
 
+- ✅ API-based product listing
 - ✅ API-based product listing
 
 👨‍💻 Author
