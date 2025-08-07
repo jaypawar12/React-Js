@@ -68,7 +68,7 @@ Counter App/
 
 1️⃣ **Clone the repository**  
 ```bash
-git clone https://github.com/your-username/react-simple-cart.git
+git clone https://github.com/jaypawar12/React-Js.git
 ```
 
 2️⃣ **Navigate to project folder**  
