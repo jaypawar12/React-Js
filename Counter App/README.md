@@ -26,8 +26,8 @@ A modern, responsive **React shopping cart** with **quantity control**, **max st
 - Shows added items with quantities  
 - Allows removing products instantly  
 
-![Screenshot 1](../src/assets/img/ss1.png)  
-![Screenshot 2](../src/assets/img/ss2.png)  
+![Screenshot 1](./src/assests/img/ss1.png)  
+![Screenshot 2](./src/assests/img/ss2.png)  
 
 ---
 
