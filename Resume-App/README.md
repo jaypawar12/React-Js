@@ -16,6 +16,8 @@ It converts my original HTML resume into a reusable React application with modul
 ---
 
 ## 📂 Project Structure
+
+```
 resume-react/
 ├── src/
 │ ├── components/
@@ -33,7 +35,7 @@ resume-react/
 │ ├── index.css
 │ ├── index.js
 ├── package.json
-
+```
 ---
 
 ## 🛠️ Installation & Setup
