@@ -19,7 +19,7 @@ export default function Header() {
                 <a href="https://github.com/jaypawar12" target="_blank" rel="noreferrer">
                     jaypawar12
                 </a>{" "}
-                · 🌐 Portfolio: Coming Soon
+                · 🌐 Portfolio: Working
             </div>
         </div>
     );

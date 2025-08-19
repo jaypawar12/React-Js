@@ -121,6 +121,11 @@ li {
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
 
+a{
+    text-decoration: none;
+    color: black;
+}
+
 
 @media (max-width: 768px) {
     .row {

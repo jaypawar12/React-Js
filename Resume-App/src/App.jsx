@@ -2,8 +2,9 @@ import React from "react";
 import Header from "./components/Header";
 import Section from "./components/Section";
 import Skills from "./components/Skills";
+import Projects from "./components/Projects";
 import Education from "./components/Education";
-import Certifications from "./components/Certifications";
+import LearningPath from "./components/LearningPath.jsx";
 import SoftSkills from "./components/SoftSkills.jsx";
 import Languages from "./components/Languages";
 import "./assests/css/index.css";
@@ -21,12 +22,13 @@ export default function App() {
         </p>
       </Section>
       <Skills />
+      <Projects />
       <div className="row">
         <div className="left-col">
           <Education />
         </div>
         <div className="right-col">
-          <Certifications />
+          <LearningPath />
         </div>
       </div>
       <div className="row">
