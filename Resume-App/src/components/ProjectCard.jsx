@@ -3,7 +3,7 @@ export default function ProjectCard({ inx, title, link, description, stack, feat
     return (
         <div className="project">
             <strong>
-                <p>{inx}. <a href={link} target="_blank" rel="noopener noreferrer">
+                <p>{inx}. <a href={link} target="_blank" rel="noopener noreferrer" title="Show Project">
                     {title}
                 </a></p>
             </strong>

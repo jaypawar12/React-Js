@@ -1,0 +1,9 @@
+Stud Form Input
+F_Name => text
+L_Name => text
+Email => email
+std => Dropdown
+Phone => Number
+Password => password
+Hobby => Checkbox
+Gender => Radio
