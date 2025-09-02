@@ -1,5 +1,16 @@
 import { useState } from "react";
 
+type StudentObject = {
+  fname: string;
+  lname: string;
+  userEmail: string;
+  contactNo: string;
+  userPass: string;
+  userGender: string;
+  grade: string;
+  activities: string[];
+};
+
 function LearnerForm() {
   const [fName, setFName] = useState<string>("");
   const [lName, setLName] = useState<string>("");
@@ -9,38 +20,28 @@ function LearnerForm() {
   const [userGender, setUserGender] = useState<string>("");
   const [grade, setGrade] = useState<string>("");
   const [activities, setActivities] = useState<string[]>([]);
+  const [students, setStudents] = useState<StudentObject[]>([]);
 
   const gradeOptions: string[] = [
     "1st", "2nd", "3rd", "4th", "5th",
     "6th", "7th", "8th", "9th", "10th",
     "11th", "12th"
   ];
-  const activitieList: string[] = ["Cricket", "Music", "Reading", "Traveling"]
+  const activitieList: string[] = ["Cricket", "Music", "Reading", "Traveling"];
 
   const getHobby = (event: any) => {
     const { value, checked } = event.target;
     if (checked) {
-      setActivities(prevList => [...prevList, value]);
+      setActivities(prev => [...prev, value]);
     } else {
-      setActivities(prevList => prevList.filter(item => item !== value));
+      setActivities(prev => prev.filter(item => item !== value));
     }
   };
-
-  type studentObject = {
-    fname: string,
-    lname: string,
-    userEmail: string,
-    contactNo: string,
-    userPass: string,
-    userGender: string,
-    grade: string,
-    activities: string[];
-  }
 
   const studForm = (event: any) => {
     event.preventDefault();
 
-    const newStudent: studentObject = {
+    const newStudent: StudentObject = {
       fname: fName,
       lname: lName,
       userEmail: userEmail,
@@ -52,11 +53,11 @@ function LearnerForm() {
     };
 
     console.log("Student Data:", newStudent);
-    localStorage.setItem("student", JSON.stringify(newStudent));
 
+    // Add new student to the list
+    setStudents(prev => [...prev, newStudent]);
 
-
-    // Reset form fields
+    // Reset form
     setFName("");
     setLName("");
     setUserEmail("");
@@ -69,13 +70,12 @@ function LearnerForm() {
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen">
-      <div className="md:w-full flex items-center justify-center p-8 bg-gray-900">
-        <form onSubmit={studForm} className="w-full max-w-md bg-gray-800 p-8 rounded-xl shadow-lg">
+      <div className="md:w-full flex flex-col items-center justify-center p-8 bg-gray-900">
+        <form onSubmit={studForm} className="w-full mt-8 max-w-md bg-gray-800 p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl text-white font-semibold text-center mb-6">Registration</h2>
 
           {/* Name Fields */}
           <div className="grid gap-4 md:grid-cols-2">
-            {/* First Name */}
             <div>
               <label htmlFor="fname" className="block mb-1 text-sm text-gray-300">First Name</label>
               <input
@@ -87,9 +87,7 @@ function LearnerForm() {
                 onChange={e => setFName(e.target.value)}
                 className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
               />
-              {!fName && <span className="text-red-600 text-sm">Fill First Name</span>}
             </div>
-            {/* Last Name */}
             <div>
               <label htmlFor="lname" className="block mb-1 text-sm text-gray-300">Last Name</label>
               <input
@@ -101,13 +99,11 @@ function LearnerForm() {
                 onChange={e => setLName(e.target.value)}
                 className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
               />
-              {!lName && <span className="text-red-600 text-sm">Fill Last Name</span>}
             </div>
           </div>
 
           {/* Grade & Phone */}
           <div className="grid gap-4 md:grid-cols-2 mt-4">
-            {/* Grade */}
             <div>
               <label htmlFor="grade" className="block mb-1 text-sm text-gray-300">Grade</label>
               <select
@@ -122,9 +118,7 @@ function LearnerForm() {
                   <option key={idx} value={option}>{option}</option>
                 ))}
               </select>
-              {!grade && <span className="text-red-600 text-sm">Select Grade</span>}
             </div>
-            {/* Contact No */}
             <div>
               <label htmlFor="contactNo" className="block mb-1 text-sm text-gray-300">Phone Number</label>
               <input
@@ -137,7 +131,6 @@ function LearnerForm() {
                 onChange={e => setContactNo(e.target.value)}
                 className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
               />
-              {!contactNo && <span className="text-red-600 text-sm">Fill Phone Number</span>}
             </div>
           </div>
 
@@ -153,7 +146,6 @@ function LearnerForm() {
               onChange={e => setUserEmail(e.target.value)}
               className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
             />
-            {!userEmail && <span className="text-red-600 text-sm">Fill Email</span>}
           </div>
           <div className="mt-4">
             <label htmlFor="userPass" className="block mb-1 text-sm text-gray-300">Password</label>
@@ -166,15 +158,13 @@ function LearnerForm() {
               onChange={e => setUserPass(e.target.value)}
               className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
             />
-            {!userPass && <span className="text-red-600 text-sm">Fill Password</span>}
           </div>
 
           {/* Activities & Gender */}
           <div className="mt-4 space-y-4">
-            {/* Activities */}
             <div>
               <label className="block mb-1 text-sm text-gray-300">Activities</label>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {activitieList.map(act => (
                   <label key={act} className="flex items-center gap-2 text-gray-200">
                     <input
@@ -187,13 +177,11 @@ function LearnerForm() {
                   </label>
                 ))}
               </div>
-
             </div>
 
-            {/* Gender */}
             <div>
               <label className="block mb-1 text-sm text-gray-300">Gender</label>
-              <div className="flex gap-4">
+              <div className="flex flex-wrap gap-4">
                 {["Male", "Female", "Other"].map(type => (
                   <label key={type} className="flex items-center gap-2 text-gray-200">
                     <input
@@ -213,22 +201,50 @@ function LearnerForm() {
           {/* Submit Button */}
           <button
             type="submit"
-            disabled={!fName || !lName || !userEmail || !contactNo || !userPass || !grade || !userGender}
-            className={`mt-6 w-full py-2 font-medium rounded focus:outline-none focus:ring-2 focus:ring-green-400 transition
-              ${!fName || !lName || !userEmail || !contactNo || !userPass || !grade || !userGender
-                ? "bg-gray-500 cursor-not-allowed"
-                : "bg-green-500 hover:bg-green-600 text-white"}`}
+            className="mt-6 w-full py-2 font-medium rounded bg-green-500 hover:bg-green-600 text-white focus:outline-none focus:ring-2 focus:ring-green-400 transition"
           >
             Submit
           </button>
-
         </form>
+
+        {/* Students Table */}
+        {students.length > 0 && (
+          <div className="w-3xl mt-10 bg-gray-800 rounded-xl shadow-lg overflow-x-auto">
+            <table className="w-full border-collapse">
+              <thead>
+                <tr className="bg-green-600 text-white text-left text-sm uppercase">
+                  <th className="px-4 py-3">No</th>
+                  <th className="px-4 py-3">Name</th>
+                  <th className="px-4 py-3">Contact No</th>
+                  <th className="px-4 py-3">Email</th>
+                  <th className="px-4 py-3">Password</th>
+                  <th className="px-4 py-3">Activities</th>
+                  <th className="px-4 py-3">Gender</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-700">
+                {students.map((data, index) => (
+                  <tr
+                    key={index}
+                    className="hover:bg-gray-700 transition duration-200"
+                  >
+                    <td className="px-4 py-3 text-gray-200">{index + 1}</td>
+                    <td className="px-4 py-3 text-gray-200">{data.fname} {data.lname}</td>
+                    <td className="px-4 py-3 text-gray-200">{data.contactNo}</td>
+                    <td className="px-4 py-3 text-gray-200">{data.userEmail}</td>
+                    <td className="px-4 py-3 text-gray-200">{data.userPass}</td>
+                    <td className="px-4 py-3 text-gray-200">{data.activities.join(", ")}</td>
+                    <td className="px-4 py-3 text-gray-200">{data.userGender}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
+
       </div>
     </div>
   );
-
-
-
 }
 
 export default LearnerForm;
