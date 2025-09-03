@@ -69,7 +69,7 @@ function LearnerForm() {
   };
 
   return (
-    <div className="flex flex-col md:flex-row min-h-screen">
+    <div className={`flex flex-col md:flex-row min-h-screen`}>
       <div className="md:w-full flex flex-col items-center justify-center p-8 bg-gray-900">
         <form onSubmit={studForm} className="w-full mt-8 max-w-md bg-gray-800 p-8 rounded-xl shadow-lg">
           <h2 className="text-2xl text-white font-semibold text-center mb-6">Registration</h2>

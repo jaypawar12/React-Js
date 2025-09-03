@@ -1,12 +1,25 @@
+import { useEffect, useState } from "react";
 import NavBar from "./components/NavBar";
 import StudForm from "./components/StudForm";
 
 function App() {
 
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
   return (
     <>
-      <NavBar />
-      <StudForm/>
+      <div className="w-full" style={{backgroundColor: theme === "light" ? "bg-white" : "bg-gray-950"}}>
+        <NavBar theme={theme} toggleTheme={toggleTheme} />
+        <StudForm />
+      </div>
     </>
   )
 }
