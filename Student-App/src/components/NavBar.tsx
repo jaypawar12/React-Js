@@ -6,35 +6,33 @@ type NavBarProps = {
 function NavBar({ theme, toggleTheme }: NavBarProps) {
   return (
     <nav
-      className={`${
-        theme === "light" ? "bg-amber-50" : "bg-gray-900"
-      } shadow-md fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600`}
+      className={`${theme === "light" ? "bg-amber-50" : "bg-gray-900"
+        } shadow-md fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600`}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
         {/* Logo */}
         <a href="/" className="flex items-center space-x-3">
           <img
             src="/img/logo.png"
-            className="h-10 w-auto rounded-full shadow-sm"
             alt="Logo"
+            className={`h-10 w-auto rounded-full shadow-sm`}
           />
           <span
-            className={`self-center text-xl font-bold whitespace-nowrap ${
-              theme === "light" ? "text-gray-900" : "text-white"
-            }`}
+            className={`self-center text-xl font-bold whitespace-nowrap ${theme === "light" ? "text-gray-900" : "text-white"
+              }`}
           >
             Student Portal
           </span>
         </a>
 
+
         {/* Mobile menu button */}
         <button
           type="button"
-          className={`inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg md:hidden ${
-            theme === "light"
-              ? "text-gray-900 hover:bg-gray-100"
-              : "text-gray-400 hover:bg-gray-700"
-          }`}
+          className={`inline-flex items-center p-2 w-10 h-10 justify-center rounded-lg md:hidden ${theme === "light"
+            ? "text-gray-900 hover:bg-gray-100"
+            : "text-gray-400 hover:bg-gray-700"
+            }`}
         >
           <span className="sr-only">Open main menu</span>
           <svg
@@ -58,12 +56,10 @@ function NavBar({ theme, toggleTheme }: NavBarProps) {
             <input
               type="text"
               placeholder="Search..."
-              className={`w-full py-2 pl-4 pr-10 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500
-              ${
-                theme === "light"
-                  ? "bg-gray-100 text-gray-700 border border-gray-300"
-                  : "bg-gray-800 text-gray-200 border border-gray-700"
-              }`}
+              className={`w-full py-2 pl-4 pr-10 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 ${theme === "light"
+                ? "bg-gray-800 text-gray-200 border border-gray-700 placeholder-gray-400"
+                : "bg-white text-gray-900 border border-gray-300 placeholder-gray-500"
+                }`}
             />
             <svg
               className="absolute right-3 top-2.5 w-5 h-5 text-gray-500"
@@ -81,17 +77,17 @@ function NavBar({ theme, toggleTheme }: NavBarProps) {
           </div>
         </div>
 
+
         {/* Menu links */}
         <div className="hidden md:flex md:space-x-5 font-medium">
           {["Dashboard", "Courses", "Assignments", "Grades", "Profile"].map((item) => (
             <a
               key={item}
               href="#"
-              className={`block py-2 rounded-md md:hover:bg-transparent ${
-                theme === "light"
-                  ? "text-gray-900 hover:text-yellow-600"
-                  : "text-white hover:text-yellow-300"
-              }`}
+              className={`block py-2 rounded-md md:hover:bg-transparent ${theme === "light"
+                ? "text-gray-900 hover:text-yellow-600"
+                : "text-white hover:text-yellow-300"
+                }`}
             >
               {item}
             </a>

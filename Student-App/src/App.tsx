@@ -18,7 +18,7 @@ function App() {
     <>
       <div className="w-full" style={{backgroundColor: theme === "light" ? "bg-white" : "bg-gray-950"}}>
         <NavBar theme={theme} toggleTheme={toggleTheme} />
-        <StudForm />
+        <StudForm theme={theme} />
       </div>
     </>
   )

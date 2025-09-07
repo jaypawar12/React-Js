@@ -1,3 +1,7 @@
+type LearnerFormProps = {
+  theme: string;
+};
+
 import { useState } from "react";
 
 type StudentObject = {
@@ -11,7 +15,7 @@ type StudentObject = {
   activities: string[];
 };
 
-function LearnerForm() {
+function LearnerForm({ theme }: LearnerFormProps) {
   const [fName, setFName] = useState<string>("");
   const [lName, setLName] = useState<string>("");
   const [userEmail, setUserEmail] = useState<string>("");
@@ -27,15 +31,29 @@ function LearnerForm() {
     "6th", "7th", "8th", "9th", "10th",
     "11th", "12th"
   ];
-  const activitieList: string[] = ["Cricket", "Music", "Reading", "Traveling"];
+  type Activity = {
+    id: string;
+    label: string;
+    icon: string;
+  };
+
+  const activitieList: Activity[] = [
+    { id: "cricket", label: "Cricket", icon: "🏏" },
+    { id: "music", label: "Music", icon: "🎵" },
+    { id: "reading", label: "Reading", icon: "📚" },
+    { id: "traveling", label: "Traveling", icon: "✈️" },
+    { id: "art", label: "Art & Design", icon: "🎨" },
+    { id: "sports", label: "Sports", icon: "⚽" },
+    { id: "coding", label: "Programming", icon: "💻" },
+    { id: "dance", label: "Dancing", icon: "💃" }
+  ];
+
 
   const getHobby = (event: any) => {
     const { value, checked } = event.target;
-    if (checked) {
-      setActivities(prev => [...prev, value]);
-    } else {
-      setActivities(prev => prev.filter(item => item !== value));
-    }
+    if (checked) setActivities(prev => [...prev, value]);
+    else setActivities(prev => prev.filter(item => item !== value));
+  
   };
 
   const studForm = (event: any) => {
@@ -69,182 +87,123 @@ function LearnerForm() {
   };
 
   return (
-    <div className={`flex flex-col md:flex-row min-h-screen`}>
-      <div className="md:w-full flex flex-col items-center justify-center p-8 bg-gray-900">
-        <form onSubmit={studForm} className="w-full mt-8 max-w-md bg-gray-800 p-8 rounded-xl shadow-lg">
-          <h2 className="text-2xl text-white font-semibold text-center mb-6">Registration</h2>
+    <div className={`min-h-screen flex flex-col items-center justify-center ${theme === 'light' ? 'bg-amber-50' : 'bg-gray-900'} py-10 px-4`}>
 
-          {/* Name Fields */}
-          <div className="grid gap-4 md:grid-cols-2">
-            <div>
-              <label htmlFor="fname" className="block mb-1 text-sm text-gray-300">First Name</label>
-              <input
-                id="fname"
-                type="text"
-                placeholder="John"
-                required
-                value={fName}
-                onChange={e => setFName(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-            </div>
-            <div>
-              <label htmlFor="lname" className="block mb-1 text-sm text-gray-300">Last Name</label>
-              <input
-                id="lname"
-                type="text"
-                placeholder="Doe"
-                required
-                value={lName}
-                onChange={e => setLName(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-            </div>
+      {/* Form Card */}
+      <form onSubmit={studForm} className={`w-full max-w-lg p-8 rounded-xl shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'} space-y-6`}>
+        <h2 className={`text-2xl font-bold text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>Student Registration</h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>First Name</label>
+            <input type="text" required value={fName} onChange={e => setFName(e.target.value)}
+              className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="John" />
           </div>
-
-          {/* Grade & Phone */}
-          <div className="grid gap-4 md:grid-cols-2 mt-4">
-            <div>
-              <label htmlFor="grade" className="block mb-1 text-sm text-gray-300">Grade</label>
-              <select
-                id="grade"
-                required
-                value={grade}
-                onChange={e => setGrade(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-              >
-                <option value="">Choose...</option>
-                {gradeOptions.map((option, idx) => (
-                  <option key={idx} value={option}>{option}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label htmlFor="contactNo" className="block mb-1 text-sm text-gray-300">Phone Number</label>
-              <input
-                id="contactNo"
-                type="tel"
-                placeholder="1234567890"
-                pattern="[0-9]{10}"
-                required
-                value={contactNo}
-                onChange={e => setContactNo(e.target.value)}
-                className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-              />
-            </div>
+          <div>
+            <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Last Name</label>
+            <input type="text" required value={lName} onChange={e => setLName(e.target.value)}
+              className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="Doe" />
           </div>
+        </div>
 
-          {/* Email & Password */}
-          <div className="mt-4">
-            <label htmlFor="userEmail" className="block mb-1 text-sm text-gray-300">Email</label>
-            <input
-              id="userEmail"
-              type="email"
-              placeholder="john.doe@example.com"
-              required
-              value={userEmail}
-              onChange={e => setUserEmail(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-            />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Grade</label>
+            <select value={grade} onChange={e => setGrade(e.target.value)} required
+              className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`}>
+              <option value="">Select Grade</option>
+              {gradeOptions.map(g => <option key={g} value={g}>{g}</option>)}
+            </select>
           </div>
-          <div className="mt-4">
-            <label htmlFor="userPass" className="block mb-1 text-sm text-gray-300">Password</label>
-            <input
-              id="userPass"
-              type="password"
-              placeholder="••••••••"
-              required
-              value={userPass}
-              onChange={e => setUserPass(e.target.value)}
-              className="w-full px-3 py-2 bg-gray-700 text-white rounded focus:outline-none focus:ring-2 focus:ring-green-400"
-            />
+          <div>
+            <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Phone</label>
+            <input type="tel" pattern="[0-9]{10}" required value={contactNo} onChange={e => setContactNo(e.target.value)}
+              className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="1234567890" />
           </div>
+        </div>
 
-          {/* Activities & Gender */}
-          <div className="mt-4 space-y-4">
-            <div>
-              <label className="block mb-1 text-sm text-gray-300">Activities</label>
-              <div className="flex flex-wrap gap-4">
-                {activitieList.map(act => (
-                  <label key={act} className="flex items-center gap-2 text-gray-200">
-                    <input
-                      type="checkbox"
-                      value={act}
-                      checked={activities.includes(act)}
-                      onChange={getHobby}
-                      className="w-4 h-4 text-green-400 focus:ring-green-400 border-gray-600 bg-gray-700"
-                    /> {act}
-                  </label>
-                ))}
-              </div>
-            </div>
+        <div>
+          <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Email</label>
+          <input type="email" required value={userEmail} onChange={e => setUserEmail(e.target.value)}
+            className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="john.doe@example.com" />
+        </div>
 
-            <div>
-              <label className="block mb-1 text-sm text-gray-300">Gender</label>
-              <div className="flex flex-wrap gap-4">
-                {["Male", "Female", "Other"].map(type => (
-                  <label key={type} className="flex items-center gap-2 text-gray-200">
-                    <input
-                      type="radio"
-                      name="gender"
-                      value={type}
-                      checked={userGender === type}
-                      onChange={e => setUserGender(e.target.value)}
-                      className="w-4 h-4 text-green-400 focus:ring-green-400 border-gray-600 bg-gray-700"
-                    /> {type}
-                  </label>
-                ))}
-              </div>
-            </div>
+        <div>
+          <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Password</label>
+          <input type="password" required value={userPass} onChange={e => setUserPass(e.target.value)}
+            className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="••••••••" />
+        </div>
+
+        <div>
+          <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Activities</label>
+          <div className="flex flex-wrap gap-3">
+            {activitieList.map(a => (
+              <label key={a.id} className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-900' : 'text-gray-200'}`}>
+                <input type="checkbox" value={a.label} checked={activities.includes(a.label)} onChange={getHobby}
+                  className="w-4 h-4 text-blue-400 focus:ring-blue-400 border-gray-600 bg-gray-700" /> {a.icon} {a.label}
+              </label>
+            ))}
           </div>
+        </div>
 
-          {/* Submit Button */}
-          <button
-            type="submit"
-            className="mt-6 w-full py-2 font-medium rounded bg-green-500 hover:bg-green-600 text-white focus:outline-none focus:ring-2 focus:ring-green-400 transition"
-          >
-            Submit
-          </button>
-        </form>
+        <div>
+          <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Gender</label>
+          <div className="flex flex-wrap gap-4">
+            {["Male", "Female", "Other"].map(g => (
+              <label key={g} className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-900' : 'text-gray-200'}`}>
+                <input type="radio" name="gender" value={g} checked={userGender === g} onChange={e => setUserGender(e.target.value)}
+                  className="w-4 h-4 text-blue-400 focus:ring-blue-400 border-gray-600 bg-gray-700" /> {g}
+              </label>
+            ))}
+          </div>
+        </div>
 
-        {/* Students Table */}
-        {students.length > 0 && (
-          <div className="w-3xl mt-10 bg-gray-800 rounded-xl shadow-lg overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="bg-green-600 text-white text-left text-sm uppercase">
-                  <th className="px-4 py-3">No</th>
-                  <th className="px-4 py-3">Name</th>
-                  <th className="px-4 py-3">Contact No</th>
-                  <th className="px-4 py-3">Email</th>
-                  <th className="px-4 py-3">Password</th>
-                  <th className="px-4 py-3">Activities</th>
-                  <th className="px-4 py-3">Gender</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700">
-                {students.map((data, index) => (
-                  <tr
-                    key={index}
-                    className="hover:bg-gray-700 transition duration-200"
-                  >
-                    <td className="px-4 py-3 text-gray-200">{index + 1}</td>
-                    <td className="px-4 py-3 text-gray-200">{data.fname} {data.lname}</td>
-                    <td className="px-4 py-3 text-gray-200">{data.contactNo}</td>
-                    <td className="px-4 py-3 text-gray-200">{data.userEmail}</td>
-                    <td className="px-4 py-3 text-gray-200">{data.userPass}</td>
-                    <td className="px-4 py-3 text-gray-200">{data.activities.join(", ")}</td>
-                    <td className="px-4 py-3 text-gray-200">{data.userGender}</td>
+        <button type="submit" className={`w-full py-2 mt-4 font-semibold rounded-md ${theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white transition`}>Submit</button>
+      </form>
+
+      {/* Students Table */}
+        <div className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light' ? 'bg-white border border-gray-300' : 'bg-gray-800 border border-gray-700'}`}>
+          <table className="w-full border-collapse">
+            <thead className={`${theme === 'light' ? 'bg-blue-500 text-gray-800' : 'bg-blue-700 text-white'}`}>
+              <tr>
+                {["No", "Name", "Phone", "Email", "Password", "Activities", "Gender", "Action"].map(h => <th key={h} className="px-4 py-2 text-center text-sm uppercase">{h}</th>)}
+              </tr>
+            </thead>
+            {students.length > 0 ? (
+              <tbody className={`${theme === 'light' ? 'divide-y divide-gray-300' : 'divide-y divide-gray-600 text-amber-50'}`}>
+                {students.map((s, i) => (
+                  <tr key={i} className="hover:bg-gray-100 dark:hover:bg-gray-700 transition">
+                    <td className="px-4 py-2">{i + 1}.</td>
+                    <td className="px-4 py-2">{s.fname} {s.lname}</td>
+                    <td className="px-4 py-2">{s.contactNo}</td>
+                    <td className="px-4 py-2">{s.userEmail}</td>
+                    <td className="px-4 py-2">{s.userPass}</td>
+                    <td className="px-4 py-2">{s.activities.join(", ")}</td>
+                    <td className="px-4 py-2">{s.userGender}</td>
+                    <td className="px-4 py-2 flex gap-3">
+                      <button className="text-blue-500 hover:underline">Edit</button>
+                      <button className="text-red-500 hover:underline">Delete</button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
-            </table>
-          </div>
-        )}
+            ) : (
+              <tbody>
+                <tr>
+                  <td colSpan={8} className="text-center py-4 text-gray-950 dark:text-gray-300">
+                    No students found.
+                  </td>
+                </tr>
+              </tbody>
+            )}
 
-      </div>
+          </table>
+        </div>
+      
+
     </div>
   );
+
 }
 
 export default LearnerForm;
