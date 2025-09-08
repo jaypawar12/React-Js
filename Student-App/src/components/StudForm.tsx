@@ -1,8 +1,8 @@
+import { useState } from "react";
+
 type LearnerFormProps = {
   theme: string;
 };
-
-import { useState } from "react";
 
 type StudentObject = {
   fname: string;
@@ -24,6 +24,7 @@ function LearnerForm({ theme }: LearnerFormProps) {
   const [userGender, setUserGender] = useState<string>("");
   const [grade, setGrade] = useState<string>("");
   const [activities, setActivities] = useState<string[]>([]);
+  const [error, setError] = useState<any>({});
   const [students, setStudents] = useState<StudentObject[]>([]);
 
   const gradeOptions: string[] = [
@@ -31,6 +32,7 @@ function LearnerForm({ theme }: LearnerFormProps) {
     "6th", "7th", "8th", "9th", "10th",
     "11th", "12th"
   ];
+
   type Activity = {
     id: string;
     label: string;
@@ -48,16 +50,33 @@ function LearnerForm({ theme }: LearnerFormProps) {
     { id: "dance", label: "Dancing", icon: "💃" }
   ];
 
-
   const getHobby = (event: any) => {
     const { value, checked } = event.target;
     if (checked) setActivities(prev => [...prev, value]);
     else setActivities(prev => prev.filter(item => item !== value));
-  
+  };
+
+  const validation = () => {
+    const newError: any = {};
+    if (!fName.trim()) newError.fname = "First Name is required...";
+    if (!lName.trim()) newError.lname = "Last Name is required...";
+    if (!userEmail.trim()) newError.userEmail = "Email is required...";
+    else if (!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(userEmail))
+      newError.userEmail = "Invalid email format";
+    if (!contactNo.trim()) newError.contactNo = "Phone Number is required...";
+    else if (!/^(?:\+?91[-\s]?|0)?[6-9]\d{9}$/.test(contactNo))
+      newError.contactNo = "Invalid phone number";
+    if (!userGender.trim()) newError.userGender = "Gender is required...";
+    if (!grade.trim() || grade === "Select") newError.grade = "Grade is required...";
+    if (activities.length === 0) newError.activities = "Please select at least one hobby";
+
+    setError(newError);
+    return Object.keys(newError).length;
   };
 
   const studForm = (event: any) => {
     event.preventDefault();
+    if (validation() !== 0) return;
 
     const newStudent: StudentObject = {
       fname: fName,
@@ -72,10 +91,8 @@ function LearnerForm({ theme }: LearnerFormProps) {
 
     console.log("Student Data:", newStudent);
 
-    // Add new student to the list
     setStudents(prev => [...prev, newStudent]);
 
-    // Reset form
     setFName("");
     setLName("");
     setUserEmail("");
@@ -84,53 +101,64 @@ function LearnerForm({ theme }: LearnerFormProps) {
     setUserGender("");
     setGrade("");
     setActivities([]);
+    setError({});
+  };
+
+  const deleteStudent = (index: number) => {
+    setStudents(prev => prev.filter((_, i) => i !== index));
   };
 
   return (
     <div className={`min-h-screen flex flex-col items-center justify-center ${theme === 'light' ? 'bg-amber-50' : 'bg-gray-900'} py-10 px-4`}>
-
-      {/* Form Card */}
+      
       <form onSubmit={studForm} className={`w-full max-w-lg p-8 rounded-xl shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'} space-y-6`}>
         <h2 className={`text-2xl font-bold text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>Student Registration</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>First Name</label>
-            <input type="text" required value={fName} onChange={e => setFName(e.target.value)}
+            <input type="text" value={fName} onChange={e => setFName(e.target.value)}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="John" />
+            {error.fname && <p className="text-red-500 text-xs mt-1">{error.fname}</p>}
           </div>
+
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Last Name</label>
-            <input type="text" required value={lName} onChange={e => setLName(e.target.value)}
+            <input type="text" value={lName} onChange={e => setLName(e.target.value)}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="Doe" />
+            {error.lname && <p className="text-red-500 text-xs mt-1">{error.lname}</p>}
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Grade</label>
-            <select value={grade} onChange={e => setGrade(e.target.value)} required
+            <select value={grade} onChange={e => setGrade(e.target.value)}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`}>
               <option value="">Select Grade</option>
               {gradeOptions.map(g => <option key={g} value={g}>{g}</option>)}
             </select>
+            {error.grade && <p className="text-red-500 text-xs mt-1">{error.grade}</p>}
           </div>
+
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Phone</label>
-            <input type="tel" pattern="[0-9]{10}" required value={contactNo} onChange={e => setContactNo(e.target.value)}
+            <input type="tel" value={contactNo} onChange={e => setContactNo(e.target.value)}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="1234567890" />
+            {error.contactNo && <p className="text-red-500 text-xs mt-1">{error.contactNo}</p>}
           </div>
         </div>
 
         <div>
           <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Email</label>
-          <input type="email" required value={userEmail} onChange={e => setUserEmail(e.target.value)}
+          <input type="email" value={userEmail} onChange={e => setUserEmail(e.target.value)}
             className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="john.doe@example.com" />
+          {error.userEmail && <p className="text-red-500 text-xs mt-1">{error.userEmail}</p>}
         </div>
 
         <div>
           <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Password</label>
-          <input type="password" required value={userPass} onChange={e => setUserPass(e.target.value)}
+          <input type="password" value={userPass} onChange={e => setUserPass(e.target.value)}
             className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light' ? 'bg-gray-100 text-gray-900' : 'bg-gray-700 text-white'}`} placeholder="••••••••" />
         </div>
 
@@ -144,6 +172,7 @@ function LearnerForm({ theme }: LearnerFormProps) {
               </label>
             ))}
           </div>
+          {error.activities && <p className="text-red-500 text-xs mt-1">{error.activities}</p>}
         </div>
 
         <div>
@@ -156,54 +185,54 @@ function LearnerForm({ theme }: LearnerFormProps) {
               </label>
             ))}
           </div>
+          {error.userGender && <p className="text-red-500 text-xs mt-1">{error.userGender}</p>}
         </div>
 
-        <button type="submit" className={`w-full py-2 mt-4 font-semibold rounded-md ${theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white transition`}>Submit</button>
+        <button type="submit" className={`w-full py-2 mt-4 font-semibold rounded-md ${theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white transition`}>
+          Submit
+        </button>
       </form>
 
-      {/* Students Table */}
-        <div className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light' ? 'bg-white border border-gray-300' : 'bg-gray-800 border border-gray-700'}`}>
-          <table className="w-full border-collapse">
-            <thead className={`${theme === 'light' ? 'bg-blue-500 text-gray-800' : 'bg-blue-700 text-white'}`}>
-              <tr>
-                {["No", "Name", "Phone", "Email", "Password", "Activities", "Gender", "Action"].map(h => <th key={h} className="px-4 py-2 text-center text-sm uppercase">{h}</th>)}
-              </tr>
-            </thead>
-            {students.length > 0 ? (
-              <tbody className={`${theme === 'light' ? 'divide-y divide-gray-300' : 'divide-y divide-gray-600 text-amber-50'}`}>
-                {students.map((s, i) => (
-                  <tr key={i} className="hover:bg-gray-100 dark:hover:bg-gray-700 transition">
-                    <td className="px-4 py-2">{i + 1}.</td>
-                    <td className="px-4 py-2">{s.fname} {s.lname}</td>
-                    <td className="px-4 py-2">{s.contactNo}</td>
-                    <td className="px-4 py-2">{s.userEmail}</td>
-                    <td className="px-4 py-2">{s.userPass}</td>
-                    <td className="px-4 py-2">{s.activities.join(", ")}</td>
-                    <td className="px-4 py-2">{s.userGender}</td>
-                    <td className="px-4 py-2 flex gap-3">
-                      <button className="text-blue-500 hover:underline">Edit</button>
-                      <button className="text-red-500 hover:underline">Delete</button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            ) : (
-              <tbody>
-                <tr>
-                  <td colSpan={8} className="text-center py-4 text-gray-950 dark:text-gray-300">
-                    No students found.
+      <div className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light' ? 'bg-white border border-gray-300' : 'bg-gray-800 border border-gray-700'}`}>
+        <table className="w-full border-collapse">
+          <thead className={`${theme === 'light' ? 'bg-blue-500 text-gray-800' : 'bg-blue-700 text-white'}`}>
+            <tr>
+              {["No", "Name", "Phone", "Email", "Password", "Activities", "Gender", "Action"].map(h => (
+                <th key={h} className="px-4 py-2 text-center text-sm uppercase">{h}</th>
+              ))}
+            </tr>
+          </thead>
+          {students.length > 0 ? (
+            <tbody className={`${theme === 'light' ? 'divide-y divide-gray-300' : 'divide-y divide-gray-600 text-amber-50'}`}>
+              {students.map((s, i) => (
+                <tr key={i} className="hover:bg-gray-100 dark:hover:bg-gray-700 transition text-center ">
+                  <td className="px-4 py-2">{i + 1}</td>
+                  <td className="px-4 py-2">{s.fname} {s.lname}</td>
+                  <td className="px-4 py-2">{s.contactNo}</td>
+                  <td className="px-4 py-2">{s.userEmail}</td>
+                  <td className="px-4 py-2">{s.userPass}</td>
+                  <td className="px-4 py-2">{s.activities.join(", ")}</td>
+                  <td className="px-4 py-2">{s.userGender}</td>
+                  <td className="px-4 py-2 flex gap-3 text-center ">
+                    <button className="text-blue-500 hover:underline">Edit</button>
+                    <button onClick={() => deleteStudent(i)} className="text-red-500 hover:underline">Delete</button>
                   </td>
                 </tr>
-              </tbody>
-            )}
-
-          </table>
-        </div>
-      
-
+              ))}
+            </tbody>
+          ) : (
+            <tbody>
+              <tr>
+                <td colSpan={8} className="text-center py-4 text-gray-950 dark:text-gray-300">
+                  No students found.
+                </td>
+              </tr>
+            </tbody>
+          )}
+        </table>
+      </div>
     </div>
   );
-
 }
 
 export default LearnerForm;
