@@ -90,6 +90,8 @@ All registered students are displayed in a styled table.
 > Screenshots of the running app:  
 > ![Form Screenshot](public/img/ss-1.png)  
 > ![Table Screenshot](public/img/ss-2.png)  
+> ![Table Screenshot](public/img/ss-3.png)  
+> ![Table Screenshot](public/img/ss-4.png)  
 
 ---
 
