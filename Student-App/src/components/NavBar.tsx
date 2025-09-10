@@ -7,7 +7,7 @@ function NavBar({ theme, toggleTheme }: NavBarProps) {
   return (
     <nav
       className={`${
-        theme === "light" ? "bg-amber-50" : "bg-gray-900"
+        theme === "light" ? "bg-indigo-50" : "bg-gray-900"
       } shadow-md fixed w-full z-20 top-0 left-0 border-b border-gray-200 dark:border-gray-600`}
     >
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">

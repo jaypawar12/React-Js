@@ -140,7 +140,7 @@ function LearnerForm({ theme }: LearnerFormProps) {
 
 
   return (
-    <div className={`flex flex-col items-center justify-center ${theme === 'light' ? 'bg-amber-50' : 'bg-gray-900'} py-10 px-4`}>
+    <div className={`flex flex-col items-center justify-center ${theme === 'light' ? 'bg-indigo-50' : 'bg-gray-900'} py-10 px-4`}>
 
       <form onSubmit={studForm} className={`w-full max-w-lg p-8 rounded-xl shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'} space-y-6`}>
         <h2 className={`text-2xl font-bold text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>{editId !== undefined ? "Update Student" : "Student Registration"}</h2>
@@ -264,27 +264,27 @@ function LearnerForm({ theme }: LearnerFormProps) {
         </button>
       </form>
 
-      <div className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light' ? 'bg-white border border-gray-300' : 'bg-gray-800 border border-gray-700'}`}>
+      <div className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light' ? 'bg-white border border-gray-500' : 'bg-gray-800 border border-gray-500'}`}>
         <table className="w-full border-collapse">
-          <thead className={`${theme === 'light' ? 'bg-blue-500 text-gray-800' : 'bg-blue-700 text-white'}`}>
+          <thead className={`${theme === 'light' ? 'bg-blue-600 text-white' : 'bg-blue-700 text-white' }`}>
             <tr>
-              {["No", "Name", "Phone", "Email", "Password", "Activities", "Gender", "Action"].map(h => (
-                <th key={h} className="px-4 py-2 text-center text-sm uppercase">{h}</th>
+              {["No", "Name", "Phone", "Email", "Password", "Activities", "Gender", "Action"].map((h, index) => (
+                <th key={h} className={`px-4 py-2 text-center text-sm uppercase border-b ${index !== 0 ? ' border-l' : ''}`}>{h}</th>
               ))}
             </tr>
           </thead>
-          <tbody className={`${theme === 'light' ? 'divide-y divide-gray-300' : 'divide-y divide-gray-600 text-amber-50'}`}>
+          <tbody className={`${theme === 'light' ? 'divide-y divide-gray-300' : 'divide-y divide-gray-600 text-indigo-50'}`}>
             {students.length > 0 ? (
               students.map((s, i) => (
-                <tr key={i} className="hover:bg-gray-100 dark:hover:bg-gray-700 transition text-center">
+                <tr key={i} className="text-center">
                   <td className="px-4 py-2">{i + 1}.</td>
-                  <td className="px-4 py-2">{s.fname} {s.lname}</td>
-                  <td className="px-4 py-2">{s.contactNo}</td>
-                  <td className="px-4 py-2">{s.userEmail}</td>
-                  <td className="px-4 py-2">{s.userPass}</td>
-                  <td className="px-4 py-2">{s.activities.join(", ")}</td>
-                  <td className="px-4 py-2">{s.userGender}</td>
-                  <td className="px-4 py-2 flex gap-3 justify-center">
+                  <td className="px-4 py-2 border-l">{s.fname} {s.lname}</td>
+                  <td className="px-4 py-2 border-l">{s.contactNo}</td>
+                  <td className="px-4 py-2 border-l">{s.userEmail}</td>
+                  <td className="px-4 py-2 border-l">{s.userPass}</td>
+                  <td className="px-4 py-2 border-l">{s.activities.join(", ")}</td>
+                  <td className="px-4 py-2 border-l">{s.userGender}</td>
+                  <td className="px-4 py-2 border-l flex gap-3 justify-center">
                     <button onClick={() => editStudent(i)} className="text-blue-500 hover:underline">Edit</button>
                     <button onClick={() => deleteStudent(i)} className="text-red-500 hover:underline">Delete</button>
                   </td>
@@ -292,8 +292,8 @@ function LearnerForm({ theme }: LearnerFormProps) {
               ))
             ) : (
               <tr>
-                <td colSpan={8} className="text-center py-4 text-gray-950 dark:text-gray-300">
-                  No students found.
+                <td colSpan={8} className="text-center py-4">
+                  <span className={`text-md font-bold ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>No students found.</span>
                 </td>
               </tr>
             )}
