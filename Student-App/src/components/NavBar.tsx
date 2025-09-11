@@ -90,8 +90,8 @@ function NavBar({ theme, toggleTheme }: NavBarProps) {
                 href="#"
                 className={`block py-2 rounded-md md:hover:bg-transparent ${
                   theme === "light"
-                    ? "text-gray-900 hover:text-yellow-600"
-                    : "text-white hover:text-yellow-300"
+                    ? "text-gray-900 hover:text-blue-600"
+                    : "text-white hover:text-blue-500"
                 }`}
               >
                 {item}

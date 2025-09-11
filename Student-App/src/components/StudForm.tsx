@@ -264,52 +264,19 @@ function LearnerForm({ theme }: LearnerFormProps) {
         </button>
       </form>
 
-      <div
-        className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light'
-          ? 'bg-white border border-gray-700'
-          : 'bg-gray-800 border border-gray-500'
-          }`}
-      >
+      <div className={`w-full max-w-7xl mt-10 overflow-x-auto rounded-xl shadow-lg ${theme === 'light' ? 'bg-white border border-gray-500' : 'bg-gray-800 border border-gray-500'}`}>
         <table className="w-full border-collapse">
-          <thead
-            className={`${theme === 'light' ? 'bg-blue-600 text-white border-gray-900' : 'bg-blue-700 text-white'
-              }`}
-          >
+          <thead className={`${theme === 'light' ? 'bg-blue-600 text-white' : 'bg-blue-700 text-white'}`}>
             <tr>
-              {[
-                "No",
-                "Name",
-                "Phone",
-                "Email",
-                "Password",
-                "Activities",
-                "Gender",
-                "Action"
-              ].map((h, index) => (
-                <th
-                  key={h}
-                  className={`px-4 py-2 text-center text-md border-b ${index !== 0 ? 'border-l' : ''
-                    }`}
-                >
-                  {h}
-                </th>
+              {["No", "Name", "Phone", "Email", "Password", "Activities", "Gender", "Action"].map((h, index) => (
+                <th key={h} className={`px-4 py-2 text-center text-sm uppercase border-b ${index !== 0 ? ' border-l' : ''}`}>{h}</th>
               ))}
             </tr>
-
           </thead>
-
-          <tbody
-            className={`${theme === 'light'
-              ? 'divide-y divide-gray-300'
-              : 'divide-y divide-gray-600 text-blue-100'
-              }`}
-          >
+          <tbody className={`${theme === 'light' ? 'divide-y divide-gray-300' : 'divide-y divide-gray-600 text-indigo-50'}`}>
             {students.length > 0 ? (
               students.map((s, i) => (
-                <tr
-                  key={i}
-                  className="text-center"
-                >
+                <tr key={i} className="text-center">
                   <td className="px-4 py-2">{i + 1}.</td>
                   <td className="px-4 py-2 border-l">{s.fname} {s.lname}</td>
                   <td className="px-4 py-2 border-l">{s.contactNo}</td>
@@ -318,38 +285,21 @@ function LearnerForm({ theme }: LearnerFormProps) {
                   <td className="px-4 py-2 border-l">{s.activities.join(", ")}</td>
                   <td className="px-4 py-2 border-l">{s.userGender}</td>
                   <td className="px-4 py-2 border-l flex gap-3 justify-center">
-                    <button
-                      onClick={() => editStudent(i)}
-                      className="text-green-600 hover:underline"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => deleteStudent(i)}
-                      className="text-red-600 hover:underline"
-                    >
-                      Delete
-                    </button>
+                    <button onClick={() => editStudent(i)} className="text-blue-500 hover:underline">Edit</button>
+                    <button onClick={() => deleteStudent(i)} className="text-red-500 hover:underline">Delete</button>
                   </td>
                 </tr>
               ))
             ) : (
               <tr>
-                <td
-                  colSpan={8}
-                  className={`text-center py-4 ${theme === 'light' ? 'text-gray-950' : 'text-gray-200 font-bold'
-                    }`}
-                >
-                  <span className="text-md font-medium text-center">
-                    No students found
-                  </span>
+                <td colSpan={8} className="text-center py-4">
+                  <span className={`text-md font-bold ${theme === 'light' ? 'text-gray-600' : 'text-gray-300'}`}>No students found.</span>
                 </td>
               </tr>
             )}
           </tbody>
         </table>
       </div>
-
     </div>
   );
 }
