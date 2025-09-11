@@ -1,49 +1,75 @@
 import { useState } from "react";
+import Navbar from "./components/Navbar";
 import TaskForm from "./components/TaskForm";
-import TaskList from "./components/TaskList";
+import TaskPending from "./components/TaskPending";
+import TaskComplete from "./components/TaskComplete";
 
-export default function App() {
-  const [tasks, setTasks] = useState([
-    { text: "Sample Task 1", completed: false },
-    { text: "Sample Task 2", completed: false },
-    { text: "Sample Task 3", completed: false },
-  ]);
+type Task = {
+  text: string;
+  completed: boolean;
+};
+
+export default function AdminDashboard() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  const addTask = (text: string) => {
+    setTasks([...tasks, { text, completed: false }]);
+  };
+
+  const toggleTaskCompletion = (index: number) => {
+    const updated = [...tasks];
+    updated[index].completed = !updated[index].completed;
+    setTasks(updated);
+  };
+
+  const deleteTask = (index: number) => {
+    const updated = tasks.filter((_, i) => i !== index);
+    setTasks(updated);
+  };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
+    <div className="min-h-screen bg-gray-100">
+      <Navbar />
 
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-auto">
-        <h3 className="text-3xl font-bold text-gray-800 mb-6 text-center">
-          To-Do List
-        </h3>
+      <div className="flex">
 
-        <TaskForm />
+        {/* Sidebar */}
+        <aside className="w-64 bg-gray-800 text-white p-5 min-h-screen">
+          <h2 className="text-2xl font-bold mb-6">Admin Panel</h2>
+          <nav>
+            <ul className="space-y-3">
+              <li><a href="#" className="hover:underline">Dashboard</a></li>
+              <li><a href="#" className="hover:underline">Tasks</a></li>
+              <li><a href="#" className="hover:underline">Settings</a></li>
+            </ul>
+          </nav>
+        </aside>
+
+        {/* Main Content */}
+        <main className="flex-1 p-8">
+          <h1 className="text-3xl font-bold mb-6">To-Do Management</h1>
+
+          {/* Task Form */}
+          <div className="bg-white p-6 rounded-lg shadow-lg max-w-md mx-auto mb-10">
+            <TaskForm addTask={addTask} />
+          </div>
+
+          {/* Task Lists */}
+          <div className="flex flex-wrap gap-10 justify-center">
+            <TaskPending
+              tasks={tasks.filter((task) => !task.completed)}
+              toggleTaskCompletion={toggleTaskCompletion}
+              deleteTask={deleteTask}
+            />
+
+            <TaskComplete
+              tasks={tasks.filter((task) => task.completed)}
+              toggleTaskCompletion={toggleTaskCompletion}
+              deleteTask={deleteTask}
+            />
+          </div>
+        </main>
       </div>
-
-      <div className="flex flex-wrap gap-10 justify-center mt-10 px-5">
-
-        <TaskList
-          title="Pending Tasks"
-          bgColor="bg-amber-100"
-          tasks={[
-            { text: "Sample Task 1", completed: false },
-            { text: "Sample Task 2", completed: false },
-            { text: "Sample Task 3", completed: false },
-          ]}
-        />
-
-        <TaskList
-          title="Completed Tasks"
-          bgColor="bg-green-100"
-          tasks={[
-            { text: "Sample Task 1", completed: true },
-            { text: "Sample Task 2", completed: true },
-            { text: "Sample Task 3", completed: true },
-          ]}
-        />
-
-      </div>
-
     </div>
   );
 }

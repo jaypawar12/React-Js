@@ -1,18 +1,34 @@
-export default function TaskForm() {
-    return (
-        <form className="relative mb-6">
-            <input
-                type="text"
-                placeholder="Enter a task"
-                className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 pr-12"
-            />
+import { useState } from "react";
 
-            <button
-                type="submit"
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-blue-500 text-white px-3 pb-1 rounded-full hover:bg-blue-600 transition text-2xl"
-            >
-                +
-            </button>
-        </form>
-    );
+type TaskFormProps = {
+  addTask: (text: string) => void;
+};
+
+export default function TaskForm({ addTask }: TaskFormProps) {
+  const [text, setText] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (text.trim() === "") return;
+    addTask(text);
+    setText("");
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="flex gap-3">
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+        placeholder="Enter a new task"
+        className="flex-1 p-2 border rounded"
+      />
+      <button
+        type="submit"
+        className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600"
+      >
+        Add
+      </button>
+    </form>
+  );
 }
