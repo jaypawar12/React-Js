@@ -20,6 +20,7 @@ edit or delete entries.
     password\
 -   **Edit and Delete functionality** for students\
 -   **Styled table** to list registered students
+-   **Toastify Notifications** powered by React-Toastify for success/error messages
 
 ------------------------------------------------------------------------
 
@@ -43,7 +44,8 @@ edit or delete entries.
     │       ├── ss-1.png
     │       ├── ss-2.png
     │       ├── ss-3.png
-    │       └── ss-4.png
+    │       ├── ss-4.png
+    │       └── ss-5.png
     ├── src/
     │   ├── components/
     │   │   ├── LearnerForm.tsx
@@ -104,6 +106,7 @@ edit or delete entries.
 > ![Light Form Screenshot](public/img/ss-2.png)  
 > ![Validation Form Screenshot](public/img/ss-3.png)  
 > ![Edit Form Screenshot](public/img/ss-4.png)  
+> ![Update Student Screenshot](public/img/ss-5.png)  
 
 ------------------------------------------------------------------------
 

@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 type LearnerFormProps = {
   theme: string;
@@ -25,9 +27,9 @@ function LearnerForm({ theme }: LearnerFormProps) {
   const [grade, setGrade] = useState<string>("");
   const [activities, setActivities] = useState<string[]>([]);
   const [error, setError] = useState<any>({});
-  const [students, setStudents] = useState<StudentObject[]>((
+  const [students, setStudents] = useState<StudentObject[]>(
     JSON.parse(localStorage.getItem("students") || "[]")
-  ));
+  );
   const [editId, setEditId] = useState<number>();
 
   useEffect(() => {
@@ -57,6 +59,16 @@ function LearnerForm({ theme }: LearnerFormProps) {
     { id: "dance", label: "Dancing", icon: "💃" }
   ];
 
+  const toastConfig = {
+    position: "top-right" as const,
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    theme: theme === "light" ? "light" : "dark",
+  };
+
   const getHobby = (event: any) => {
     const { value, checked } = event.target;
     if (checked) {
@@ -64,7 +76,7 @@ function LearnerForm({ theme }: LearnerFormProps) {
     } else {
       setActivities(data => data.filter(item => item !== value));
     }
-    setError(Element => ({ ...Element, activities: "" }));
+    setError(prev => ({ ...prev, activities: "" }));
   };
 
   const validation = () => {
@@ -95,21 +107,24 @@ function LearnerForm({ theme }: LearnerFormProps) {
     const newStudent: StudentObject = {
       fname: fName,
       lname: lName,
-      userEmail: userEmail,
-      contactNo: contactNo,
-      userPass: userPass,
-      userGender: userGender,
-      grade: grade,
-      activities: activities
+      userEmail,
+      contactNo,
+      userPass,
+      userGender,
+      grade,
+      activities
     };
 
     if (editId === undefined) {
       setStudents(prev => [...prev, newStudent]);
+      toast.success("Student added successfully!", toastConfig);
     } else {
-      setStudents(prev => prev.map((student, index) => index === editId ? newStudent : student));
+      setStudents(prev =>
+        prev.map((student, index) => (index === editId ? newStudent : student))
+      );
+      toast.success("Student updated successfully!", toastConfig);
     }
 
-    // Reset form
     setFName("");
     setLName("");
     setUserEmail("");
@@ -119,10 +134,12 @@ function LearnerForm({ theme }: LearnerFormProps) {
     setGrade("");
     setActivities([]);
     setError({});
+    setEditId(undefined);
   };
 
   const deleteStudent = (index: number) => {
     setStudents(prev => prev.filter((_, i) => i !== index));
+    toast.success("Student deleted successfully!", toastConfig);
   };
 
   const editStudent = (i: number) => {
@@ -138,37 +155,31 @@ function LearnerForm({ theme }: LearnerFormProps) {
     setActivities(students[i].activities);
   };
 
-
   return (
     <div className={`flex flex-col items-center justify-center ${theme === 'light' ? 'bg-indigo-50' : 'bg-gray-900'} py-10 px-4`}>
-
       <form onSubmit={studForm} className={`w-full max-w-lg p-8 rounded-xl shadow-lg ${theme === 'light' ? 'bg-white' : 'bg-gray-800'} space-y-6`}>
-        <h2 className={`text-2xl font-bold text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>{editId !== undefined ? "Update Student" : "Student Registration"}</h2>
+        <h2 className={`text-2xl font-bold text-center ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+          {editId !== undefined ? "Update Student" : "Student Registration"}
+        </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>First Name</label>
-            <input type="text" value={fName} onChange={e => {
-              setFName(e.target.value);
-              setError(prev => ({ ...prev, fname: "" }));
-            }}
+            <input type="text" value={fName} onChange={e => { setFName(e.target.value); setError(prev => ({ ...prev, fname: "" })); }}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light'
                 ? `bg-gray-100 text-gray-900 ${error.fname ? 'border-red-500' : 'border-gray-300'}`
-                : `bg-gray-700 text-white ${error.fname ? 'border-red-500' : 'border-gray-600'}`
-                }`} placeholder="John" />
+                : `bg-gray-700 text-white ${error.fname ? 'border-red-500' : 'border-gray-600'}`}`}
+              placeholder="John" />
             {error.fname && <p className="text-red-500 text-xs mt-1">{error.fname}</p>}
           </div>
 
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Last Name</label>
-            <input type="text" value={lName} onChange={e => {
-              setLName(e.target.value);
-              setError(prev => ({ ...prev, lname: "" }));
-            }}
+            <input type="text" value={lName} onChange={e => { setLName(e.target.value); setError(prev => ({ ...prev, lname: "" })); }}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light'
                 ? `bg-gray-100 text-gray-900 ${error.lname ? 'border-red-500' : 'border-gray-300'}`
-                : `bg-gray-700 text-white ${error.lname ? 'border-red-500' : 'border-gray-600'}`
-                }`} placeholder="Doe" />
+                : `bg-gray-700 text-white ${error.lname ? 'border-red-500' : 'border-gray-600'}`}`}
+              placeholder="Doe" />
             {error.lname && <p className="text-red-500 text-xs mt-1">{error.lname}</p>}
           </div>
         </div>
@@ -176,14 +187,10 @@ function LearnerForm({ theme }: LearnerFormProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Grade</label>
-            <select value={grade} onChange={e => {
-              setGrade(e.target.value);
-              setError(prev => ({ ...prev, grade: "" }));
-            }}
+            <select value={grade} onChange={e => { setGrade(e.target.value); setError(prev => ({ ...prev, grade: "" })); }}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light'
                 ? `bg-gray-100 text-gray-900 ${error.grade ? 'border-red-500' : 'border-gray-300'}`
-                : `bg-gray-700 text-white ${error.grade ? 'border-red-500' : 'border-gray-600'}`
-                }`}>
+                : `bg-gray-700 text-white ${error.grade ? 'border-red-500' : 'border-gray-600'}`}`}>
               <option value="">Select Grade</option>
               {gradeOptions.map(g => <option key={g} value={g}>{g}</option>)}
             </select>
@@ -192,41 +199,32 @@ function LearnerForm({ theme }: LearnerFormProps) {
 
           <div>
             <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Phone</label>
-            <input type="tel" value={contactNo} onChange={e => {
-              setContactNo(e.target.value);
-              setError(prev => ({ ...prev, contactNo: "" }));
-            }}
+            <input type="tel" value={contactNo} onChange={e => { setContactNo(e.target.value); setError(prev => ({ ...prev, contactNo: "" })); }}
               className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light'
                 ? `bg-gray-100 text-gray-900 ${error.contactNo ? 'border-red-500' : 'border-gray-300'}`
-                : `bg-gray-700 text-white ${error.contactNo ? 'border-red-500' : 'border-gray-600'}`
-                }`} placeholder="1234567890" />
+                : `bg-gray-700 text-white ${error.contactNo ? 'border-red-500' : 'border-gray-600'}`}`}
+              placeholder="1234567890" />
             {error.contactNo && <p className="text-red-500 text-xs mt-1">{error.contactNo}</p>}
           </div>
         </div>
 
         <div>
           <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Email</label>
-          <input type="email" value={userEmail} onChange={e => {
-            setUserEmail(e.target.value);
-            setError(prev => ({ ...prev, userEmail: "" }));
-          }}
+          <input type="email" value={userEmail} onChange={e => { setUserEmail(e.target.value); setError(prev => ({ ...prev, userEmail: "" })); }}
             className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light'
               ? `bg-gray-100 text-gray-900 ${error.userEmail ? 'border-red-500' : 'border-gray-300'}`
-              : `bg-gray-700 text-white ${error.userEmail ? 'border-red-500' : 'border-gray-600'}`
-              }`} placeholder="john.doe@example.com" />
+              : `bg-gray-700 text-white ${error.userEmail ? 'border-red-500' : 'border-gray-600'}`}`}
+            placeholder="john.doe@example.com" />
           {error.userEmail && <p className="text-red-500 text-xs mt-1">{error.userEmail}</p>}
         </div>
 
         <div>
           <label className={`block mb-1 text-sm ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'}`}>Password</label>
-          <input type="password" value={userPass} onChange={e => {
-            setUserPass(e.target.value);
-            setError(prev => ({ ...prev, userPass: "" }));
-          }}
+          <input type="password" value={userPass} onChange={e => { setUserPass(e.target.value); setError(prev => ({ ...prev, userPass: "" })); }}
             className={`w-full px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 ${theme === 'light'
               ? `bg-gray-100 text-gray-900 ${error.userPass ? 'border-red-500' : 'border-gray-300'}`
-              : `bg-gray-700 text-white ${error.userPass ? 'border-red-500' : 'border-gray-600'}`
-              }`} placeholder="••••••••" />
+              : `bg-gray-700 text-white ${error.userPass ? 'border-red-500' : 'border-gray-600'}`}`}
+            placeholder="••••••••" />
           {error.userPass && <p className="text-red-500 text-xs mt-1">{error.userPass}</p>}
         </div>
 
@@ -248,10 +246,7 @@ function LearnerForm({ theme }: LearnerFormProps) {
           <div className="flex flex-wrap gap-4">
             {["Male", "Female", "Other"].map(g => (
               <label key={g} className={`flex items-center gap-2 ${theme === 'light' ? 'text-gray-900' : 'text-gray-200'}`}>
-                <input type="radio" name="gender" value={g} checked={userGender === g} onChange={e => {
-                  setUserGender(e.target.value);
-                  setError(prev => ({ ...prev, userGender: "" }));
-                }}
+                <input type="radio" name="gender" value={g} checked={userGender === g} onChange={e => { setUserGender(e.target.value); setError(prev => ({ ...prev, userGender: "" })); }}
                   className="w-4 h-4 text-blue-400 focus:ring-blue-400 border-gray-600 bg-gray-700" /> {g}
               </label>
             ))}
@@ -259,8 +254,9 @@ function LearnerForm({ theme }: LearnerFormProps) {
           {error.userGender && <p className="text-red-500 text-xs mt-1">{error.userGender}</p>}
         </div>
 
-        <button type="submit" className={`w-full py-2 mt-4 font-semibold rounded-md ${theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white transition`}>
-          {(editId === undefined) ? "Add Student" : "Update Student"}
+        <button type="submit"
+          className={`w-full py-2 mt-4 font-semibold rounded-md ${theme === 'light' ? 'bg-blue-600 hover:bg-blue-700' : 'bg-blue-500 hover:bg-blue-600'} text-white transition`}>
+          {editId === undefined ? "Add Student" : "Update Student"}
         </button>
       </form>
 
@@ -300,6 +296,19 @@ function LearnerForm({ theme }: LearnerFormProps) {
           </tbody>
         </table>
       </div>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme={theme === "light" ? "light" : "dark"}
+      />
     </div>
   );
 }
