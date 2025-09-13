@@ -15,7 +15,7 @@ export default function TaskPending({
   deleteTask,
 }: TaskPendingProps) {
   return (
-    <div className="p-5 rounded-lg shadow-lg w-full max-w-md h-96 bg-amber-100 overflow-y-auto space-y-4">
+    <div className="p-5 rounded-lg shadow-lg w-full h-96 bg-amber-100 overflow-y-auto space-y-4">
       <h4 className="text-xl font-semibold text-gray-800 mb-4 text-center">
         Pending Tasks
       </h4>
