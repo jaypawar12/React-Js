@@ -4,6 +4,7 @@ import Sidebar from "./components/SideBar";
 import TaskForm from "./components/TaskForm";
 import TaskPending from "./components/TaskPending";
 import TaskComplete from "./components/TaskComplete";
+import { ToastContainer, toast } from 'react-toastify';
 
 type Task = {
   id: number;
@@ -14,16 +15,20 @@ type Task = {
 export default function AdminDashboard() {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const [themeColor, setThemeColor] = useState("bg-white");
 
   const addTask = (text: string) => {
     if (editingTask) {
       const updated = tasks.map((task) =>
         task.id === editingTask.id ? { ...task, text } : task
       );
+      toast.success("Task updated successfully!");
       setTasks(updated);
       setEditingTask(null);
     } else {
       setTasks([...tasks, { id: Math.floor(Math.random() * 1000), text, completed: false }]);
+      toast.success("Task added successfully!");
     }
   };
 
@@ -32,6 +37,7 @@ export default function AdminDashboard() {
       task.id === id ? { ...task, completed: !task.completed } : task
     );
     setTasks(updated);
+    toast.info("Task status updated!");
   };
 
   const editTask = (task: Task) => {
@@ -41,25 +47,44 @@ export default function AdminDashboard() {
   const deleteTask = (id: number) => {
     const updated = tasks.filter((task) => task.id !== id);
     setTasks(updated);
+    toast.success("Task deleted successfully!");
+  };
+
+  const colors = [
+    "bg-red-400",
+    "bg-yellow-200",
+    "bg-green-200",
+    "bg-cyan-300",
+    "bg-blue-400",
+    "bg-purple-400",
+    "bg-orange-200",
+    "bg-teal-300",
+    "bg-indigo-400",
+    "bg-gray-400",
+    "bg-white"
+  ];
+
+
+  const handleThemeChange = (colorClass: string) => {
+    setThemeColor(colorClass);
+    setThemeOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 font-sans">
-      <Navbar />
+    <div className={`min-h-screen font-sans ${themeColor} text-white transition-colors duration-500`}>
+      <Navbar themeColor={themeColor} />
 
       <div className="flex">
-        <Sidebar />
-        <main className="flex-1 p-14 bg-gray-100 mt-10 ">
-          <h1 className="text-3xl font-bold text-gray-800">To-Do Management</h1>
+        <Sidebar themeColor={themeColor} />
 
-          {/* Task Form */}
-          <div className="bg-white p-5 rounded-lg shadow-md max-w-lg mx-auto mb-12">
+        <main className="flex-1 p-14 mt-16">
+
+          <div className="bg-white p-5 rounded-lg shadow-md max-w-lg mx-auto mb-12 text-black ">
             <TaskForm addTask={addTask} editingTask={editingTask} />
           </div>
 
-          {/* Task Lists */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
-            <div className="bg-amber-50 p-6 rounded-lg shadow-md">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div className="bg-amber-50 p-6 rounded-lg shadow-md text-black">
               <h2 className="text-2xl font-semibold text-gray-700 mb-4">Pending Tasks</h2>
               <TaskPending
                 tasks={tasks.filter((task) => !task.completed)}
@@ -69,7 +94,7 @@ export default function AdminDashboard() {
               />
             </div>
 
-            <div className="bg-green-100 p-6 rounded-lg shadow-md">
+            <div className="bg-green-100 p-6 rounded-lg shadow-md text-black">
               <h2 className="text-2xl font-semibold text-gray-700 mb-4">Completed Tasks</h2>
               <TaskComplete
                 tasks={tasks.filter((task) => task.completed)}
@@ -78,8 +103,69 @@ export default function AdminDashboard() {
               />
             </div>
           </div>
+
+          {/* Theme Changer Button */}
+          <div className="fixed bottom-10 right-5 flex items-end z-50">
+
+            {themeOpen && (
+              <div className="flex flex-col items-center p-4 bg-gray-800 rounded-2xl shadow-2xl space-y-4 mr-4">
+                <div className="grid grid-cols-4 gap-3">
+                  {colors.map((color, idx) => (
+                    <button
+                      key={idx}
+                      className={`w-10 h-10 rounded-full ${color} border-2 border-white shadow-lg cursor-pointer transition-transform hover:scale-110`}
+                      onClick={() => handleThemeChange(color)}
+                    />
+                  ))}
+                </div>
+
+                <button
+                  className="w-10 h-10 rounded-full bg-gray-600 text-white shadow-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+                  onClick={() => setThemeOpen(false)}
+                  title="Close"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            )}
+
+            <button
+              className="bg-blue-600 text-white p-4 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-all"
+              onClick={() => setThemeOpen(!themeOpen)}
+              title="Toggle Theme Panel"
+            >
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M12 3v1m0 16v1m8.66-10h1M3.34 12h1m15.364 5.364l.707.707M4.929 4.929l.707.707M16.95 7.05l.707-.707M7.05 16.95l.707-.707M12 5a7 7 0 000 14 7 7 0 000-14z"
+                />
+              </svg>
+            </button>
+
+          </div>
         </main>
       </div>
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
     </div>
+
   );
 }
