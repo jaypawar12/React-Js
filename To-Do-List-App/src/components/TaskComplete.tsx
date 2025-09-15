@@ -1,4 +1,5 @@
 type Task = {
+  id: number;
   text: string;
   completed: boolean;
 };
@@ -37,7 +38,7 @@ export default function TaskComplete({
 
               <div
                 className="flex items-center space-x-4 cursor-pointer"
-                onClick={() => toggleTaskCompletion(index)}
+                onClick={() => toggleTaskCompletion(task.id)}
               >
                 <div className="w-6 h-6 rounded-full bg-white border-2 border-green-500 flex items-center justify-center shadow-sm transition-transform duration-200 hover:scale-105">
                   {task.completed && (
@@ -56,7 +57,7 @@ export default function TaskComplete({
 
                 {/* Undo/Restore Button */}
                 <button
-                  onClick={() => toggleTaskCompletion(index)}
+                  onClick={() => toggleTaskCompletion(task.id)}
                   className="p-2 text-amber-600 hover:bg-amber-100 rounded-lg transition-all duration-300"
                   title="Mark as incomplete"
                 >
@@ -67,7 +68,7 @@ export default function TaskComplete({
 
                 {/* Delete Button */}
                 <button
-                  onClick={() => deleteTask(index)}
+                  onClick={() => deleteTask(task.id)}
                   className="p-2 text-red-600 hover:bg-red-100 rounded-lg transition-all duration-300"
                   title="Delete task"
                 >

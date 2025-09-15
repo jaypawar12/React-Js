@@ -1,20 +1,21 @@
-
-
 type Task = {
+  id: number;
   text: string;
   completed: boolean;
 };
 
 type TaskPendingProps = {
   tasks: Task[];
-  toggleTaskCompletion: (index: number) => void;
-  deleteTask: (index: number) => void;
+  toggleTaskCompletion: (id: number) => void;
+  deleteTask: (id: number) => void;
+  editTask: (task: Task) => void;
 };
 
 export default function TaskPending({
   tasks,
   toggleTaskCompletion,
   deleteTask,
+  editTask,
 }: TaskPendingProps) {
   return (
     <div className="p-6 w-full max-h-96 overflow-y-auto space-y-3 bg-gradient-to-br from-amber-50 to-orange-50 rounded-2xl border border-amber-200 shadow-lg">
@@ -28,19 +29,17 @@ export default function TaskPending({
           <p className="text-sm font-medium">All tasks completed!</p>
         </div>
       ) : (
-        tasks.map((task, index) => (
+        tasks.map((task) => (
           <div
-            key={index}
+            key={task.id}
             className="bg-white p-4 rounded-lg shadow-sm border border-amber-200 hover:shadow-md transition-all duration-300"
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                {/* Empty circle checkbox for pending tasks */}
                 <div
                   className="w-5 h-5 border-2 border-amber-500 rounded-full cursor-pointer hover:bg-amber-50 transition-all duration-200"
-                  onClick={() => toggleTaskCompletion(index)}
+                  onClick={() => toggleTaskCompletion(task.id)}
                 ></div>
-                {/* Task text */}
                 <span className="text-gray-700 font-medium">
                   {task.text}
                 </span>
@@ -50,7 +49,7 @@ export default function TaskPending({
 
                 {/* Edit button */}
                 <button
-                  onClick={() => { /* Add your edit functionality here */ }}
+                  onClick={() => {editTask(task) }}
                   className="p-2 text-blue-600 hover:bg-blue-100 rounded-lg transition-all duration-300"
                   title="Edit task"
                 >
@@ -59,10 +58,11 @@ export default function TaskPending({
                     <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </button>
+                
 
                 {/* Delete button */}
                 <button
-                  onClick={() => deleteTask(index)}
+                  onClick={() => deleteTask(task.id)}
                   className="p-2 text-red-600 hover:bg-red-100 rounded-lg transition-all duration-300"
                   title="Delete task"
                 >

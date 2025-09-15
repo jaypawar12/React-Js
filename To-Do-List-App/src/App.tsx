@@ -6,25 +6,40 @@ import TaskPending from "./components/TaskPending";
 import TaskComplete from "./components/TaskComplete";
 
 type Task = {
+  id: number;
   text: string;
   completed: boolean;
 };
 
 export default function AdminDashboard() {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
 
   const addTask = (text: string) => {
-    setTasks([...tasks, { text, completed: false }]);
+    if (editingTask) {
+      const updated = tasks.map((task) =>
+        task.id === editingTask.id ? { ...task, text } : task
+      );
+      setTasks(updated);
+      setEditingTask(null);
+    } else {
+      setTasks([...tasks, { id: Math.floor(Math.random() * 1000), text, completed: false }]);
+    }
   };
 
-  const toggleTaskCompletion = (index: number) => {
-    const updated = [...tasks];
-    updated[index].completed = !updated[index].completed;
+  const toggleTaskCompletion = (id: number) => {
+    const updated = tasks.map((task) =>
+      task.id === id ? { ...task, completed: !task.completed } : task
+    );
     setTasks(updated);
   };
 
-  const deleteTask = (index: number) => {
-    const updated = tasks.filter((_, i) => i !== index);
+  const editTask = (task: Task) => {
+    setEditingTask(task);
+  };
+
+  const deleteTask = (id: number) => {
+    const updated = tasks.filter((task) => task.id !== id);
     setTasks(updated);
   };
 
@@ -39,18 +54,18 @@ export default function AdminDashboard() {
 
           {/* Task Form */}
           <div className="bg-white p-5 rounded-lg shadow-md max-w-lg mx-auto mb-12">
-            <TaskForm addTask={addTask} />
+            <TaskForm addTask={addTask} editingTask={editingTask} />
           </div>
 
           {/* Task Lists */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
-
             <div className="bg-amber-50 p-6 rounded-lg shadow-md">
               <h2 className="text-2xl font-semibold text-gray-700 mb-4">Pending Tasks</h2>
               <TaskPending
                 tasks={tasks.filter((task) => !task.completed)}
                 toggleTaskCompletion={toggleTaskCompletion}
                 deleteTask={deleteTask}
+                editTask={editTask}
               />
             </div>
 
@@ -62,7 +77,6 @@ export default function AdminDashboard() {
                 deleteTask={deleteTask}
               />
             </div>
-
           </div>
         </main>
       </div>
