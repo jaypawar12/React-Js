@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/SideBar";
 import TaskForm from "./components/TaskForm";
@@ -13,10 +13,18 @@ type Task = {
 };
 
 export default function AdminDashboard() {
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [editingTask, setEditingTask] = useState<Task | null>(null);
-  const [themeOpen, setThemeOpen] = useState(false);
-  const [themeColor, setThemeColor] = useState("bg-white");
+const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") || "[]"));
+const [editingTask, setEditingTask] = useState<Task | null>(null);
+const [themeOpen, setThemeOpen] = useState(false);
+const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "bg-white");
+
+useEffect(() => {
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+  localStorage.setItem("themeColor", themeColor);
+}, [tasks, themeColor]);
+
+
+
 
   const addTask = (text: string) => {
     if (editingTask) {
