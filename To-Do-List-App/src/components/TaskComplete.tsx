@@ -8,15 +8,17 @@ type TaskCompleteProps = {
   tasks: Task[];
   toggleTaskCompletion: (index: number) => void;
   deleteTask: (index: number) => void;
+  themeColor: string;
 };
 
 export default function TaskComplete({
   tasks,
   toggleTaskCompletion,
   deleteTask,
+  themeColor
 }: TaskCompleteProps) {
   return (
-    <div className="p-6 max-h-96 overflow-y-auto space-y-3 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 shadow-lg relative">
+    <div className={`p-6 max-h-96 overflow-y-auto space-y-3 ${themeColor} rounded-2xl border border-green-200 shadow-lg relative`}>
 
       {/* No Completed Tasks Message */}
       {tasks.length === 0 ? (
@@ -26,7 +28,7 @@ export default function TaskComplete({
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <p className="text-sm font-medium">No completed tasks yet</p>
+          <p className="text-sm font-medium text-white">No completed tasks yet</p>
         </div>
       ) : (
         tasks.map((task, index) => (

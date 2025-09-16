@@ -13,15 +13,15 @@ type Task = {
 };
 
 export default function AdminDashboard() {
-const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") || "[]"));
-const [editingTask, setEditingTask] = useState<Task | null>(null);
-const [themeOpen, setThemeOpen] = useState(false);
-const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "bg-white");
+  const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") || "[]"));
+  const [editingTask, setEditingTask] = useState<Task | null>(null);
+  const [themeOpen, setThemeOpen] = useState(false);
+  const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "bg-white");
 
-useEffect(() => {
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  localStorage.setItem("themeColor", themeColor);
-}, [tasks, themeColor]);
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    localStorage.setItem("themeColor", themeColor);
+  }, [tasks, themeColor]);
 
 
 
@@ -59,18 +59,32 @@ useEffect(() => {
   };
 
   const colors = [
-    "bg-red-400",
-    "bg-yellow-200",
-    "bg-green-200",
-    "bg-cyan-300",
-    "bg-blue-400",
-    "bg-purple-400",
-    "bg-orange-200",
-    "bg-teal-300",
-    "bg-indigo-400",
-    "bg-gray-400",
-    "bg-white"
+    // Red shades
+    "bg-red-800", "bg-red-900",
+
+    // Yellow shades
+    "bg-yellow-800", "bg-yellow-900",
+
+    // Green shades
+    "bg-green-700", "bg-green-800", "bg-green-900",
+
+    // Cyan shades
+    "bg-cyan-800", "bg-cyan-900",
+
+    // Blue shades
+    "bg-blue-800", "bg-blue-900",
+
+    // Orange shades
+    "bg-orange-700", "bg-orange-800", "bg-orange-900",
+
+    // Teal shades
+    "bg-teal-800", "bg-teal-900",
+
+    // Gray shades
+    "bg-gray-500", "bg-gray-600", "bg-gray-700",
   ];
+
+
 
 
   const handleThemeChange = (colorClass: string) => {
@@ -79,7 +93,7 @@ useEffect(() => {
   };
 
   return (
-    <div className={`min-h-screen font-sans ${themeColor} text-white transition-colors duration-500`}>
+    <div className={`min-h-screen font-sans bg-gray-300 text-white transition-colors duration-500`}>
       <Navbar themeColor={themeColor} />
 
       <div className="flex">
@@ -87,19 +101,21 @@ useEffect(() => {
 
         <main className="flex-1 p-14 mt-16">
 
-          <div className="bg-white p-5 rounded-lg shadow-md max-w-lg mx-auto mb-12 text-black ">
-            <TaskForm addTask={addTask} editingTask={editingTask} />
+          <div className={`${themeColor} p-5 rounded-lg shadow-md max-w-lg mx-auto mb-12 text-black`}>
+            <TaskForm addTask={addTask} editingTask={editingTask} themeColor={themeColor} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             <div className="bg-amber-50 p-6 rounded-lg shadow-md text-black">
-              <h2 className="text-2xl font-semibold text-gray-700 mb-4">Pending Tasks</h2>
+              <h2 className="text-2xl font-semibold text-gray-700 mb-4 ">Pending Tasks</h2>
               <TaskPending
                 tasks={tasks.filter((task) => !task.completed)}
+                themeColor={themeColor}
                 toggleTaskCompletion={toggleTaskCompletion}
                 deleteTask={deleteTask}
                 editTask={editTask}
               />
+
             </div>
 
             <div className="bg-green-100 p-6 rounded-lg shadow-md text-black">
@@ -108,6 +124,7 @@ useEffect(() => {
                 tasks={tasks.filter((task) => task.completed)}
                 toggleTaskCompletion={toggleTaskCompletion}
                 deleteTask={deleteTask}
+                themeColor={themeColor}
               />
             </div>
           </div>

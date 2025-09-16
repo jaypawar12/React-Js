@@ -9,9 +9,10 @@ type Task = {
 type TaskFormProps = {
   addTask: (text: string) => void;
   editingTask: Task | null;
+  themeColor: string;
 };
 
-export default function TaskForm({ addTask, editingTask }: TaskFormProps) {
+export default function TaskForm({ addTask, editingTask, themeColor }: TaskFormProps) {
   const [text, setText] = useState("");
 
   useEffect(() => {
@@ -36,22 +37,22 @@ export default function TaskForm({ addTask, editingTask }: TaskFormProps) {
   return (
     <div className="relative">
       {/* Floating Background Effect */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl blur-xl opacity-50"></div>
+      <div className={`absolute inset-0 bg-gradient-to-r ${themeColor} bg-blue-400/20  to-purple-400/20 rounded-3xl blur-xl opacity-50`}></div>
 
       <form onSubmit={handleSubmit} className="relative">
         <div className="bg-white/95 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
 
           {/* Header Section */}
-          <div className="bg-gradient-to-r from-slate-50 to-blue-50/80 px-8 py-6 border-b border-gray-100">
+          <div className="bg-gradient-to-r from-slate-200 to-blue-50/80 px-8 py-6 border-b border-gray-100">
             <div className="flex items-center gap-4">
               <div className="relative">
-                <div className={`w-12 h-12 ${editingTask ? 'bg-gradient-to-br from-amber-400 to-orange-500' : 'bg-gradient-to-br from-blue-500 to-purple-600'} rounded-2xl flex items-center justify-center shadow-lg`}>
+                <div className={`w-12 h-12 ${editingTask ? 'bg-gradient-to-br to-orange-500' : `bg-gradient-to-br from-blue-500`} rounded-2xl flex items-center justify-center shadow-lg`}>
                   {editingTask ? (
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                     </svg>
                   ) : (
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                     </svg>
                   )}
@@ -73,7 +74,7 @@ export default function TaskForm({ addTask, editingTask }: TaskFormProps) {
           <div className="p-8">
             <div className="relative group">
               {/* Animated Border */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 blur-sm"></div>
+              <div className={`absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 rounded-2xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300 blur-sm`}></div>
 
               <div className="relative">
                 <input
@@ -93,13 +94,13 @@ export default function TaskForm({ addTask, editingTask }: TaskFormProps) {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="absolute right-3 top-1/2 -translate-y-1/2 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 disabled:from-gray-300 disabled:to-gray-400 text-white p-4 rounded-xl transition-all duration-300 disabled:cursor-not-allowed transform hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl group"
+                  className={`absolute right-3 top-1/2 -translate-y-1/2 ${themeColor} hover:from-blue-600 hover:to-purple-700 disabled:from-gray-300 text-white p-4 rounded-xl transition-all duration-300 disabled:cursor-not-allowed transform hover:scale-110 active:scale-95 shadow-lg hover:shadow-xl group`}
                 >
                   <svg
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6"
+                    className="w-6 h-6  text-black"
                   >
                     <path
                       d="M12 4v16m8-8H4"

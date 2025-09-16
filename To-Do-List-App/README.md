@@ -1,7 +1,9 @@
 # 📝 To-Do Management Dashboard
 
-A modern, interactive To-Do Management Dashboard built with **React**, **Tailwind CSS**, and **React Toastify**.  
-Manage your tasks efficiently with features like task addition, editing, completion toggling, deletion, and dynamic theme customization.
+A modern, interactive To-Do Management Dashboard built with **React**, **Tailwind CSS**, **Type Script** and **React Toastify**.  
+Manage your tasks efficiently with features like task addition, editing, completion toggling, deletion, dynamic theme customization, and localStorage persistence.
+
+------------------------------------------------------------------------
 
 ## 🚀 Features
 
@@ -9,41 +11,57 @@ Manage your tasks efficiently with features like task addition, editing, complet
 ✏️ Edit existing tasks  
 🎯 Mark tasks as complete or incomplete  
 🗑️ Delete tasks  
+💾 Persist tasks in **localStorage**  
 🌈 Dynamic theme color switcher  
 ⚡ Responsive design  
 📢 Toast notifications for actions  
+
+------------------------------------------------------------------------
 
 ## 🛠️ Tech Stack
 
 - Frontend: React, Tailwind CSS  
 - Notifications: React Toastify  
 - State Management: React `useState`, `useEffect`  
+- Persistent Storage: `localStorage`  
 - Dynamic theme color switching  
+
+------------------------------------------------------------------------
+
 
 ## 🎯 Installation
 
-1. Clone the repository:  
+1. **Clone the repository:** 
    ```bash
-   git clone https://github.com/your-username/todo-dashboard.git
+   git clone https://github.com/jaypawar12/React-Js.git
    ```
 
-2. Navigate to the project directory:  
+2. **Navigate to the project directory:**  
    ```bash
-   cd todo-dashboard
+   cd To-Do-List-App
    ```
 
-3. Install dependencies:  
+3. **Install dependencies:**  
    ```bash
    npm install
    ```
+4.  **Run development server**
 
-4. Start the development server:  
-   ```bash
-   npm start
-   ```
+    ``` bash
+    npm run dev
+    ```
 
-5. Open the app in the browser at:  
-   [http://localhost:3000](http://localhost:3000)
+    The app will be available at **http://localhost:5173/** (or
+    similar).
+
+5.  **Build for production**
+
+    ``` bash
+    npm run build
+    ```
+
+------------------------------------------------------------------------
+
 
 ## ⚡ Usage
 
@@ -52,11 +70,15 @@ Manage your tasks efficiently with features like task addition, editing, complet
 - Delete tasks using the delete button.  
 - Click the theme button (bottom-right) to open the theme panel and select a color.  
 
+------------------------------------------------------------------------
+
 ## 🎨 Theme Customization
 
 - Open the theme panel using the floating button.  
 - Choose from multiple predefined color themes.  
-- The selected theme updates the entire dashboard background color instantly.  
+- The selected theme updates the entire dashboard Theme color instantly.
+
+------------------------------------------------------------------------
 
 ## 📢 Notifications
 
@@ -65,12 +87,34 @@ Powered by **React Toastify**:
 ✏️ Task updated successfully  
 🗑️ Task deleted successfully  
 ✅ Task marked as complete  
-📝 Task marked as incomplete  
+📝 Task marked as incomplete 
+
+------------------------------------------------------------------------
+
+## 🖼️ Screenshots
+
+- Here’s a preview of the dashboard (all screenshots are in public/img/):
+
+> ![Dashboard Screenshot](public/img/ss-1.png)  
+> ![Add Task Screenshot](public/img/ss-2.png)  
+> ![Edit Task Screenshot](public/img/ss-3.png)  
+> ![Change Task Status Screenshot](public/img/ss-4.png)  
+> ![Change Theme Screenshot](public/img/ss-5.png)
+
+------------------------------------------------------------------------
 
 ## 📁 Project Structure
 
 ```
+├── node_modules
 ├── public
+│   ├── img
+│   │   ├── profile.jfif
+│   │   ├── ss-1.PNG
+│   │   ├── ss-2.PNG
+│   │   ├── ss-3.PNG
+│   │   ├── ss-4.PNG
+│   │   ├── ss-5.PNG
 ├── src
 │   ├── components
 │   │   ├── Navbar.tsx
@@ -83,16 +127,26 @@ Powered by **React Toastify**:
 │   ├── index.css
 ├── index.html
 ├── package.json
+├── README.md
 ├── tsconfig.json
 ├── vite.config.ts
-├── README.md
+
 ```
+------------------------------------------------------------------------
 
 ## ✅ License
 
-This project is open-source and available under the **MIT License**.
+This project is open-source and available under the **[MIT License](https://github.com/jaypawar12/MIT-License)**.
+
+------------------------------------------------------------------------
 
 ## 🤝 Contribution
 
 Feel free to fork the project, submit issues, and open pull requests!  
 Your contributions are always welcome ❤️
+
+------------------------------------------------------------------------
+
+## 👨‍💻 Author
+
+Developed by **[Jay Pawar](https://github.com/jaypawar12)** 🚀
