@@ -1,37 +1,36 @@
 # 📝 To-Do Management Dashboard
 
-A modern, interactive To-Do Management Dashboard built with **React**, **Tailwind CSS**, **Type Script** and **React Toastify**.  
-Manage your tasks efficiently with features like task addition, editing, completion toggling, deletion, dynamic theme customization, and localStorage persistence.
+A modern, interactive To-Do Management Dashboard built with **React**, **Tailwind CSS**, **TypeScript**, and **React Toastify**.  
+Efficiently manage your tasks with features like task addition, editing, completion toggling, deletion, dynamic theme customization, and persistent storage using localStorage.
 
-------------------------------------------------------------------------
+---
 
 ## 🚀 Features
 
-✅ Add new tasks  
-✏️ Edit existing tasks  
-🎯 Mark tasks as complete or incomplete  
-🗑️ Delete tasks  
-💾 Persist tasks in **localStorage**  
-🌈 Dynamic theme color switcher  
-⚡ Responsive design  
-📢 Toast notifications for actions  
+- ✅ Add new tasks  
+- ✏️ Edit existing tasks  
+- 🎯 Mark tasks as complete or incomplete  
+- 🗑️ Delete tasks  
+- 💾 Persist tasks in **localStorage**  
+- 🌈 Dynamic theme color switcher  
+- ⚡ Fully responsive design  
+- 📢 Real-time toast notifications  
 
-------------------------------------------------------------------------
+---
 
 ## 🛠️ Tech Stack
 
-- Frontend: React, Tailwind CSS  
+- Frontend: React, Tailwind CSS, TypeScript  
 - Notifications: React Toastify  
 - State Management: React `useState`, `useEffect`  
 - Persistent Storage: `localStorage`  
-- Dynamic theme color switching  
+- Theme Color Customization  
 
-------------------------------------------------------------------------
-
+---
 
 ## 🎯 Installation
 
-1. **Clone the repository:** 
+1. **Clone the repository:**  
    ```bash
    git clone https://github.com/jaypawar12/React-Js.git
    ```
@@ -45,63 +44,60 @@ Manage your tasks efficiently with features like task addition, editing, complet
    ```bash
    npm install
    ```
-4.  **Run development server**
 
-    ``` bash
-    npm run dev
-    ```
+4. **Start the development server:**  
+   ```bash
+   npm run dev
+   ```
+   The app will run at: **http://localhost:5173/**
 
-    The app will be available at **http://localhost:5173/** (or
-    similar).
+5. **Build for production:**  
+   ```bash
+   npm run build
+   ```
 
-5.  **Build for production**
-
-    ``` bash
-    npm run build
-    ```
-
-------------------------------------------------------------------------
-
+---
 
 ## ⚡ Usage
 
-- Use the input field to add a new task or edit an existing one.  
-- Toggle tasks between "Pending" and "Completed" by clicking the checkbox.  
-- Delete tasks using the delete button.  
-- Click the theme button (bottom-right) to open the theme panel and select a color.  
+- Add a new task or edit an existing one via the input form.  
+- Toggle task status between "Pending" and "Completed".  
+- Delete tasks easily with the delete button.  
+- Access the theme panel via the floating button to customize the dashboard theme.  
+- All tasks are saved in **localStorage** to persist across sessions.
 
-------------------------------------------------------------------------
+---
 
 ## 🎨 Theme Customization
 
 - Open the theme panel using the floating button.  
-- Choose from multiple predefined color themes.  
-- The selected theme updates the entire dashboard Theme color instantly.
+- Select from multiple predefined color themes.  
+- Instantly apply the chosen theme to the entire dashboard.
 
-------------------------------------------------------------------------
+---
 
 ## 📢 Notifications
 
-Powered by **React Toastify**:  
-✅ Task added successfully  
-✏️ Task updated successfully  
-🗑️ Task deleted successfully  
-✅ Task marked as complete  
-📝 Task marked as incomplete 
+Powered by **React Toastify** for real-time feedback:  
+- ✅ Task added successfully  
+- ✏️ Task updated successfully  
+- 🗑️ Task deleted successfully  
+- ✅ Task marked as complete  
+- 📝 Task marked as incomplete  
 
-------------------------------------------------------------------------
+---
 
 ## 🖼️ Screenshots
 
-- Here’s a preview of the dashboard (all screenshots are in public/img/):
+Here’s a preview of the dashboard (located in `public/img/`):
 
-> ![Dashboard Screenshot](public/img/ss-1.png)  
-> ![Add Task Screenshot](public/img/ss-2.png)  
-> ![Edit Task Screenshot](public/img/ss-3.png)  
-> ![Change Task Status Screenshot](public/img/ss-4.png)  
-> ![Change Theme Screenshot](public/img/ss-5.png)
+![Dashboard Screenshot](public/img/ss-1.PNG)  
+![Add Task Screenshot](public/img/ss-2.PNG)  
+![Edit Task Screenshot](public/img/ss-3.PNG)  
+![Change Task Status Screenshot](public/img/ss-4.PNG)  
+![Change Theme Screenshot](public/img/ss-5.PNG)  
 
-------------------------------------------------------------------------
+---
 
 ## 📁 Project Structure
 
@@ -130,22 +126,26 @@ Powered by **React Toastify**:
 ├── README.md
 ├── tsconfig.json
 ├── vite.config.ts
-
 ```
-------------------------------------------------------------------------
+
+---
 
 ## ✅ License
 
-This project is open-source and available under the **[MIT License](https://github.com/jaypawar12/MIT-License)**.
+This project is licensed under the **[MIT License](https://github.com/jaypawar12/MIT-License)**.
 
-------------------------------------------------------------------------
+---
 
 ## 🤝 Contribution
 
-Feel free to fork the project, submit issues, and open pull requests!  
-Your contributions are always welcome ❤️
+Contributions are welcome! Feel free to:  
+- Fork the project  
+- Submit issues  
+- Open pull requests  
 
-------------------------------------------------------------------------
+Your contributions help make this project even better ❤️
+
+---
 
 ## 👨‍💻 Author
 

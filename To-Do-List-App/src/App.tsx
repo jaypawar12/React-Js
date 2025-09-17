@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar";
-import Sidebar from "./components/SideBar";
-import TaskForm from "./components/TaskForm";
-import TaskPending from "./components/TaskPending";
-import TaskComplete from "./components/TaskComplete";
+import Navbar from "./Components/Navbar";
+import Sidebar from "./Components/SideBar";
+import TaskForm from "./Components/TaskForm";
+import TaskPending from "./Components/TaskPending";
+import TaskComplete from "./Components/TaskComplete";
 import { ToastContainer, toast } from 'react-toastify';
 
 type Task = {
@@ -16,7 +16,7 @@ export default function AdminDashboard() {
   const [tasks, setTasks] = useState<Task[]>(JSON.parse(localStorage.getItem("tasks") || "[]"));
   const [editingTask, setEditingTask] = useState<Task | null>(null);
   const [themeOpen, setThemeOpen] = useState(false);
-  const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "bg-white");
+  const [themeColor, setThemeColor] = useState(localStorage.getItem("themeColor") || "bg-black");
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -82,6 +82,9 @@ export default function AdminDashboard() {
 
     // Gray shades
     "bg-gray-500", "bg-gray-600", "bg-gray-700",
+
+    // Black
+    "bg-black"
   ];
 
 
