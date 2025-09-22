@@ -1,10 +1,23 @@
+
+import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaFacebookF,
+  FaYoutube,
+  FaLinkedinIn,
+  FaCaretDown,
+} from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+
+
 export default function Footer() {
     return (
         <footer
             className="relative text-gray-300 py-12 bg-cover bg-center"
             style={{
                 backgroundImage:
-                    "linear-gradient(rgba(5,19,17,0.95), rgba(5,19,17,0.95)), url('/img/bg-footer.jpg')",
+                    "linear-gradient(rgba(5,19,17,0.95), rgba(5,19,17,0.95)), url('../Public/img/bg-footer.jpg')",
             }}
         >
             <div className="max-w-7xl mx-auto px-6">
@@ -13,41 +26,57 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white text-xl font-semibold mb-4">Our Office</h4>
                         <p className="flex items-center mb-2">
+                            <FaMapMarkerAlt className="mr-2 text-yellow-500" />
                             123 Street, New York, USA
                         </p>
                         <p className="flex items-center mb-2">
+                            <FaPhoneAlt className="mr-2 text-yellow-500" />
                             +012 345 67890
                         </p>
                         <p className="flex items-center mb-2">
+                            <FaEnvelope className="mr-2 text-yellow-500" />
                             info@example.com
                         </p>
 
                         {/* Social Icons */}
                         <div className="flex space-x-2 pt-3">
-                            <a href="#!" className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400">
-                                {/* Icon here */}
+                            <a
+                                href="#!"
+                                className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400"
+                            >
+                                <FaXTwitter />
                             </a>
-                            <a href="#!" className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400">
-                                {/* Icon here */}
+                            <a
+                                href="#!"
+                                className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400"
+                            >
+                                <FaFacebookF />
                             </a>
-                            <a href="#!" className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400">
-                                {/* Icon here */}
+                            <a
+                                href="#!"
+                                className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400"
+                            >
+                                <FaYoutube />
                             </a>
-                            <a href="#!" className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400">
-                                {/* Icon here */}
+                            <a
+                                href="#!"
+                                className="bg-yellow-500 text-black p-2 rounded hover:bg-yellow-400"
+                            >
+                                <FaLinkedinIn />
                             </a>
                         </div>
                     </div>
+
 
                     {/* Quick Links */}
                     <div>
                         <h4 className="text-white text-xl font-semibold mb-4">Quick Links</h4>
                         <ul className="space-y-2">
-                            <li><a href="#!" className="hover:text-yellow-500">About Us</a></li>
-                            <li><a href="#!" className="hover:text-yellow-500">Contact Us</a></li>
-                            <li><a href="#!" className="hover:text-yellow-500">Our Services</a></li>
-                            <li><a href="#!" className="hover:text-yellow-500">Terms &amp; Condition</a></li>
-                            <li><a href="#!" className="hover:text-yellow-500">Support</a></li>
+                            <li><a href="#!" className="hover:text-yellow-500"><FaCaretDown className="mr-1 inline-block" />About Us</a></li>
+                            <li><a href="#!" className="hover:text-yellow-500"><FaCaretDown className="mr-1 inline-block" />Contact Us</a></li>
+                            <li><a href="#!" className="hover:text-yellow-500"><FaCaretDown className="mr-1 inline-block" />Our Services</a></li>
+                            <li><a href="#!" className="hover:text-yellow-500"><FaCaretDown className="mr-1 inline-block" />Terms &amp; Condition</a></li>
+                            <li><a href="#!" className="hover:text-yellow-500"><FaCaretDown className="mr-1 inline-block" />Support</a></li>
                         </ul>
                     </div>
 
@@ -66,12 +95,12 @@ export default function Footer() {
                     <div>
                         <h4 className="text-white text-xl font-semibold mb-4">Gallery</h4>
                         <div className="grid grid-cols-3 gap-2">
-                            <img src="/img/gallery-1.jpg" alt="" className="w-full h-auto" />
-                            <img src="/img/gallery-2.jpg" alt="" className="w-full h-auto" />
-                            <img src="/img/gallery-3.jpg" alt="" className="w-full h-auto" />
-                            <img src="/img/gallery-4.jpg" alt="" className="w-full h-auto" />
-                            <img src="/img/gallery-5.jpg" alt="" className="w-full h-auto" />
-                            <img src="/img/gallery-6.jpg" alt="" className="w-full h-auto" />
+                            <img src="../Public/img/gallery-1.jpg" alt="" className="w-full h-auto" />
+                            <img src="../Public/img/gallery-2.jpg" alt="" className="w-full h-auto" />
+                            <img src="../Public/img/gallery-3.jpg" alt="" className="w-full h-auto" />
+                            <img src="../Public/img/gallery-4.jpg" alt="" className="w-full h-auto" />
+                            <img src="../Public/img/gallery-5.jpg" alt="" className="w-full h-auto" />
+                            <img src="../Public/img/gallery-6.jpg" alt="" className="w-full h-auto" />
                         </div>
                     </div>
                 </div>

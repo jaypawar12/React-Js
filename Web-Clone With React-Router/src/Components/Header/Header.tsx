@@ -1,11 +1,13 @@
+import { FaCaretDown, FaPhoneAlt, FaEnvelopeOpen, FaMapMarkerAlt, FaBars, FaTwitter, FaFacebookF, FaYoutube } from "react-icons/fa";
+
 export default function Header() {
     return (
         <>
             {/* Topbar */}
-            <div className="w-full bg-teal-800 py-3 px-6">
+            <div className="w-full bg-teal-800 py-7 px-6">
                 <div className="flex flex-col lg:flex-row items-center justify-between">
                     {/* Logo */}
-                    <a href="index.html" className="text-3xl font-bold text-yellow-500">
+                    <a href="index.html" className="text-5xl font-bold ml-3 text-yellow-500">
                         Charitize
                     </a>
 
@@ -13,34 +15,34 @@ export default function Header() {
                     <div className="hidden lg:flex gap-10 text-white text-sm">
                         {/* Call */}
                         <div className="flex items-center">
-                            <div className="bg-yellow-500 p-2 rounded">
-                                <i className="fa fa-phone-alt text-black">📞</i>
+                            <div className="bg-yellow-500 p-3 rounded">
+                                <FaPhoneAlt className="text-black text-lg" />
                             </div>
                             <div className="ml-2">
-                                <h6 className="text-yellow-500 font-semibold">Call Us</h6>
-                                <span>+012 345 6789</span>
+                                <h6 className="text-yellow-500 font-semibold text-lg">Call Us</h6>
+                                <span className="text-lg">+012 345 6789</span>
                             </div>
                         </div>
 
                         {/* Mail */}
                         <div className="flex items-center">
-                            <div className="bg-yellow-500 p-2 rounded">
-                                <i className="fa fa-envelope-open text-black">📧</i>
+                            <div className="bg-yellow-500 p-3 rounded">
+                                <FaEnvelopeOpen className="text-black text-lg" />
                             </div>
                             <div className="ml-2">
-                                <h6 className="text-yellow-500 font-semibold">Mail Us</h6>
-                                <span>info@domain.com</span>
+                                <h6 className="text-yellow-500 font-semibold text-lg">Mail Us</h6>
+                                <span className="text-lg">info@domain.com</span>
                             </div>
                         </div>
 
                         {/* Address */}
                         <div className="flex items-center">
-                            <div className="bg-yellow-500 p-2 rounded">
-                                <i className="fa fa-map-marker-alt text-black">📍</i>
+                            <div className="bg-yellow-500 p-3 rounded">
+                                <FaMapMarkerAlt className="text-black text-lg" />
                             </div>
                             <div className="ml-2">
-                                <h6 className="text-yellow-500 font-semibold">Address</h6>
-                                <span>123 Street, NY, USA</span>
+                                <h6 className="text-yellow-500 font-semibold text-lg">Address</h6>
+                                <span className="text-lg">123 Street, NY, USA</span>
                             </div>
                         </div>
                     </div>
@@ -48,7 +50,7 @@ export default function Header() {
             </div>
 
             {/* Navbar */}
-            <nav className="w-full bg-yellow-500 p-3">
+            <nav className="w-full bg-yellow-500 p-5">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex items-center justify-between">
                         {/* Mobile Menu Button */}
@@ -57,29 +59,29 @@ export default function Header() {
                                 className="text-white text-2xl focus:outline-none"
                                 aria-label="Menu"
                             >
-                                <i className="fa fa-bars"></i>
+                                <FaBars />
                             </button>
                         </div>
 
                         {/* Links */}
                         <div className="hidden lg:flex space-x-6">
-                            <a href="index.html" className="text-white font-bold">
+                            <a href="index.html" className="text-white text-xl font-bold">
                                 Home
                             </a>
-                            <a href="about.html" className="hover:text-white text-black font-semibold">
+                            <a href="about.html" className="hover:text-white text-xl text-black font-semibold">
                                 About
                             </a>
-                            <a href="service.html" className="hover:text-white text-black font-semibold">
+                            <a href="service.html" className="hover:text-white text-xl text-black font-semibold">
                                 Service
                             </a>
-                            <a href="donation.html" className="hover:text-white text-black font-semibold">
+                            <a href="donation.html" className="hover:text-white text-xl text-black font-semibold">
                                 Donation
                             </a>
 
                             {/* Dropdown */}
-                            <div className="relative group">
-                                <button className="flex items-center text-black font-semibold hover:text-white">
-                                    Pages <i className="fa fa-caret-down ml-1">▼</i>
+                            <div className="relative group z-10">
+                                <button className="flex items-center text-black font-semibold hover:text-white text-xl">
+                                    Pages <FaCaretDown className="ml-1" />
                                 </button>
                                 <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded">
                                     <a href="event.html" className="block px-4 py-2 hover:bg-yellow-100">
@@ -100,21 +102,21 @@ export default function Header() {
                                 </div>
                             </div>
 
-                            <a href="contact.html" className="hover:text-white text-black font-semibold">
+                            <a href="contact.html" className="hover:text-white text-black font-semibold text-xl">
                                 Contact
                             </a>
                         </div>
 
                         {/* Socials */}
                         <div className="hidden lg:flex space-x-2">
-                            <a href="#!" className="bg-black p-2 rounded text-white hover:bg-gray-700">
-                                <i className="fab fa-twitter">❤</i>
+                            <a href="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
+                                <FaTwitter />
                             </a>
-                            <a href="#!" className="bg-black p-2 rounded text-white hover:bg-gray-700">
-                                <i className="fab fa-facebook-f"></i>
+                            <a href="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
+                                <FaFacebookF />
                             </a>
-                            <a href="#!" className="bg-black p-2 rounded text-white hover:bg-gray-700">
-                                <i className="fab fa-youtube"></i>
+                            <a href="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
+                                <FaYoutube />
                             </a>
                         </div>
                     </div>
