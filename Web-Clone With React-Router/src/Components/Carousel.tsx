@@ -4,7 +4,7 @@ export default function Carousel() {
                 backgroundImage:
                     "url('../Public/img/bg.jpg')",
             }}>
-      <div className="container mx-auto p-28 px-6 lg:px-12 "
+      <div className="container mx-auto p-28 px-5 lg:px-12 "
             >
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Left Content */}
