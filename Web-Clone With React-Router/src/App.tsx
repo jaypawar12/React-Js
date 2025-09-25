@@ -1,10 +1,12 @@
+import Banner from "./Components/Banner.tsx";
 import Carousel from "./Components/Carousel.tsx";
+import Donation from "./Components/Donation.tsx";
 import Footer from "./Components/Footer/Footer.tsx";
 import Header from "./Components/Header/Header.tsx";
+import Service from "./Components/Service.tsx";
 import About from "./Pages/About/About.tsx";
-import AboutPage from "./Pages/About/AboutPage.tsx";
+// import AboutPage from "./Pages/About/AboutPage.tsx";
 import { FaUsers, FaAward, FaListCheck, FaComments, FaCheck } from "react-icons/fa6";
-import { FaTint, FaHospital, FaHandsHelping, FaUtensils, FaSchool, FaHome } from "react-icons/fa";
 
 export default function App() {
   return (
@@ -12,7 +14,7 @@ export default function App() {
       <Header />
       <Carousel />
       <About />
-
+      <Service/>
       <div className="w-full py-16">
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
 
@@ -50,7 +52,10 @@ export default function App() {
           {/* Right Text Content */}
           <div>
             <p className="text-yellow-500 font-semibold uppercase tracking-wide flex items-center gap-2">
-              Why Us! <span className="w-12 h-[2px] bg-yellow-500 inline-block"></span>
+              Why Us! <div className="ml-1 inline-flex flex-col">
+                <span className="w-7 h-[2px] mb-2 bg-yellow-500 inline-block"></span>
+              <span className="w-15 h-[2px] bg-yellow-500 inline-block"></span>
+              </div>
             </p>
             <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
               Few Reasons Why People Choosing Us!
@@ -90,116 +95,10 @@ export default function App() {
           </div>
         </div>
       </div>
-      <div className="w-full py-16">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-10">
-
-          {/* Left Side Title */}
-          <div className="lg:col-span-3 bg-[url('../Public/img/bg.jpg')] bg-cover bg-center p-8 rounded-md shadow">
-            <h1 className="text-3xl font-bold leading-snug mb-4 text-gray-900">
-              What We Do for <br /> Those in Need.
-            </h1>
-            <p className="text-gray-600 text-lg">
-              We work to bring smiles, hope, and a brighter future to those in need.
-            </p>
-          </div>
-
-          {/* Right Side Grid */}
-          <div className="lg:col-span-9 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-
-            {/* Service Item */}
-            <div className="flex flex-col h-full">
-              <div className="w-14 h-14 bg-yellow-100 flex items-center justify-center mb-4 rounded">
-                <FaTint className="text-teal-700 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Pure Water</h3>
-              <p className="text-gray-600 mb-3">
-                We’re creating programs that address urgent needs while fostering
-                long-term solutions for sustainable change.
-              </p>
-              <a href="#!" className="text-yellow-500 font-semibold hover:underline">
-                READ MORE
-              </a>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col h-full">
-              <div className="w-14 h-14 bg-yellow-100 flex items-center justify-center mb-4 rounded">
-                <FaHospital className="text-teal-700 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Health Care</h3>
-              <p className="text-gray-600 mb-3">
-                We’re creating programs that address urgent needs while fostering
-                long-term solutions for sustainable change.
-              </p>
-              <a href="#!" className="text-yellow-500 font-semibold hover:underline">
-                READ MORE
-              </a>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col h-full">
-              <div className="w-14 h-14 bg-yellow-100 flex items-center justify-center mb-4 rounded">
-                <FaHandsHelping className="text-teal-700 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Social Care</h3>
-              <p className="text-gray-600 mb-3">
-                We’re creating programs that address urgent needs while fostering
-                long-term solutions for sustainable change.
-              </p>
-              <a href="#!" className="text-yellow-500 font-semibold hover:underline">
-                READ MORE
-              </a>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col h-full">
-              <div className="w-14 h-14 bg-yellow-100 flex items-center justify-center mb-4 rounded">
-                <FaUtensils className="text-teal-700 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Healthy Food</h3>
-              <p className="text-gray-600 mb-3">
-                We’re creating programs that address urgent needs while fostering
-                long-term solutions for sustainable change.
-              </p>
-              <a href="#!" className="text-yellow-500 font-semibold hover:underline">
-                READ MORE
-              </a>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col h-full">
-              <div className="w-14 h-14 bg-yellow-100 flex items-center justify-center mb-4 rounded">
-                <FaSchool className="text-teal-700 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Primary Education</h3>
-              <p className="text-gray-600 mb-3">
-                We’re creating programs that address urgent needs while fostering
-                long-term solutions for sustainable change.
-              </p>
-              <a href="#!" className="text-yellow-500 font-semibold hover:underline">
-                READ MORE
-              </a>
-            </div>
-
-            {/* Service Item */}
-            <div className="flex flex-col h-full">
-              <div className="w-14 h-14 bg-yellow-100 flex items-center justify-center mb-4 rounded">
-                <FaHome className="text-teal-700 text-2xl" />
-              </div>
-              <h3 className="text-xl font-bold mb-2">Residence Facilities</h3>
-              <p className="text-gray-600 mb-3">
-                We’re creating programs that address urgent needs while fostering
-                long-term solutions for sustainable change.
-              </p>
-              <a href="#!" className="text-yellow-500 font-semibold hover:underline">
-                READ MORE
-              </a>
-            </div>
-
-          </div>
-        </div>
-      </div>
-      <AboutPage />
+      <Donation/>
+      <Banner />
+      
+      {/* <AboutPage /> */}
       <Footer />
     </div>
   )

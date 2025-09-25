@@ -14,7 +14,7 @@ export default function About() {
 
                     {/* Text Section */}
                     <div>
-                        <p className="text-sm font-semibold text-yellow-600 uppercase tracking-wide mb-2">
+                        <p className="text-md font-semibold text-yellow-500 uppercase tracking-wide mb-2">
                             About Us
                         </p>
                         <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
