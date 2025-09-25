@@ -20,14 +20,14 @@ export default function AdminDashboard() {
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  useEffect(() => {
     localStorage.setItem("themeColor", themeColor);
-  }, [tasks, themeColor]);
-
-
-
+  }, [themeColor]);
 
   const addTask = (text: string) => {
-    if (editingTask) {
+    if (editingTask !== null) {
       const updated = tasks.map((task) =>
         task.id === editingTask.id ? { ...task, text } : task
       );
@@ -86,8 +86,6 @@ export default function AdminDashboard() {
     // Black
     "bg-black"
   ];
-
-
 
 
   const handleThemeChange = (colorClass: string) => {
@@ -160,7 +158,7 @@ export default function AdminDashboard() {
             )}
 
             <button
-              className="bg-blue-600 text-white p-4 rounded-full shadow-lg cursor-pointer hover:bg-blue-700 transition-all"
+              className={`${themeColor} text-white p-4 rounded-full shadow-lg cursor-pointer transition-all`}
               onClick={() => setThemeOpen(!themeOpen)}
               title="Toggle Theme Panel"
             >

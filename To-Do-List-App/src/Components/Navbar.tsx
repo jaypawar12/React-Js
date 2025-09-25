@@ -71,14 +71,14 @@ export default function Navbar({ themeColor }: NavbarProps) {
         <div className="flex items-center space-x-4">
 
           {/* Search Button */}
-          <button className={`hidden md:flex items-center justify-center w-10 h-10 ${themeColor} text-white hover:bg-black/20 rounded-xl transition-all duration-300 group backdrop-blur-sm hover:shadow-lg`}>
+          <button className={`hidden md:flex items-center justify-center w-10 h-10 ${themeColor} text-white hover:bg-black rounded-xl transition-all duration-300 group backdrop-blur-sm hover:shadow-lg`}>
             <svg className="w-5 h-5 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </button>
 
           {/* Notifications */}
-          <button className="relative p-2.5 text-black hover:bg-gray-700 rounded-xl transition-all duration-300 group backdrop-blur-sm hover:shadow-lg">
+          <button className="relative p-2.5 text-black hover:bg-black hover:text-white rounded-xl transition-all duration-300 group backdrop-blur-sm hover:shadow-lg">
             <svg className="w-6 h-6 group-hover:scale-110 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 17h5l-3.89-3.89a2.28 2.28 0 000-3.22L15 7v10zM9.12 10.12L15 17H9.12a7.49 7.49 0 010-6.88z" />
             </svg>
