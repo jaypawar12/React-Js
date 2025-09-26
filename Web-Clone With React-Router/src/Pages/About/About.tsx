@@ -14,8 +14,12 @@ export default function About() {
 
                     {/* Text Section */}
                     <div>
-                        <p className="text-md font-semibold text-yellow-500 uppercase tracking-wide mb-2">
+                        <p className="text-yellow-500 font-semibold uppercase tracking-wide flex items-center gap-2">
                             About Us
+                            <div className="ml-1 inline-flex flex-col">
+                                <span className="w-7 h-[2px] mb-2 bg-yellow-500 inline-block"></span>
+                                <span className="w-15 h-[2px] bg-yellow-500 inline-block"></span>
+                            </div>
                         </p>
                         <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
                             Join Hands, Change the World
