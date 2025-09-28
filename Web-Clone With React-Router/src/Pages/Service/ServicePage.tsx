@@ -1,10 +1,6 @@
+import Service from "./Service";
 
-import Banner from "../../Components/Banner";
-import Feature from "../Feature/Feature";
-import TeamSection from "../OurTeam/Team";
-import About from "./About";
-
-export default function AboutPage() {
+export default function ServicePage() {
   return (
     <>
       <div
@@ -13,14 +9,11 @@ export default function AboutPage() {
       >
         <div className="max-w-6xl mx-auto text-center py-8">
           <h1 className="text-4xl md:text-6xl font-bold text-black">
-            About Us
+            Service
           </h1>
         </div>
       </div>
-      <About />
-      <Banner/>
-      <Feature/>
-      <TeamSection/>
+      <Service/>
     </>
   )
 }

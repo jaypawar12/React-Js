@@ -1,6 +1,6 @@
 import { FaPaperPlane } from 'react-icons/fa';
 
-export default function NewsletterSection() {
+export default function NewsLetterSection() {
   return (
     <section className="bg-yellow-500 py-16 mt-10">
       <div className="max-w-3xl mx-auto px-4 text-center">

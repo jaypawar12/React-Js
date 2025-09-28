@@ -1,15 +1,16 @@
 import { FaCaretDown, FaPhoneAlt, FaEnvelopeOpen, FaMapMarkerAlt, FaBars, FaTwitter, FaFacebookF, FaYoutube } from "react-icons/fa";
+import { NavLink } from "react-router";
 
 export default function Header() {
     return (
         <>
             {/* Topbar */}
-            <div className="w-full bg-teal-800 py-7 px-6">
-                <div className="flex flex-col lg:flex-row items-center justify-between">
+            <div className="w-full bg-teal-800 py-6 px-6 fixed top-0 left-0 z-50 shadow-md">
+                <div className="flex flex-col lg:flex-row items-center justify-between max-w-7xl mx-auto">
                     {/* Logo */}
-                    <a href="index.html" className="text-5xl font-bold ml-3 text-yellow-500">
+                    <NavLink to="/" className="text-5xl font-bold ml-3 text-yellow-500">
                         Charitize
-                    </a>
+                    </NavLink>
 
                     {/* Contact Info */}
                     <div className="hidden lg:flex gap-10 text-white text-sm">
@@ -50,7 +51,7 @@ export default function Header() {
             </div>
 
             {/* Navbar */}
-            <nav className="w-full bg-yellow-500 p-5">
+            <nav className="w-full bg-yellow-500 p-4 mt-3 fixed top-[90px] left-0 z-40 shadow-md border">
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex items-center justify-between">
                         {/* Mobile Menu Button */}
@@ -65,63 +66,113 @@ export default function Header() {
 
                         {/* Links */}
                         <div className="hidden lg:flex space-x-6">
-                            <a href="index.html" className="text-white text-xl font-bold">
+                            <NavLink
+                                to="/"
+                                className={({ isActive }) =>
+                                    `text-xl font-bold ${isActive ? "text-white" : "text-black hover:text-white"}`
+                                }
+                            >
                                 Home
-                            </a>
-                            <a href="about.html" className="hover:text-white text-xl text-black font-semibold">
+                            </NavLink>
+
+                            <NavLink
+                                to="/about"
+                                className={({ isActive }) =>
+                                    `text-xl font-semibold ${isActive ? "text-white" : "text-black hover:text-white"}`
+                                }
+                            >
                                 About
-                            </a>
-                            <a href="service.html" className="hover:text-white text-xl text-black font-semibold">
+                            </NavLink>
+
+                            <NavLink
+                                to="/service"
+                                className={({ isActive }) =>
+                                    `text-xl font-semibold ${isActive ? "text-white" : "text-black hover:text-white"}`
+                                }
+                            >
                                 Service
-                            </a>
-                            <a href="donation.html" className="hover:text-white text-xl text-black font-semibold">
+                            </NavLink>
+
+                            <NavLink
+                                to="/donation"
+                                className={({ isActive }) =>
+                                    `text-xl font-semibold ${isActive ? "text-white" : "text-black hover:text-white"}`
+                                }
+                            >
                                 Donation
-                            </a>
+                            </NavLink>
 
                             {/* Dropdown */}
                             <div className="relative group z-10">
                                 <button className="flex items-center text-black font-semibold hover:text-white text-xl">
                                     Pages <FaCaretDown className="ml-1" />
                                 </button>
-                                <div className="absolute left-0 mt-2 hidden group-hover:block bg-white shadow-lg rounded">
-                                    <a href="event.html" className="block px-4 py-2 hover:bg-yellow-100">
+                                <div className="absolute left-0 fade w-32 p-2 mt-2 hidden group-hover:block bg-white shadow-lg rounded">
+                                    <NavLink
+                                        to="/event"
+                                        className={({ isActive }) =>
+                                            `block px-4 py-2 ${isActive ? "bg-yellow-200 font-semibold" : "hover:bg-yellow-100"}`
+                                        }
+                                    >
                                         Event
-                                    </a>
-                                    <a href="feature.html" className="block px-4 py-2 hover:bg-yellow-100">
+                                    </NavLink>
+                                    <NavLink
+                                        to="/feature"
+                                        className={({ isActive }) =>
+                                            `block px-4 py-2 ${isActive ? "bg-yellow-200 font-semibold" : "hover:bg-yellow-100"}`
+                                        }
+                                    >
                                         Feature
-                                    </a>
-                                    <a href="team.html" className="block px-4 py-2 hover:bg-yellow-100">
+                                    </NavLink>
+                                    <NavLink
+                                        to="/team"
+                                        className={({ isActive }) =>
+                                            `block px-4 py-2 ${isActive ? "bg-yellow-200 font-semibold" : "hover:bg-yellow-100"}`
+                                        }
+                                    >
                                         Our Team
-                                    </a>
-                                    <a href="testimonial.html" className="block px-4 py-2 hover:bg-yellow-100">
-                                        Testimonial
-                                    </a>
-                                    <a href="404.html" className="block px-4 py-2 hover:bg-yellow-100">
+                                    </NavLink>
+                                    <NavLink
+                                        to="/404"
+                                        className={({ isActive }) =>
+                                            `block px-4 py-2 ${isActive ? "bg-yellow-200 font-semibold" : "hover:bg-yellow-100"}`
+                                        }
+                                    >
                                         404 Page
-                                    </a>
+                                    </NavLink>
                                 </div>
                             </div>
 
-                            <a href="contact.html" className="hover:text-white text-black font-semibold text-xl">
+                            <NavLink
+                                to="/contact"
+                                className={({ isActive }) =>
+                                    `text-xl font-semibold ${isActive ? "text-white" : "text-black hover:text-white"}`
+                                }
+                            >
                                 Contact
-                            </a>
+                            </NavLink>
                         </div>
 
                         {/* Socials */}
                         <div className="hidden lg:flex space-x-2">
-                            <a href="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
+                            <NavLink to="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
                                 <FaTwitter />
-                            </a>
-                            <a href="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
+                            </NavLink>
+                            <NavLink to="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
                                 <FaFacebookF />
-                            </a>
-                            <a href="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
+                            </NavLink>
+                            <NavLink to="#!" className="bg-black p-4 rounded text-white hover:bg-gray-700">
                                 <FaYoutube />
-                            </a>
+                            </NavLink>
                         </div>
                     </div>
                 </div>
             </nav>
+
+            {/* Content padding so header doesn’t overlap */}
+            <div className="pt-[180px]">
+                {/* Page content here */}
+            </div>
         </>
     );
 }

@@ -1,69 +1,147 @@
-# React + TypeScript + Vite
+# 🌐 Web Clone with React Router + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, scalable, and maintainable web project built with **React 18**, **TypeScript**, **React Router v6**, and **Vite**.  
+This project follows a clean folder structure for better development experience and future scalability.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Tech Stack
 
-## Expanding the ESLint configuration
+- ⚛️ **React 18**
+- 📘 **TypeScript**
+- 🛣 **React Router v6**
+- ⚡ **Vite**
+- 🎨 CSS / TailwindCSS (optional)
+- 🧹 ESLint (configured)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🚀 Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### 1️⃣ Clone the repository
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+
+
+### Install dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Run the development server
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Build for production
+
+```bash
+npm run build
+```
+
+### Lint the code
+
+```bash
+npm run lint
+```
+
+## 🖼️ Screenshots
+
+Here’s a preview of the dashboard (located in `public/img/`):
+
+![Home]("")  
+![About]("")  
+![Service]("")  
+![Donation]("")  
+![Contact]("")  
+
+
+## Project Structure
+
+```
+src/
+│
+├── assets/              # Images, fonts, CSS
+│   ├── images/
+│   └── styles/
+│
+├── components/          # Reusable UI components
+│   ├── Banner.tsx
+│   ├── Carousel.tsx
+│   ├── NewsLetter.tsx
+│   ├── Footer/
+│   │   └── Footer.tsx
+│   └── Header/
+│       └── Header.tsx
+│
+├── pages/               # Page-level components
+│   ├── About/
+│   │ ├── About.tsx
+│   │ └── AboutPage.tsx
+│   ├── Contact/
+│   │ ├── Contact.tsx
+│   │ └── ContactPage.tsx
+│   ├── Donation/
+│   │ ├── Donation.tsx
+│   │ └── DonationPage.tsx
+│   ├── Event/
+│   │ ├── Event.tsx
+│   │ └── EventPage.tsx
+│   ├── Feature/
+│   │ ├── Feature.tsx
+│   │ └── FeaturePage.tsx
+│   ├── Home/
+│   │ └── Home.tsx
+│   ├── NotFound/
+│   │ └── NotFoundPage.tsx
+│   ├── OurTeam/
+│   │ ├── Team.tsx
+│   │ └── OurTeamPage.tsx
+│   └── Service/
+│   ├── Service.tsx
+│   └── ServicePage.tsx
+│
+├── Routes/ # Centralized route configuration
+│ └── routes.ts
+│
+├── routes/              # Routing configuration
+│   └── routes.ts
+│
+├── types/               # TypeScript interfaces/types
+├── utils/               # Helper functions
+│
+├── App.tsx              # Main App component
+├── main.tsx             # Entry point
+├── index.css            # Global styles
+└── vite-env.d.ts        # Vite + TypeScript config
+
+
+```
+
+- `src/Components/` - Reusable UI components
+- `src/Pages/` - Page components for routing
+- `src/Routes/routes.ts` - React Router configuration
+- `src/App.tsx` - Main layout component
+- `src/main.tsx` - Entry point
+
+## Routing
+
+Routes are defined in `src/Routes/routes.ts` using React Router v6+.
+
+- Example route definition:
+
+```
+{
+  path: "/about",
+  element: <AboutPage />
+}
+
+```
+
+## License
+
+Developed by **[Jay Pawar](https://github.com/jaypawar12)** 🚀
