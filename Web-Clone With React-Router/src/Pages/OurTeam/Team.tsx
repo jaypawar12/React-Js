@@ -28,7 +28,7 @@ export default function TeamSection() {
                     {/* Member 1 */}
                     <div className="flex bg-white shadow-md rounded-lg p-4 h-full">
                         <div className="pr-4">
-                            <img src="/img/team-1.jpg" alt="Boris Johnson" className="mb-4 w-full rounded-md" />
+                            <img src="../Public/img/team-1.jpg" alt="Boris Johnson" className="mb-4 w-full rounded-md" />
                             <h3 className="text-2xl mb-2 font-semibold">Boris Johnson</h3>
                             <p className="text-gray-500 text-lg">Founder & CEO</p>
                         </div>
@@ -51,7 +51,7 @@ export default function TeamSection() {
                     {/* Member 2 */}
                     <div className="flex bg-white shadow-md rounded-lg p-4 h-full">
                         <div className="pr-4">
-                            <img src="/img/team-2.jpg" alt="Donald Pakura" className="mb-4 w-full rounded-md" />
+                            <img src="../Public/img/team-2.jpg" alt="Donald Pakura" className="mb-4 w-full rounded-md" />
                             <h3 className="text-2xl mb-2 font-semibold">Donald Pakura</h3>
                             <p className="text-gray-500 text-lg">Project Manager</p>
                         </div>
@@ -74,7 +74,7 @@ export default function TeamSection() {
                     {/* Member 3 */}
                     <div className="flex bg-white shadow-md rounded-lg p-4 h-full">
                         <div className="pr-4">
-                            <img src="/img/team-3.jpg" alt="Alexander Bell" className="mb-4 w-full rounded-md" />
+                            <img src="../Public/img/team-3.jpg" alt="Alexander Bell" className="mb-4 w-full rounded-md" />
                             <h3 className="text-2xl mb-2 font-semibold">Alexander Bell</h3>
                             <p className="text-gray-500 text-lg">Volunteer</p>
                         </div>

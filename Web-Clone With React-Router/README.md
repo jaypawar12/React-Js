@@ -21,8 +21,8 @@ This project follows a clean folder structure for better development experience 
 ### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/jaypawar12/React-Js.git
+cd Web-Clone With React-Router
 
 
 ### Install dependencies
@@ -53,11 +53,11 @@ npm run lint
 
 Here’s a preview of the dashboard (located in `public/img/`):
 
-![Home]("")  
-![About]("")  
-![Service]("")  
-![Donation]("")  
-![Contact]("")  
+![Home](Public/img/Home.png)
+![About](Public/img/About.png)
+![Service](Public/img/Service.png)
+![Donation](Public/img/Donation.png)
+![Contact](Public/img/Contact.png)
 
 
 ## Project Structure
