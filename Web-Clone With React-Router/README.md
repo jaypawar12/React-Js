@@ -54,11 +54,13 @@ npm run lint
 Here’s a preview of the dashboard (located in `public/img/`):
 
 
-<img src="Public/img/Home.png" alt="Home" width="300" />
-<img src="Public/img/About.png" alt="About" width="300" />
-<img src="Public/img/Service.png" alt="Service" width="300" />
-<img src="Public/img/Donation.png" alt="Donation" width="300" />
-<img src="Public/img/Contact.png" alt="Contact" width="300" />
+<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <img src="Public/img/Home.png" alt="Home" width="300" style="border: 2px dotted black;" />
+  <img src="Public/img/About.png" alt="About" width="300" style="border: 2px dotted black;" />
+  <img src="Public/img/Service.png" alt="Service" width="300" style="border: 2px dotted black;" />
+  <img src="Public/img/Donation.png" alt="Donation" width="300" style="border: 2px dotted black;" />
+  <img src="Public/img/Contact.png" alt="Contact" width="300" style="border: 2px dotted black;" />
+</div>
 
 
 ## Project Structure
