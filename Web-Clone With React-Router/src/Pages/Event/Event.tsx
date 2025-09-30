@@ -28,7 +28,7 @@ export default function Event() {
                     {/* Card 1 */}
                     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition p-5">
                         <img
-                            src="img/event-1.jpg"
+                            src="../Public/img/event-1.jpg"
                             alt="Education Program"
                             className="w-full h-52 object-cover rounded-md mb-4"
                         />
@@ -56,7 +56,7 @@ export default function Event() {
                     {/* Card 2 */}
                     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition p-5">
                         <img
-                            src="img/event-2.jpg"
+                            src="../Public/img/event-2.jpg"
                             alt="Awareness Program"
                             className="w-full h-52 object-cover rounded-md mb-4"
                         />
@@ -84,7 +84,7 @@ export default function Event() {
                     {/* Card 3 */}
                     <div className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-xl transition p-5">
                         <img
-                            src="img/event-3.jpg"
+                            src="../Public/img/event-3.jpg"
                             alt="Health Care Program"
                             className="w-full h-52 object-cover rounded-md mb-4"
                         />
