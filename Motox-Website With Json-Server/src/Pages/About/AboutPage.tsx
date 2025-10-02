@@ -2,15 +2,15 @@ import { FaBullseye, FaCar, FaHandshake } from "react-icons/fa";
 
 export default function About() {
   return (
-    <section className="w-full bg-gradient-to-r from-gray-100 to-gray-200 text-gray-800 py-20">
+    <section className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black  text-gray-800 py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-16">
 
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             About <span className="text-red-500">CarZone</span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Your ultimate destination for premium cars, amazing deals, and unmatched service.
           </p>
         </div>
@@ -28,11 +28,11 @@ export default function About() {
 
           {/* Text */}
           <div className="w-full lg:w-1/2 space-y-6">
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-300">
               At <span className="font-bold text-red-500">CarZone</span>, we bring you closer to your dream car.  
               Our goal is to combine style, performance, and unbeatable deals — all in one place.
             </p>
-            <p className="text-lg text-gray-700">
+            <p className="text-lg text-gray-300">
               We cater to everyone, whether you’re an enthusiast, a daily driver, or simply looking for a reliable ride.  
               Our passion drives us to deliver excellence in every service.
             </p>

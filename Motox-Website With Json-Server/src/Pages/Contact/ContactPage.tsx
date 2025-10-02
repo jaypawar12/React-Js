@@ -2,14 +2,14 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section id="contact" className="w-full bg-gray-100 py-20">
+    <section id="contact" className="w-full bg-gradient-to-br from-gray-900 via-gray-800 to-black  py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 space-y-12">
         {/* Header */}
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Get in <span className="text-red-500">Touch</span>
           </h2>
-          <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Have questions or want to know more? Reach out to us, we’re here to help!
           </p>
         </div>

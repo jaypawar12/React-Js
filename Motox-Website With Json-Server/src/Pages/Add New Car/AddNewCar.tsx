@@ -1,117 +1,159 @@
 import { useState } from "react";
+import { FaCarSide, FaBuilding, FaDollarSign, FaImage, FaAlignLeft } from "react-icons/fa";
 
-export default function AddCarForm({ addCar }: { addCar: (car: any) => void }) {
-  const [carName, setCarName] = useState("");
-  const [carBrand, setCarBrand] = useState("");
-  const [carPrice, setCarPrice] = useState("");
-  const [carImage, setCarImage] = useState("");
-  const [carDesc, setCarDesc] = useState("");
+export default function AddCarForm() {
+  const [carFormData, setCarFormData] = useState({
+    id: Math.floor(Math.random() * 10000),
+    name: "",
+    brand: "",
+    price: "",
+    image: "",
+    description: "",
+  });
 
-  const handleSubmit = (e:any) => {
-    e.preventDefault();
-    if (!carName || !carBrand || !carPrice || !carImage || !carDesc) return;
+  const handleEvent = (e: any) => {
 
-    addCar({
-      name: carName,
-      brand: carBrand,
-      price: carPrice,
-      image: carImage,
-      description: carDesc,
-    });
+    const { name, value } = e.target;
 
-    // Reset form
-    setCarName("");
-    setCarBrand("");
-    setCarPrice("");
-    setCarImage("");
-    setCarDesc("");
+    setCarFormData({ ...carFormData, [name]: value });
   };
 
-  return (
-    <section className="w-full bg-gray-100 py-16">
-      <div className="max-w-4xl mx-auto px-6 lg:px-12 bg-white rounded-xl shadow-lg p-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-          Add New Car
-        </h2>
+ const handleSubmit = async (e: any) => {
+  e.preventDefault();
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
+  try {
+    const response = await fetch("http://localhost:8000/cars", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(carFormData),
+    });
+
+    if (response.ok) {
+      console.log("Car added successfully!");
+
+      setCarFormData({
+        id: Math.floor(Math.random() * 10000),
+        name: "",
+        brand: "",
+        price: "",
+        image: "",
+        description: "",
+      });
+    } else {
+      alert("Failed to add car. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    alert("Something went wrong. Please try again.");
+  }
+};
+
+
+  return (
+    <section className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black py-20 px-6">
+      {/* Background Pattern Layer */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+
+      {/* Glass Card */}
+      <div className="relative max-w-4xl w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+
+        {/* Header */}
+        <div className="bg-gradient-to-r from-red-600 via-red-50 to-red-500 text-white py-6 px-8">
+          <h2 className="text-2xl font-bold pb-2 text-black">🚗 Add New Car</h2>
+          <p className="text-black">Enter the details below to showcase your premium car</p>
+        </div>
+
+        {/* Form */}
+        <form className="p-8 grid grid-cols-1 md:grid-cols-2 gap-8" onSubmit={handleSubmit}>
+
           {/* Car Name */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Car Name
-            </label>
+          <div className="relative">
+            <FaCarSide className="absolute left-3 top-3 text-gray-400" />
             <input
               type="text"
-              value={carName}
-              onChange={(e) => setCarName(e.target.value)}
-              placeholder="Enter car name"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              value={carFormData.name}
+              name="name"
+              placeholder=" "
+              onChange={handleEvent}
+              className="peer w-full bg-white/5 text-white border border-gray-400/30 rounded-lg pl-10 pr-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 outline-none transition"
             />
+            <label className="absolute left-10 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-400">
+              Car Name
+            </label>
           </div>
 
           {/* Car Brand */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Car Brand
-            </label>
+          <div className="relative">
+            <FaBuilding className="absolute left-3 top-3 text-gray-400" />
             <input
               type="text"
-              value={carBrand}
-              onChange={(e) => setCarBrand(e.target.value)}
-              placeholder="Enter car brand"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              value={carFormData.brand}
+              name="brand"
+              placeholder=" "
+              onChange={handleEvent}
+              className="peer w-full bg-white/5 text-white border border-gray-400/30 rounded-lg pl-10 pr-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 outline-none transition"
             />
+            <label className="absolute left-10 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-400">
+              Car Brand
+            </label>
           </div>
 
           {/* Car Price */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Car Price
-            </label>
+          <div className="relative">
+            <FaDollarSign className="absolute left-3 top-3 text-gray-400" />
             <input
               type="number"
-              value={carPrice}
-              onChange={(e) => setCarPrice(e.target.value)}
-              placeholder="Enter car price"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              value={carFormData.price}
+              name="price"
+              placeholder=" "
+              onChange={handleEvent}
+              className="peer w-full bg-white/5 text-white border border-gray-400/30 rounded-lg pl-10 pr-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 outline-none transition"
             />
+            <label className="absolute left-10 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-400">
+              Car Price
+            </label>
           </div>
 
           {/* Car Image URL */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
-              Car Image URL
-            </label>
+          <div className="relative">
+            <FaImage className="absolute left-3 top-3 text-gray-400" />
             <input
               type="text"
-              value={carImage}
-              onChange={(e) => setCarImage(e.target.value)}
-              placeholder="Enter image URL"
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
+              name="image"
+              placeholder=" "
+              onChange={handleEvent}
+              className="peer w-full bg-white/5 text-white border border-gray-400/30 rounded-lg pl-10 pr-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 outline-none transition"
             />
+            <label className="absolute left-10 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-400">
+              Car Image URL
+            </label>
           </div>
 
           {/* Car Description */}
-          <div>
-            <label className="block text-gray-700 font-medium mb-2">
+          <div className="relative md:col-span-2">
+            <FaAlignLeft className="absolute left-3 top-3 text-gray-400" />
+            <textarea
+              placeholder=" "
+              value={carFormData.description}
+              name="description"
+              onChange={handleEvent}
+              rows={4}
+              className="peer w-full bg-white/5 text-white border border-gray-400/30 rounded-lg pl-10 pr-4 py-3 focus:border-red-500 focus:ring-2 focus:ring-red-500/50 outline-none transition resize-none"
+            ></textarea>
+            <label className="absolute left-10 top-3 text-gray-400 text-sm transition-all peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-500 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs peer-focus:text-red-400">
               Car Description
             </label>
-            <textarea
-              value={carDesc}
-              onChange={(e) => setCarDesc(e.target.value)}
-              placeholder="Enter description"
-              rows={4}
-              className="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-red-500"
-            ></textarea>
           </div>
 
           {/* Submit Button */}
-          <div className="text-center">
+          <div className="md:col-span-2 text-center">
             <button
               type="submit"
-              className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-medium transition"
+              className="bg-gradient-to-r from-red-600 via-red-50 to-red-500 hover:from-red-700 hover:to-red-600 text-black px-12 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-105 transition"
             >
-              Add Car
+              ➕ Add Car
             </button>
           </div>
         </form>
