@@ -95,22 +95,22 @@ Open in browser: [http://localhost:3000](http://localhost:3000)
 *(Add your screenshots here later — place them in a `Screenshots/` folder or link from your repo)*  
 
 ### 🏠 Homepage  
-<img src="public/img/Home.png" alt="Homepage" width="600" height="350" />
+<img src="public/img/Home.png" alt="Homepage" width="full" />
 
 ### 🚘 View All Cars  
-<img src="public/img/ViewAllCar.png" alt="View All Cars" width="600" height="350" />
+<img src="public/img/ViewAllCar.png" alt="View All Cars" width="full" />
 
 ### ℹ️ About Page  
-<img src="public/img/About.png" alt="About" width="600" height="350" />
+<img src="public/img/About.png" alt="About" width="full" />
 
 ### ➕ Add New Car Page  
-<img src="public/img/AddCar.png" alt="Add New Car" width="600" height="350" />
+<img src="public/img/AddCar.png" alt="Add New Car" width="full" />
 
 ### ✅ Form Validation  
-<img src="public/img/Validation.png" alt="Validation" width="600" height="350" />
+<img src="public/img/Validation.png" alt="Validation" width="full" />
 
 ### 📞 Contact Page  
-<img src="public/img/Contact.png" alt="Contact" width="600" height="350" />
+<img src="public/img/Contact.png" alt="Contact" width="full" />
 
 ## 🤝 Contribution  
 Contributions are welcome! Please open an issue or submit a pull request for improvements, bug fixes, or new features.  
