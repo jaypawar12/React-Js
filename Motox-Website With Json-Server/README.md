@@ -101,7 +101,7 @@ Open in browser: [http://localhost:3000](http://localhost:3000)
 <img src="public/img/ViewAllCar.png" alt="View All Cars" width="600" height="350" />
 
 ### ℹ️ About Page  
-<img src="public/img/about.png" alt="About" width="600" height="350" />
+<img src="public/img/About.png" alt="About" width="600" height="350" />
 
 ### ➕ Add New Car Page  
 <img src="public/img/AddCar.png" alt="Add New Car" width="600" height="350" />
