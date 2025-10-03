@@ -1,4 +1,5 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaCarSide } from "react-icons/fa";
+import { Link } from "react-router";
 
 export default function Footer() {
   return (
@@ -13,7 +14,7 @@ export default function Footer() {
         <div>
           <div className="flex items-center gap-2 text-white text-3xl font-bold">
             <FaCarSide className="text-red-500 animate-pulse" />
-            <span>CarHub</span>
+            <Link to="/">CarHub</Link>
           </div>
           <p className="mt-4 text-gray-400">
             Discover the latest cars, exclusive offers & premium services. Drive your dream today!
@@ -26,16 +27,46 @@ export default function Footer() {
             Quick Links
           </h3>
           <ul className="space-y-3">
-            {["Home", "About Us", "Cars", "Services", "Contact"].map((item) => (
-              <li key={item}>
-                <a
-                  href={"#" + item.toLowerCase().replace(" ", "")}
-                  className="hover:text-red-400 transition duration-300 hover:pl-2 inline-block"
-                >
-                  {item}
-                </a>
-              </li>
-            ))}
+            <li>
+              <Link
+                to="/"
+                className="hover:text-red-400 transition duration-600 hover:pl-2 inline-block"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/about"
+                className="hover:text-red-400 transition duration-600 hover:pl-2 inline-block"
+              >
+                About
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/viewAllCar"
+                className="hover:text-red-400 transition duration-600 hover:pl-2 inline-block"
+              >
+                View All Cars
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/addNewCar"
+                className="hover:text-red-400 transition duration-600 hover:pl-2 inline-block"
+              >
+                Add New Car
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/contact"
+                className="hover:text-red-400 transition duration-600 hover:pl-2 inline-block"
+              >
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 

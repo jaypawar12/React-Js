@@ -1,4 +1,5 @@
 import { FaBullseye, FaCar, FaHandshake } from "react-icons/fa";
+import { Link } from "react-router";
 
 export default function About() {
   return (
@@ -29,7 +30,7 @@ export default function About() {
           {/* Text */}
           <div className="w-full lg:w-1/2 space-y-6">
             <p className="text-lg text-gray-300">
-              At <span className="font-bold text-red-500">CarZone</span>, we bring you closer to your dream car.  
+              At <Link to="/" className="font-bold text-red-500">CarZone</Link>, we bring you closer to your dream car.
               Our goal is to combine style, performance, and unbeatable deals — all in one place.
             </p>
             <p className="text-lg text-gray-300">

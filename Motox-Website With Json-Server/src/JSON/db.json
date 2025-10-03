@@ -1,23 +1,23 @@
 {
   "cars": [
     {
-      "id": 2312,
+      "id": "2312",
       "name": "BMW M4 Competition",
       "brand": "BMW",
-      "price": 85000,
+      "price": "2000000",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLqJiCXu857-DyWnzMnOcUqylLcB-BtniVrg&s",
       "description": "A high-performance sports coupe with aggressive styling, twin-turbocharged engine, and luxury interior."
     },
     {
-      "id": 7852,
+      "id": "7852",
       "name": "Audi R8",
       "brand": "Audi",
-      "price": 142000,
+      "price": "150000",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFCUbgjKdWTaHz74tcR36vyvhPuWdNtPF3xw&s",
       "description": "Audi’s flagship supercar with a V10 engine, quattro all-wheel drive, and iconic design."
     },
     {
-      "id": 3654,
+      "id": "3654",
       "name": "Mercedes AMG GT",
       "brand": "Mercedes-Benz",
       "price": 130000,
@@ -25,7 +25,7 @@
       "description": "A luxury grand tourer combining thrilling performance with premium comfort and cutting-edge tech."
     },
     {
-      "id": 6354,
+      "id": "6354",
       "name": "Porsche 911 Carrera",
       "brand": "Porsche",
       "price": 115000,
@@ -33,60 +33,44 @@
       "description": "Legendary sports car known for its timeless design, rear-engine layout, and precise handling."
     },
     {
-      "id": 1025,
-      "name": "Lamborghini Huracán",
-      "brand": "Lamborghini",
-      "price": 210000,
-      "image": "https://images.unsplash.com/photo-1603386329225-8680a8f3c3a0?auto=format&fit=crop&w=1600&q=80",
-      "description": "Exotic supercar delivering raw performance with a naturally aspirated V10 and bold design."
-    },
-    {
-      "id": 6546,
-      "name": "Ferrari F8 Tributo",
-      "brand": "Ferrari",
-      "price": 280000,
-      "image": "https://images.unsplash.com/photo-1621570163930-2c4374c1c1ff?auto=format&fit=crop&w=1600&q=80",
-      "description": "An Italian masterpiece combining aerodynamic efficiency, lightweight engineering, and supercar DNA."
-    },
-    {
-      "id": 7422,
-      "name": "Tesla Model S Plaid",
-      "brand": "Tesla",
-      "price": 120000,
-      "image": "https://images.unsplash.com/photo-1614644147720-8c37d9d4e7ed?auto=format&fit=crop&w=1600&q=80",
-      "description": "All-electric luxury sedan with record-breaking acceleration and futuristic technology."
-    },
-    {
-      "id": 8798,
+      "id": "8798",
       "name": "Ford Mustang Shelby GT500",
       "brand": "Ford",
       "price": 75000,
-      "image": "https://images.unsplash.com/photo-1626266066194-5e0fdfba4e06?auto=format&fit=crop&w=1600&q=80",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQAy4sStIfhSuaSz3Lj4X_K4T82rRV5ziTpLW-CJsw-1VEjGIGaVAP2wo&s",
       "description": "America’s muscle car icon with a supercharged V8 and aggressive styling."
     },
     {
-      "id": 3659,
-      "name": "Chevrolet Corvette C8",
-      "brand": "Chevrolet",
-      "price": 68000,
-      "image": "https://images.unsplash.com/photo-1617460647366-fb5c8966d3bb?auto=format&fit=crop&w=1600&q=80",
-      "description": "Mid-engine supercar with striking design, accessible price, and impressive performance."
+      "id": "9821",
+      "name": "Lamborghini Huracán EVO",
+      "brand": "Lamborghini",
+      "price": 210000,
+      "image": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Lamborghini/Huracan-EVO/10643/1690010999692/front-left-side-47.jpg?tr=w-664",
+      "description": "Italian supercar with a naturally aspirated V10, razor-sharp handling, and exotic looks."
     },
     {
-      "id": 1020,
-      "name": "Nissan GT-R Nismo",
-      "brand": "Nissan",
-      "price": 115000,
-      "image": "https://images.unsplash.com/photo-1605559424189-2c7c8a1a93db?auto=format&fit=crop&w=1600&q=80",
-      "description": "The legendary ‘Godzilla’ offering blistering performance, AWD stability, and Japanese engineering."
+      "id": "7532",
+      "name": "Ferrari F8 Tributo",
+      "brand": "Ferrari",
+      "price": 275000,
+      "image": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Ferrari/F8-Tributo/7945/1598599471404/front-left-side-47.jpg?imwidth=420&impolicy=resize",
+      "description": "A breathtaking mid-engine Ferrari with a twin-turbo V8 and track-focused performance."
     },
     {
-      "id": 6167,
-      "name": "BMW M5",
-      "brand": "BMW",
-      "price": 2000000,
-      "image": "https://stimg.cardekho.com/images/carexteriorimages/630x420/BMW/M5-2025/11821/1719462197562/front-left-side-47.jpg?impolicy=resize&imwidth=480",
-      "description": "The BMW M5 is a high-performance sedan from the BMW M sub-brand, combining a powerful M Hybrid powertrain with a TwinPower Turbo V8 engine and an electric motor for impressive performance and enhanced efficiency."
+      "id": "4287",
+      "name": "McLaren 720S",
+      "brand": "McLaren",
+      "price": 299000,
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGL1XS94N3ZVpqtl5vshY8W1aNZG1YltzXq85hl4f7dSRKHoBc&s",
+      "description": "British engineering masterpiece with a twin-turbo V8, lightweight carbon fiber body, and extreme aerodynamics."
+    },
+    {
+      "id": "4266",
+      "name": "Corvette Lineup",
+      "brand": "Corvette",
+      "price": "5000000",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Uu-qy3l8zxT-bvVZbooNO-s8rzE5kk3geg&s",
+      "description": " The Stingray, powered by a naturally aspirated 6.2L V8 engine with up to 495 hp, or the more powerful ZR1 model, which features a ~1,064 hp twin-turbocharged 5.5L flat-plane V8 engine."
     }
   ]
 }
