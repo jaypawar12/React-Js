@@ -9,28 +9,12 @@
       "description": "A high-performance sports coupe with aggressive styling, twin-turbocharged engine, and luxury interior."
     },
     {
-      "id": "7852",
-      "name": "Audi R8",
-      "brand": "Audi",
-      "price": "150000",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFCUbgjKdWTaHz74tcR36vyvhPuWdNtPF3xw&s",
-      "description": "Audi’s flagship supercar with a V10 engine, quattro all-wheel drive, and iconic design."
-    },
-    {
       "id": "3654",
       "name": "Mercedes AMG GT",
       "brand": "Mercedes-Benz",
       "price": 130000,
       "image": "https://imgd.aeplcdn.com/664x374/n/cw/ec/20865/amg-gt-exterior-right-front-three-quarter-60800.jpeg?q=80",
       "description": "A luxury grand tourer combining thrilling performance with premium comfort and cutting-edge tech."
-    },
-    {
-      "id": "6354",
-      "name": "Porsche 911 Carrera",
-      "brand": "Porsche",
-      "price": 115000,
-      "image": "https://imgd.aeplcdn.com/664x374/n/cw/ec/39232/911-exterior-right-front-three-quarter-154382.jpeg?isig=0&wm=1&q=80",
-      "description": "Legendary sports car known for its timeless design, rear-engine layout, and precise handling."
     },
     {
       "id": "8798",
@@ -44,7 +28,7 @@
       "id": "9821",
       "name": "Lamborghini Huracán EVO",
       "brand": "Lamborghini",
-      "price": 210000,
+      "price": "21000000",
       "image": "https://stimg.cardekho.com/images/carexteriorimages/630x420/Lamborghini/Huracan-EVO/10643/1690010999692/front-left-side-47.jpg?tr=w-664",
       "description": "Italian supercar with a naturally aspirated V10, razor-sharp handling, and exotic looks."
     },
@@ -71,6 +55,22 @@
       "price": "5000000",
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3Uu-qy3l8zxT-bvVZbooNO-s8rzE5kk3geg&s",
       "description": " The Stingray, powered by a naturally aspirated 6.2L V8 engine with up to 495 hp, or the more powerful ZR1 model, which features a ~1,064 hp twin-turbocharged 5.5L flat-plane V8 engine."
+    },
+    {
+      "id": "1712",
+      "name": "Porsche 911 Carrera",
+      "brand": "Porsche",
+      "price": "38400000",
+      "image": "https://imgd.aeplcdn.com/1280x720/cw/ec/39232/Porsche-992-911-Right-Front-Three-Quarter-154380.jpg?wm=0&q=80",
+      "description": "The Porsche 911 Carrera is a performance-oriented sports car characterized by its powerful twin-turbocharged flat-six engine mounted in the rear, a driver-centric interior with advanced technology, and signature styling with clear lines and a muscular rear."
+    },
+    {
+      "id": "5780",
+      "name": "Supra",
+      "brand": "ToYota",
+      "price": "8500000",
+      "image": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Supra/9574/1673950511987/rear-left-view-121.jpg",
+      "description": "The Toyota Supra is a legendary, rear-wheel-drive sports car known for its exhilarating performance and driver-focused design, with current models featuring a turbocharged 3.0L inline-six engine, available manual or automatic transmission, and advanced safety features"
     }
   ]
 }

@@ -1,6 +1,6 @@
 import { useLoaderData, useNavigate } from "react-router";
 import { carAPIService, type CarType } from "../../Service/CarAPIService";
-import { FaEdit, FaTrash} from "react-icons/fa";
+import { FaEdit, FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -72,8 +72,7 @@ export default function ViewAllCars() {
                       <div className="flex gap-2 flex-wrap justify-center">
                         <button
                           className="px-3 py-1 rounded-md flex items-center gap-1 text-sm font-medium border-2 border-yellow-500 text-black hover:bg-yellow-500 transition"
-                          onClick={(e) => {
-                            e.stopPropagation();
+                          onClick={() => {
                             navigator(`/edit-car/${car.id}`);
                           }}
                         >
@@ -146,7 +145,7 @@ export default function ViewAllCars() {
                 <img
                   src={modalData.image}
                   alt={modalData.name}
-                  className="relative w-full h-80 object-cover rounded-xl shadow-xl border-4 border-white/50 backdrop-blur-sm transform group-hover:scale-[1.03] transition-transform duration-300"
+                  className="relative w-full h-56 object-cover rounded-xl shadow-xl border-4 border-white/50 backdrop-blur-sm transform group-hover:scale-[1.03] transition-transform duration-300"
                 />
               </div>
 
@@ -189,7 +188,8 @@ export default function ViewAllCars() {
       )}
 
 
-      <ToastContainer />
+
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
     </>
   );
 }
