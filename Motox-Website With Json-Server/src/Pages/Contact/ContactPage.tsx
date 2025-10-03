@@ -102,7 +102,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="group relative w-full md:w-auto bg-gradient-to-r from-red-500 hover:from-gray-600 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-500 shadow-lg hover:shadow-red-500/50 hover:scale-105 flex items-center justify-center gap-3"
+                className="group relative w-full md:w-auto bg-gradient-to-r from-red-500 hover:from-black text-white px-10 py-4 rounded-xl font-bold text-lg transition-all duration-500 shadow-lg hover:shadow-red-500/50 hover:scale-105 flex items-center justify-center gap-3"
               >
                 <span>Send Message</span>
                 <FaPaperPlane className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />

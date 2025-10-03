@@ -30,14 +30,13 @@ export default function Banner() {
           <div className="mt-8 flex justify-center lg:justify-start">
             <a
               href="#models"
-              className="flex items-center gap-2 text-black bg-gradient-to-r from-red-600 via-red-50 to-red-500 hover:bg-red-600 px-6 py-3 rounded-lg text-lg font-medium transition"
-            >
+              className="group relative w-full md:w-auto bg-gradient-to-r from-red-800 hover:from-black text-white px-5 py-3 rounded-xl font-bold text-lg transition-all duration-500 shadow-lg hover:shadow-red-500/50 hover:scale-105 flex items-center justify-center gap-3">
               <FaCarSide className="text-xl" />
               Explore Cars
             </a>
           </div>
         </div>
       </div>
-    </section>
+    </section >
   );
 }

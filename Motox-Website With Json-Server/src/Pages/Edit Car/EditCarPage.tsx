@@ -30,7 +30,7 @@ export default function EditCarPage() {
 
     // Validation rules
     const validateForm = () => {
-        let tempErrors: any = {};
+        const tempErrors: any = {};
 
         if (!carFormData.name || carFormData.name.length < 2) {
             tempErrors.name = "Car name must be at least 2 characters.";
@@ -44,10 +44,10 @@ export default function EditCarPage() {
             tempErrors.price = "Price must be greater than 0.";
         }
 
-        const urlPattern = /^(https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp))$/i;
-        if (!carFormData.image || !urlPattern.test(carFormData.image)) {
-            tempErrors.image = "Please enter a valid image URL (jpg, png, gif, webp).";
+        if (!carFormData.image) {
+            tempErrors.image = "Car image URL is required";
         }
+
 
         if (!carFormData.description || carFormData.description.length < 10) {
             tempErrors.description = "Description must be at least 10 characters.";
@@ -58,8 +58,8 @@ export default function EditCarPage() {
         return Object.keys(tempErrors).length === 0;
     };
 
-    const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
+    const handleSubmit = async (e: any) => {
+        e.preventDefault();
 
         if (!validateForm()) {
             toast.error("Please fix validation errors before submitting.");
@@ -83,7 +83,7 @@ export default function EditCarPage() {
             <div className="relative max-w-4xl w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
 
                 {/* Header */}
-                <div className="bg-gradient-to-r from-red-600 via-white to-red-500 text-black py-6 px-8">
+                <div className="bg-gradient-to-r from-black to-red-800 hover:from-red-800 hover:to-black/80 text-white py-6 px-8">
                     <h2 className="text-2xl font-bold pb-2 flex items-center gap-2">
                         <FaIdBadge /> Edit Car
                     </h2>
@@ -207,9 +207,7 @@ export default function EditCarPage() {
                     <div className="md:col-span-2 text-center flex justify-center">
                         <button
                             type="submit"
-                            className="bg-gradient-to-r from-red-600 via-white to-red-500 hover:from-red-700 hover:to-red-600 
-                            text-black px-12 py-4 rounded-full text-xl font-bold shadow-lg 
-                            transform hover:scale-105 transition flex items-center justify-center gap-2"
+                            className="group w-full md:w-auto bg-gradient-to-r from-red-500 to-black/50 hover:from-black hover:to-red-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-500 flex items-center gap-2 justify-center hover:scale-105"
                         >
                             <FaCarSide /> Update Car
                         </button>

@@ -47,12 +47,8 @@ export default function AddCarForm() {
       newErrors.price = "Price must be greater than 0";
     }
 
-    if (!carFormData.image.trim()) {
+    if (!carFormData.image) {
       newErrors.image = "Car image URL is required";
-    } else if (
-      !/^https?:\/\/.*\.(?:png|jpg|jpeg|gif|webp)$/i.test(carFormData.image)
-    ) {
-      newErrors.image = "Enter a valid image URL (jpg, png, jpeg, gif, webp)";
     }
 
     if (!carFormData.description.trim()) {
@@ -100,11 +96,11 @@ export default function AddCarForm() {
       <section className="relative w-full min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black py-20 px-6">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
 
-        <div className="relative max-w-4xl w-full bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl border border-white/20 overflow-hidden">
+        <div className="relative max-w-4xl w-full bg-white/10 backdrop-blur-lg rounded-t-3xl shadow-2xl border border-white/20 overflow-hidden">
           {/* Header */}
-          <div className="bg-gradient-to-r from-red-600 via-red-50 to-red-500 text-white py-6 px-8">
-            <h2 className="text-2xl font-bold pb-2 text-black">🚗 Add New Car</h2>
-            <p className="text-black">Enter the details below to showcase your premium car</p>
+          <div className="bg-gradient-to-r from-black to-red-800 hover:from-red-800 hover:to-black/80 text-white py-6 px-8">
+            <h2 className="text-2xl font-bold pb-2">🚗 Add New Car</h2>
+            <p>Enter the details below to showcase your premium car</p>
           </div>
 
           {/* Form */}
@@ -199,13 +195,13 @@ export default function AddCarForm() {
               )}
             </div>
 
-            {/* Submit Button */}
-            <div className="md:col-span-2 text-center">
+            {/* Submit */}
+            <div className="md:col-span-2 flex justify-center">
               <button
                 type="submit"
-                className="bg-gradient-to-r from-red-600 via-red-50 to-red-500 hover:from-red-700 hover:to-red-600 text-black px-12 py-4 rounded-full text-xl font-bold shadow-lg transform hover:scale-105 transition"
+                className="group w-full md:w-auto bg-gradient-to-r from-red-500 to-black/50 hover:from-black hover:to-red-500 text-white font-bold py-3 px-8 rounded-xl shadow-lg transition-all duration-500 flex items-center gap-2 justify-center hover:scale-105"
               >
-                <FaPlus className="inline mr-2" /> Add Car
+                <FaPlus /> Add Car
               </button>
             </div>
           </form>

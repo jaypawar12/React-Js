@@ -62,7 +62,7 @@ export default function ViewAllCars() {
                       <img
                         src={car.image}
                         alt={car.name}
-                        className="h-20 w-32 object-cover rounded-lg border-2 border-red-400 shadow-md hover:scale-105 transition-transform"
+                        className="h-20 w-56 object-cover rounded-lg border-2 border-red-400 shadow-md hover:scale-105 transition-transform"
                       />
                     </td>
                     <td className="px-6 py-3 text-sm text-gray-600 line-clamp-2">{car.description}</td>
@@ -145,7 +145,7 @@ export default function ViewAllCars() {
                 <img
                   src={modalData.image}
                   alt={modalData.name}
-                  className="relative w-full h-56 object-cover rounded-xl shadow-xl border-4 border-white/50 backdrop-blur-sm transform group-hover:scale-[1.03] transition-transform duration-300"
+                  className="relative w-full h-60 object-cover rounded-xl shadow-xl border-4 border-white/50 backdrop-blur-sm transform group-hover:scale-[1.03] transition-transform duration-300"
                 />
               </div>
 

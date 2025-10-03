@@ -62,7 +62,7 @@
       "brand": "Porsche",
       "price": "38400000",
       "image": "https://imgd.aeplcdn.com/1280x720/cw/ec/39232/Porsche-992-911-Right-Front-Three-Quarter-154380.jpg?wm=0&q=80",
-      "description": "The Porsche 911 Carrera is a performance-oriented sports car characterized by its powerful twin-turbocharged flat-six engine mounted in the rear, a driver-centric interior with advanced technology, and signature styling with clear lines and a muscular rear."
+      "description": "The Porsche 911 Carrera is a performance-oriented sports car characterized by its powerful twin-turbocharged flat-six engine mounted in the rear."
     },
     {
       "id": "5780",
@@ -70,7 +70,15 @@
       "brand": "ToYota",
       "price": "8500000",
       "image": "https://stimg.cardekho.com/images/carexteriorimages/930x620/Toyota/Supra/9574/1673950511987/rear-left-view-121.jpg",
-      "description": "The Toyota Supra is a legendary, rear-wheel-drive sports car known for its exhilarating performance and driver-focused design, with current models featuring a turbocharged 3.0L inline-six engine, available manual or automatic transmission, and advanced safety features"
+      "description": "The Toyota Supra is a legendary, rear-wheel-drive sports car known for its exhilarating performance and driver-focused design, y."
+    },
+    {
+      "id": "3552",
+      "name": "BMW Z4",
+      "brand": "BMW",
+      "price": "8500000",
+      "image": "https://imgd.aeplcdn.com/664x374/n/cw/ec/149075/z4-exterior-right-front-three-quarter-2.jpeg?isig=0&q=80",
+      "description": "The BMW Z4 is a two-seater sports roadster known for its sleek, progressive design with a long hood, soft-top convertible roof, and powerful engine options that deliver sporty performance. "
     }
   ]
 }
