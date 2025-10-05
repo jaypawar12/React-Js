@@ -16,13 +16,13 @@ export default function HomePage() {
 
       {/* Car List Section */}
       <section className="py-16 bg-gray-100 bg-gradient-to-br from-gray-800 via-gray-800 to-black">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="max-w-8xl mx-auto px-6 lg:px-12">
           <h2 className="text-4xl font-bold text-red-50 mb-10 text-center">
             Explore Our Cars
           </h2>
 
           {allCars && allCars.length > 0 ? (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-4">
               {allCars.map((car) => (
                 <div
                   key={car.id}

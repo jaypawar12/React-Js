@@ -1,73 +1,119 @@
-# React + TypeScript + Vite
+# 🚗 Motox Website with JSON Server  
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 📌 Project Overview  
+Motox Website is a modern and responsive car showcase platform built with HTML, CSS, JavaScript, and JSON Server. It allows users to explore car listings, view details, and perform CRUD operations without needing a real backend.  
 
-Currently, two official plugins are available:
+## 🌟 Features  
+- Responsive design with modern UI/UX  
+- Car listings with images, brand, price, and description  
+- Modal popup for detailed car view  
+- CRUD operations (Create, Read, Update, Delete) via JSON Server  
+- Sticky header and smooth navigation  
+- Toast notifications for actions  
+- Search and filtering options  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack  
+- **Frontend:** HTML5, CSS3, JavaScript, Tailwind CSS  
+- **Backend:** JSON Server (mock REST API)  
+- **Libraries & Tools:** React (optional), React Icons, Toastify  
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Folder Structure  
+```
+Motox-Website-With-Json-Server
+├── public/
+│   └── img/
+├── src/
+│   ├── Components/
+│   │   ├── Banner/
+│   │   │   └── Banner.tsx
+│   │   ├── Footer/
+│   │   │   └── Footer.tsx
+│   │   └── Header/
+│   │       └── Header.tsx
+│   ├── JSON/
+│   │   └── db.json
+│   ├── Pages/
+│   │   ├── About/
+│   │   │   └── AboutPage.tsx
+│   │   ├── Add New Car/
+│   │   │   └── AddNewCarPage.tsx
+│   │   ├── Contact/
+│   │   │   └── ContactPage.tsx
+│   │   ├── Edit Car/
+│   │   │   └── EditCarPage.tsx
+│   │   ├── Home/
+│   │   │   └── HomePage.tsx
+│   │   └── View All Cars/
+│   │       └── ViewAllCars.tsx
+│   ├── Routes/
+│   │   └── routes.ts
+│   ├── Service/
+│   │   └── CarAPIService.tsx
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   └── main.tsx
+├── .gitignore
+├── eslint.config.js
+├── index.html
+├── package.json
+├── package-lock.json
+├── README.md
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.node.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙ Installation Guide  
+1. Clone the repository  
+```bash
+git clone https://github.com/jaypawar12/Motox-Website-With-Json-Server.git
+cd Motox-Website-With-Json-Server
+```  
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Install dependencies  
+```bash
+npm install
+```  
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Running the Project  
+
+### 1. Start JSON Server  
+```bash
+npx json-server --watch db.json --port 8000
+```  
+
+### 2. Start Frontend  
+```bash
+npm start
+```  
+
+Open in browser: [http://localhost:3000](http://localhost:3000)  
+
+## 📸 Screenshots  
+
+*(Add your screenshots here later — place them in a `Screenshots/` folder or link from your repo)*  
+
+### 🏠 Homepage  
+<img src="public/img/Home.png" alt="Homepage" width="full" />
+
+### 🚘 View All Cars  
+<img src="public/img/ViewAllCar.png" alt="View All Cars" width="full" />
+
+### ℹ️ About Page  
+<img src="public/img/About.png" alt="About" width="full" />
+
+### ➕ Add New Car Page  
+<img src="public/img/AddCar.png" alt="Add New Car" width="full" />
+
+### ✅ Form Validation  
+<img src="public/img/Validation.png" alt="Validation" width="full" />
+
+### 📞 Contact Page  
+<img src="public/img/Contact.png" alt="Contact" width="full" />
+
+## 🤝 Contribution  
+Contributions are welcome! Please open an issue or submit a pull request for improvements, bug fixes, or new features.  
+
+## 📄 License  
+This project is licensed under the MIT License.  

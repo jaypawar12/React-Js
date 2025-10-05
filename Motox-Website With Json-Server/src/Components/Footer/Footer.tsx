@@ -9,7 +9,7 @@ export default function Footer() {
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 lg:px-12 py-16 grid grid-cols-1 md:grid-cols-4 gap-12">
-        
+
         {/* Brand Section */}
         <div>
           <div className="flex items-center gap-2 text-white text-3xl font-bold">
@@ -102,7 +102,7 @@ export default function Footer() {
             {[FaFacebookF, FaTwitter, FaInstagram].map((Icon, i) => (
               <a
                 key={i}
-                href="#"
+                href="javascript:void(0)"
                 className="w-12 h-12 flex items-center justify-center rounded-full bg-gray-800 hover:bg-red-600 hover:scale-110 transition transform shadow-lg"
               >
                 <Icon />
