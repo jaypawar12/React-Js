@@ -8,7 +8,7 @@ export default function Skills() {
         <div className="left-col">
           <ul>
             <li><strong>Languages:</strong> HTML5, CSS3, JavaScript, jQuery, C, C++</li>
-            <li><strong>Frontend:</strong> Bootstrap, EJS, Responsive Design</li>
+            <li><strong>Frontend:</strong> Bootstrap, EJS, React.js, Responsive Design</li>
             <li><strong>Backend:</strong> Node.js, Express.js</li>
           </ul>
         </div>
