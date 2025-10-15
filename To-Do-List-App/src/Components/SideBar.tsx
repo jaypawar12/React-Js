@@ -14,7 +14,7 @@ export default function Sidebar({ themeColor }: SidebarProps) {
           </h2>
           <ul className="space-y-2">
             <li>
-              <a href="#" className={`group flex items-center gap-4 px-4 py-3 rounded-2xl bg-gradient-to-r from-black/20 to-black/10 backdrop-blur-sm border border-black/20 text-black shadow-lg transform hover:scale-105 hover:${themeColor} transition-all duration-200`}>
+              <a href="#" className={`group flex items-center gap-4 px-4 py-3 rounded-2xl bg-gradient-to-r from-black/20 to-black/10 backdrop-blur-sm border border-black/20 text-black shadow-lg transform hover:scale-105 hover:border-black transition-all duration-200`}>
                 <div className={`w-8 h-8 bg-gradient-to-r from-${themeColor} to-black/20 rounded-xl flex items-center justify-center`}>
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
