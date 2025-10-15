@@ -8,7 +8,6 @@ It converts my original HTML resume into a reusable React application with modul
 ## 📸 Preview
 
 ![Resume Preview](src/assests/img/preview.png)
-![Resume Preview](src/assests/img/preview1.png)
 
 ---
 

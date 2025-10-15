@@ -39,9 +39,9 @@ export default function App() {
           <Languages />
         </div>
       </div>
-      <button className="print-button" onClick={() => window.print()}>
+      {/* <button className="print-button" onClick={() => window.print()}>
         🖨️ Print Resume
-      </button>
+      </button> */}
     </div>
   );
 }

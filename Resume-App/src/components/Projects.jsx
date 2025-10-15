@@ -20,6 +20,27 @@ const projects = [
         description: "App to manage product CRUD and cart using local storage.",
         stack: "JavaScript, HTML, CSS",
         features: "Integrated with e-commerce API for product data."
+    },
+    {
+        title: "Product Management App",
+        link: "https://github.com/jaypawar12/Final-Project-Js",
+        description: "App to manage product CRUD and cart using local storage.",
+        stack: "JavaScript, HTML, CSS",
+        features: "Integrated with e-commerce API for product data."
+    },
+    {
+        title: "Product Management App",
+        link: "https://github.com/jaypawar12/Final-Project-Js",
+        description: "App to manage product CRUD and cart using local storage.",
+        stack: "JavaScript, HTML, CSS",
+        features: "Integrated with e-commerce API for product data."
+    },
+    {
+        title: "Product Management App",
+        link: "https://github.com/jaypawar12/Final-Project-Js",
+        description: "App to manage product CRUD and cart using local storage.",
+        stack: "JavaScript, HTML, CSS",
+        features: "Integrated with e-commerce API for product data."
     }
 ];
 
@@ -27,9 +48,12 @@ export default function Projects() {
     return (
         <div className="section">
             <div className="section-title">Projects</div>
-            {projects.map((proj, idx) => (
-                <ProjectCard key={idx} inx={idx + 1} {...proj} />
-            ))}
+            <div className="projects-container">
+                {projects.map((proj, idx) => (
+                    <ProjectCard key={idx} inx={idx + 1} {...proj} />
+                ))}
+            </div>
         </div>
     );
 }
+

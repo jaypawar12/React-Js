@@ -1,5 +1,5 @@
 import React from "react";
-import profile from "../assests/img/Jay P.jpg";
+import profile from "../assests/img/Jay.png";
 
 export default function Header() {
     return (
@@ -12,14 +12,13 @@ export default function Header() {
             <h1>Jay Pawar</h1>
             <p>Full Stack Developer | MERN | Backend Enthusiast</p>
             <div className="contact">
-                📍 Vesu, Surat · 📞 6355138841 · ✉️{" "}
+                📍 Vesu, Surat · 📞 9016351622 · ✉️{" "}
                 <a href="mailto:pawarjay684@gmail.com">pawarjay684@gmail.com</a>
                 <br />
                 🔗 GitHub:{" "}
                 <a href="https://github.com/jaypawar12" target="_blank" rel="noreferrer">
                     jaypawar12
                 </a>{" "}
-                · 🌐 Portfolio: Working
             </div>
         </div>
     );
