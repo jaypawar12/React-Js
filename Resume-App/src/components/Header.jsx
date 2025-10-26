@@ -11,6 +11,7 @@ export default function Header() {
             />
             <h1>Jay Pawar</h1>
             <p>Full Stack Developer | MERN | Backend Enthusiast</p>
+            <p className="tagline">Building Scalable Web Experiences 🚀</p>
             <div className="contact">
                 📍 Vesu, Surat · 📞 9016351622 · ✉️{" "}
                 <a href="mailto:pawarjay684@gmail.com">pawarjay684@gmail.com</a>

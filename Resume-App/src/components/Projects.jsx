@@ -3,45 +3,36 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
     {
-        title: "Digital Café Website",
-        link: "https://github.com/jaypawar12/GrillBar-website/tree/main/grill_bar_caf_website",
-        description: "Responsive menu UI with category filters and cart.",
-        stack: "HTML, CSS, JS, Bootstrap, React"
-    },
-    {
         title: "Admin Panel System",
         link: "https://github.com/jaypawar12/Food-Admin-Panel",
-        description: "Admin dashboard with CRUD, authentication, OTP reset.",
-        stack: "Node.js, Express, MongoDB, EJS"
+        description: "Full-featured admin dashboard with CRUD, auth & OTP reset.",
+        stack: ["Node.js, Express, MongoDB, EJS, Bootstrap 5"],
+    },
+    {
+        title: "Digital Café Website",
+        link: "https://github.com/jaypawar12/GrillBar-website/tree/main/grill_bar_caf_website",
+        description: "Interactive café menu with filters, cart, and modern UI.",
+        stack: ["HTML", "CSS", "JS", "Bootstrap", "React"],
+    },
+    {
+        title: "CarZone Website with JSON Server",
+        link: "https://github.com/jaypawar12/React-Js/tree/master/CarZone%20With%20Json-Server",
+        description: "Responsive car showcase with CRUD, search/filter, and JSON Server backend.",
+        stack: ["React ,Tailwind CSS, Framer Motion"],
+    },
+    {
+        title: "To-Do Management Dashboard",
+        link: "https://github.com/jaypawar12/React-Js/tree/master/To-Do-List-App",
+        description: "Task app with CRUD, theme switch, and local storage.",
+        stack: ["React, Tailwind CSS, TypeScript"],
     },
     {
         title: "Product Management App",
         link: "https://github.com/jaypawar12/Final-Project-Js",
-        description: "App to manage product CRUD and cart using local storage.",
-        stack: "JavaScript, HTML, CSS",
-        features: "Integrated with e-commerce API for product data."
+        description: "E-commerce-style product CRUD app using local storage.",
+        stack: ["JavaScript", "HTML", "CSS"],
     },
-    {
-        title: "Product Management App",
-        link: "https://github.com/jaypawar12/Final-Project-Js",
-        description: "App to manage product CRUD and cart using local storage.",
-        stack: "JavaScript, HTML, CSS",
-        features: "Integrated with e-commerce API for product data."
-    },
-    {
-        title: "Product Management App",
-        link: "https://github.com/jaypawar12/Final-Project-Js",
-        description: "App to manage product CRUD and cart using local storage.",
-        stack: "JavaScript, HTML, CSS",
-        features: "Integrated with e-commerce API for product data."
-    },
-    {
-        title: "Product Management App",
-        link: "https://github.com/jaypawar12/Final-Project-Js",
-        description: "App to manage product CRUD and cart using local storage.",
-        stack: "JavaScript, HTML, CSS",
-        features: "Integrated with e-commerce API for product data."
-    }
+
 ];
 
 export default function Projects() {
