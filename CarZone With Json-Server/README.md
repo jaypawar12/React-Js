@@ -1,7 +1,7 @@
-# 🚗 Motox Website with JSON Server  
+# 🚗 CarZone Website with JSON Server  
 
 ## 📌 Project Overview  
-Motox Website is a modern and responsive car showcase platform built with HTML, CSS, JavaScript, and JSON Server. It allows users to explore car listings, view details, and perform CRUD operations without needing a real backend.  
+CarZone Website is a modern and responsive car showcase platform built with HTML, CSS, JavaScript, and JSON Server. It allows users to explore car listings, view details, and perform CRUD operations without needing a real backend.  
 
 ## 🌟 Features  
 - Responsive design with modern UI/UX  
