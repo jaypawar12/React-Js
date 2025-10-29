@@ -4,11 +4,11 @@ import profile from "../assests/img/Jay.png";
 export default function Header() {
     return (
         <div className="header">
-            <img
+            {/* <img
                 src={profile}
                 alt="Jay Pawar"
                 className="profile-img"
-            />
+            /> */}
             <h1>Jay Pawar</h1>
             <p>Full Stack Developer | MERN | Backend Enthusiast</p>
             <p className="tagline">Building Scalable Web Experiences 🚀</p>

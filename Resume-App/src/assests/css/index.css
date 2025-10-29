@@ -9,20 +9,23 @@
 :root {
     --primary: #007acc;
     --secondary: #2c3e50;
-    --bg-light: #f9fafb;
+    --bg-light: #f5f8fc;
     --bg-white: #ffffff;
-    --text-dark: #333;
+    --text-dark: #222;
     --text-gray: #555;
-    --shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     --radius: 14px;
 }
 
+/* === Body === */
 body {
     font-family: "Poppins", "Roboto", sans-serif;
     background: linear-gradient(135deg, #eaf4ff 0%, #f8fbff 100%);
     color: var(--text-dark);
     line-height: 1.6;
     padding: 40px 0;
+    font-size: 14px;
+    font-weight: 500;
 }
 
 /* === Container === */
@@ -30,7 +33,7 @@ body {
     max-width: 960px;
     background: var(--bg-white);
     margin: auto;
-    padding: 45px 50px;
+    padding: 35px;
     border-radius: var(--radius);
     box-shadow: var(--shadow);
     transition: transform 0.3s ease;
@@ -42,17 +45,21 @@ body {
 
 /* === Header === */
 .header {
+    border-radius: var(--radius);
+    padding: 12px 8px;
     text-align: center;
     margin-bottom: 35px;
+    background: linear-gradient(135deg, #d6eaff 0%, #f8fbff 100%);
+    border-bottom: 2px solid rgba(0, 122, 204, 0.15);
 }
 
 .profile-img {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 25%;
     object-fit: cover;
     border: 4px solid var(--primary);
-    box-shadow: 0 0 20px rgba(0, 122, 204, 0.2);
+    box-shadow: 0 0 15px rgba(0, 122, 204, 0.15);
     margin-bottom: 15px;
 }
 
@@ -61,11 +68,13 @@ body {
     color: var(--secondary);
     margin-bottom: 6px;
     font-weight: 700;
+    letter-spacing: 0.5px;
 }
 
 .header p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: var(--text-gray);
+    line-height: 1.4;
 }
 
 /* === Contact Info === */
@@ -74,21 +83,27 @@ body {
     margin-top: 12px;
     font-size: 0.95rem;
     color: #666;
-    background: #f2f8ff;
+    background: #f0f6ff;
     padding: 10px 20px;
     border-radius: var(--radius);
     display: inline-block;
+    box-shadow: inset 0 0 5px rgba(0, 122, 204, 0.08);
 }
 
 .contact a {
     color: var(--primary);
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact a:hover {
+    color: #005f99;
 }
 
 /* === Section === */
 .section {
-    margin-top: 40px;
+    margin-top: 38px;
 }
 
 .section-title {
@@ -98,6 +113,7 @@ body {
     padding-left: 10px;
     margin-bottom: 18px;
     font-weight: 600;
+    letter-spacing: 0.4px;
 }
 
 /* === Lists and Text === */
@@ -107,7 +123,7 @@ ul {
 
 li {
     margin-bottom: 8px;
-    font-size: 1rem;
+    font-size: 14px;
 }
 
 /* === Project Section === */
@@ -115,7 +131,6 @@ li {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 22px;
-    padding: 30px 0;
 }
 
 /* === Project Card === */
@@ -124,38 +139,16 @@ li {
     border: 1px solid #e5e9f2;
     border-radius: var(--radius);
     padding: 22px 20px;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
     transition: all 0.35s ease;
     position: relative;
     overflow: hidden;
 }
 
-.project:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 25px rgba(0, 122, 204, 0.18);
-}
-
-/* Gradient glow on hover */
-.project::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, rgba(0, 122, 204, 0.08), rgba(0, 255, 180, 0.08));
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    border-radius: var(--radius);
-    z-index: 0;
-}
-
-.project:hover::before {
-    opacity: 1;
-}
-
-/* === Text Styling === */
 .project strong {
     display: block;
     color: var(--secondary);
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 10px;
     position: relative;
@@ -164,9 +157,9 @@ li {
 
 .project p {
     color: var(--text-gray);
-    font-size: 0.95rem;
+    font-size: 0.94rem;
     line-height: 1.5;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
     z-index: 1;
     position: relative;
 }
@@ -176,7 +169,7 @@ li {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     z-index: 1;
     position: relative;
 }
@@ -216,7 +209,6 @@ li {
     text-decoration: underline;
 }
 
-
 /* === Row Layouts === */
 .row {
     display: flex;
@@ -227,7 +219,7 @@ li {
 .left-col,
 .right-col {
     flex: 1;
-    min-width: 280px;
+    min-width: 250px;
 }
 
 /* === Print Button === */
@@ -242,6 +234,7 @@ li {
     border-radius: var(--radius);
     cursor: pointer;
     transition: background 0.3s ease;
+    box-shadow: var(--shadow);
 }
 
 .print-button:hover {
@@ -259,8 +252,8 @@ li {
     }
 
     .profile-img {
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
     }
 
     .row {
@@ -270,7 +263,25 @@ li {
 
 /* === Print === */
 @media print {
+    body {
+        background: #fff;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 100%;
+        box-shadow: none;
+        padding: 20mm;
+        margin: 0;
+        transform: none;
+    }
+
     .print-button {
         display: none;
+    }
+
+    a {
+        color: #000;
+        text-decoration: none;
     }
 }

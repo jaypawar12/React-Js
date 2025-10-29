@@ -1,7 +1,6 @@
 # 📝 React Resume
 
-A modern, responsive **resume website** built with **React.js**.  
-It converts my original HTML resume into a reusable React application with modular components and a clean UI.
+A modern, responsive **resume** built with **React.js**.  
 
 ---
 

@@ -12,7 +12,13 @@ const projects = [
         title: "Digital Café Website",
         link: "https://github.com/jaypawar12/GrillBar-website/tree/main/grill_bar_caf_website",
         description: "Interactive café menu with filters, cart, and modern UI.",
-        stack: ["HTML", "CSS", "JS", "Bootstrap", "React"],
+        stack: ["HTML, CSS, JS, Bootstrap, React"],
+    },
+    {
+        title: "Product Management App",
+        link: "https://github.com/jaypawar12/Final-Project-Js",
+        description: "E-commerce-style product CRUD app using local storage.",
+        stack: ["JavaScript, HTML, CSS"],
     },
     {
         title: "CarZone Website with JSON Server",
@@ -25,12 +31,6 @@ const projects = [
         link: "https://github.com/jaypawar12/React-Js/tree/master/To-Do-List-App",
         description: "Task app with CRUD, theme switch, and local storage.",
         stack: ["React, Tailwind CSS, TypeScript"],
-    },
-    {
-        title: "Product Management App",
-        link: "https://github.com/jaypawar12/Final-Project-Js",
-        description: "E-commerce-style product CRUD app using local storage.",
-        stack: ["JavaScript", "HTML", "CSS"],
     },
 
 ];
