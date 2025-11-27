@@ -17,7 +17,7 @@ export default function Header() {
                 <a href="mailto:pawarjay684@gmail.com">pawarjay684@gmail.com</a>
                 <br />
                 🔗 GitHub:{" "}
-                <a href="https://github.com/jaypawar12" target="_blank" rel="noreferrer">
+                <a href="https://github.com/jaypawar12" target="_blank" rel="noopener noreferrer">
                     jaypawar12
                 </a>{" "}
             </div>
