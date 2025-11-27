@@ -3,9 +3,9 @@ import ProjectCard from "./ProjectCard";
 
 const projects = [
     {
-        title: "Blogify",
+        title: "Blogify Web App",
         link: "https://github.com/jaypawar12/Blogify-Web-Backend",
-        description: "A MERN-based blogging platform with auth, blog CRUD, and modern UI.",
+        description: "A MERN-based blogging platform with auth, blog CRUD.",
         stack: ["React, Node.js, Express, MongoDB, TypeScript"],
     },
     {

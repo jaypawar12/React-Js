@@ -10,7 +10,7 @@ export default function Header() {
                 className="profile-img"
             /> */}
             <h1>Jay Pawar</h1>
-            <p>Full Stack Developer | MERN | Backend Enthusiast</p>
+            <p>MERN | Backend Enthusiast</p>
             <p className="tagline">Building Scalable Web Experiences 🚀</p>
             <div className="contact">
                 📍 Vesu, Surat · 📞 9016351622 · ✉️{" "}
