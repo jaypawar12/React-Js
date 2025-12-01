@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import type { RootState } from "../Redux/store";
-import { deleteBike } from "../Redux/Features/bikeSlice";
+import { deleteBike, setEditBike } from "../Redux/Features/bikeSlice";
 // import { deleteBike } from "../Redux/Features/bikeSlice";
 
 const BikeTable = () => {
@@ -50,9 +50,13 @@ const BikeTable = () => {
 
                                     <td className="p-3 text-center flex justify-center gap-2">
                                         {/* Edit Button */}
-                                        <button className="px-3 py-1 text-sm bg-neutral-700 hover:bg-neutral-600 text-white rounded-md transition">
+                                        <button
+                                            onClick={() => dispatch(setEditBike(bike))}
+                                            className="px-3 py-1 bg-yellow-500 text-white rounded"
+                                        >
                                             Edit
                                         </button>
+
 
                                         {/* Delete Button */}
                                         <button
