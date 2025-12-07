@@ -1,11 +1,13 @@
 import axios from "axios";
 
 class PixabayService {
-    baseUrl = "https://pixabay.com/api/";
-    myApiKey = "53505814-9f7527f654d318b1e56d1cf9a";
+    private baseUrl = "https://pixabay.com/api/";
+    private apiKey = "53505814-9f7527f654d318b1e56d1cf9a";
 
-    fetchAllImages(query = "nature") {
-        return axios.get(`${this.baseUrl}?key=${this.myApiKey}&q=${query}&image_type=photo`);
+    fetchWallpapers(query: string, type: string = "photo") {
+        return axios.get(
+            `${this.baseUrl}?key=${this.apiKey}&q=${query}&image_type=${type}`
+        );
     }
 }
 
