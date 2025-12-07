@@ -1,73 +1,106 @@
-# React + TypeScript + Vite
+# 📸 Pixabay Clone – Free Stock Images & Videos Platform
+A modern and fully responsive Pixabay-style stock media explorer built using **React + TypeScript + Tailwind CSS**.  
+This project fetches real data from the **Pixabay API** and supports image search, filters, sorting, categories, and modal previews.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Features
 
-Currently, two official plugins are available:
+### 🔍 Search & Filter
+- Search high-quality images by keyword  
+- Categories:
+  - **Photos**
+  - **Illustrations**
+  - **Vectors**
+  - **Videos**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔄 Sorting Options
+- Most Popular  
+- Latest  
+- Most Downloads  
+- Most Likes  
 
-## React Compiler
+### 🖼️ Image Grid + Preview Modal
+- Responsive masonry-style grid  
+- Smooth hover zoom animation  
+- Full detail modal with:
+  - Large preview  
+  - Photographer info  
+  - Likes / Downloads / Views  
+  - Download button  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 🧭 Hero Banner
+- Auto-rotating background slideshow  
+- Category buttons  
+- Gradient search bar  
+- Glass-effect scroll header  
 
-## Expanding the ESLint configuration
+## 🧪 Tech Stack
+| Technology | Purpose |
+|-----------|---------|
+| **React + TypeScript** | UI + type safety |
+| **Tailwind CSS** | Styling |
+| **Axios** | API calls |
+| **Pixabay API** | Image data |
+| **React Icons** | Icons |
+| **Vite / CRA** | Build tool |
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Installation & Setup
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/jaypawar12/React-Js.git
+cd pixabay-clone
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 2️⃣ Install Dependencies
+```sh
+npm install
 ```
+
+### 3️⃣ Start Project
+```sh
+npm run dev
+```
+
+## 🖼️ Project Screenshots
+
+### 🔹 Homepage – Hero Banner + Search
+<table>
+  <tr>
+    <td><img src="./Public/Img/Preview-1.png"  /></td>
+  </tr>
+</table>
+
+### 🔹 Image Modal (Full Preview)
+<table>
+  <tr>
+   <td><img src="./Public/Img/Preview-2.png"  /></td>
+  </tr>
+</table>
+    
+
+## 📁 Folder Structure
+```
+src/
+│── Components/
+│   │── Banner.tsx
+│   │── Header.tsx
+│   │── ImageModal.tsx
+│
+│── Services/
+│   │── Pixabay.Service.ts
+│
+│── Types/
+│   │── Pixabay.Type.ts
+│
+│── Pages/
+│   │── Home.tsx
+│
+│── Assets/
+│── App.tsx
+│── main.tsx
+
+```
+
+## 👨‍💻 Author
+**Jay Pawar**  
+GitHub: https://github.com/jaypawar12  
