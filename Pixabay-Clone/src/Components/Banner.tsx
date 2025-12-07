@@ -1,6 +1,5 @@
-import { BiSearch, BiImage, BiVideo, BiMusic, BiCube } from "react-icons/bi";
+import { BiSearch, BiImage, BiVideo } from "react-icons/bi";
 import { FaVectorSquare } from "react-icons/fa";
-import { MdGif } from "react-icons/md";
 import { useState, useEffect } from "react";
 import Header from "./Header";
 
@@ -9,17 +8,15 @@ interface HeroBannerProps {
 }
 
 export default function HeroBanner({ onSearch }: HeroBannerProps) {
-    const [activeCategory, setActiveCategory] = useState("photos");
+    const [activeCategory, setActiveCategory] = useState("photo");
     const [searchText, setSearchText] = useState("");
     const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
     const categories = [
-        { id: "photos", name: "Photos", icon: <BiImage /> },
+        { id: "photo", name: "Photos", icon: <BiImage /> },
         { id: "illustration", name: "Illustrations", icon: <BiImage /> },
         { id: "vector/svg", name: "Vectors", icon: <FaVectorSquare /> },
         { id: "video", name: "Videos", icon: <BiVideo /> },
-        { id: "music", name: "Music", icon: <BiMusic /> },
-        { id: "gifs", name: "GIFs", icon: <MdGif /> }
     ];
 
     const backgroundImages = [
@@ -29,7 +26,6 @@ export default function HeroBanner({ onSearch }: HeroBannerProps) {
         "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format",
     ];
 
-    // auto background rotation
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentBgIndex((prev) =>
@@ -40,27 +36,26 @@ export default function HeroBanner({ onSearch }: HeroBannerProps) {
     }, []);
 
     const handleSearch = () => {
-        if (searchText.trim().length === 0) return;
-        onSearch(searchText, activeCategory);
+        const query = searchText.trim() || "nature";
+        onSearch(query, activeCategory);
     };
 
     return (
         <div className="relative min-h-[650px] overflow-hidden">
             <Header />
 
-            {/* Background Transition */}
+            {/* Background Images */}
             <div className="absolute inset-0">
                 {backgroundImages.map((img, i) => (
                     <img
                         key={i}
                         src={img}
-                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 
+                        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700
                         ${i === currentBgIndex ? "opacity-100" : "opacity-0"}`}
                     />
                 ))}
             </div>
 
-            {/* Overlay gradient */}
             <div className="absolute inset-0 bg-gradient-to-t from-black"></div>
 
             {/* Content */}
@@ -75,11 +70,14 @@ export default function HeroBanner({ onSearch }: HeroBannerProps) {
                         <button
                             key={cat.id}
                             className={`px-4 py-2 rounded-full flex items-center gap-2 transition-all 
-                            ${activeCategory === cat.id
+                                ${activeCategory === cat.id
                                     ? "bg-white text-black"
                                     : "bg-white/20 backdrop-blur-md"
                                 }`}
-                            onClick={() => setActiveCategory(cat.id)}
+                            onClick={() => {
+                                setActiveCategory(cat.id);
+                                onSearch(searchText || "nature", cat.id);
+                            }}
                         >
                             {cat.icon} {cat.name}
                         </button>

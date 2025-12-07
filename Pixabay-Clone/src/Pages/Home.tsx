@@ -9,19 +9,19 @@ export default function Home() {
     const [loading, setLoading] = useState(false);
 
     const [sortBy, setSortBy] = useState("popular");
-    const [category, setCategory] = useState("photos");
+    const [category, setCategory] = useState("photo");
 
-    // MODAL STATE
     const [selectedImage, setSelectedImage] = useState<Wallpaper | null>(null);
 
     const getImages = (query: string = "nature", type: string = category) => {
         setLoading(true);
 
         const mappedType =
-            type === "illustration" ? "illustration" :
-                type === "vector" ? "vector" :
-                    type === "film" ? "film" :
-                        "photo";
+            type === "photo" ? "photo" :
+                type === "illustration" ? "illustration" :
+                    type === "vector/svg" ? "vector" :
+                        type === "video" ? "video" :
+                            "photo";
 
         PixabayService.fetchWallpapers(query, mappedType)
             .then((res) => {
@@ -46,7 +46,6 @@ export default function Home() {
             .finally(() => setLoading(false));
     };
 
-
     useEffect(() => {
         getImages();
     }, [sortBy]);
@@ -56,12 +55,11 @@ export default function Home() {
         getImages(query, newCategory);
     };
 
-
     return (
         <>
             <HeroBanner onSearch={handleSearch} />
 
-            {/* SORTING + CATEGORY */}
+            {/* Sorting Control */}
             <div className="container mx-auto px-4 mt-8 flex justify-between items-center">
                 <h2 className="text-xl font-bold">
                     Results ({category.toUpperCase()})
@@ -70,9 +68,8 @@ export default function Home() {
                 <select
                     value={sortBy}
                     onChange={(e) => setSortBy(e.target.value)}
-                    className="w-full max-w-xs px-4 py-3 bg-gradient-to-r from-gray-50 to-white border border-gray-200 
-                   rounded-xl shadow-sm hover:border-blue-400 hover:shadow-md focus:outline-none 
-                   focus:ring-2 focus:ring-blue-500 cursor-pointer transition-all duration-200"
+                    className="w-full max-w-xs px-4 py-3 bg-white border border-gray-200 rounded-xl shadow-sm 
+                    hover:border-blue-400 hover:shadow-md focus:ring-2 focus:ring-blue-500 transition-all"
                 >
                     <option value="popular">Most Popular</option>
                     <option value="latest">Latest</option>
@@ -81,11 +78,28 @@ export default function Home() {
                 </select>
             </div>
 
-            {/* IMAGE GRID */}
             <div className="container mx-auto px-4 py-10">
-                {loading ? (
-                    <p>Loading...</p>
-                ) : (
+
+                {/* LOADING UI */}
+                {loading && <p className="text-center text-gray-500 text-lg"><div className="flex justify-center items-center gap-2 py-20">
+                    <div className="w-3 h-3 bg-blue-500 rounded-full animate-bounce"></div>
+                    <div className="w-3 h-3 bg-green-500 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                    <div className="w-3 h-3 bg-teal-500 rounded-full animate-bounce [animation-delay:0.4s]"></div>
+                </div>
+                </p>}
+
+                {/* NO IMAGES FOUND */}
+                {!loading && images.length === 0 && (
+                    <div className="text-center py-20">
+                        <h2 className="text-2xl font-bold text-gray-700">No Images Found</h2>
+                        <p className="text-gray-500 mt-2">
+                            Try searching with another keyword or category.
+                        </p>
+                    </div>
+                )}
+
+                {/* IMAGE GRID */}
+                {!loading && images.length > 0 && (
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                         {images.map((img) => (
                             <div
@@ -95,16 +109,18 @@ export default function Home() {
                             >
                                 <img
                                     src={img.webformatURL}
-                                    className="w-full h-56 object-cover hover:scale-110 transition-all"
                                     alt={img.tags}
+                                    className="w-full h-56 object-cover hover:scale-110 transition-all"
                                 />
                             </div>
                         ))}
                     </div>
                 )}
+
             </div>
 
-            {/* MODAL */}
+
+            {/* Modal */}
             {selectedImage && (
                 <ImageModal
                     image={selectedImage}
